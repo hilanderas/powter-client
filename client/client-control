@@ -1,0 +1,78 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+NC='\033[0m'
+
+lan=br0
+basepath=$(dirname "$0")
+originpath=`pwd`
+
+DNS_DIR=$basepath/dns
+KCP_DIR=$basepath/kcp
+BYPASS_DIR=$basepath/bypass
+
+RUN() {
+    cd $DNS_DIR;./dns-control $1;cd $originpath
+    cd $KCP_DIR;./exec_all $1;cd $originpath
+    cd $BYPASS_DIR;./bypass-control $1 $lan;cd $originpath
+}
+
+START() {
+    RUN start
+}
+
+STOP() {
+    RUN stop
+}
+
+STATUS() {
+    cd $DNS_DIR;./dns-control status;cd $originpath
+    cd $KCP_DIR;./kcp-control status;cd $originpath
+    cd $BYPASS_DIR;./bypass-control status;cd $originpath
+    echo ""
+    echo -e "${RED}------------------ others --------------------${NC}"
+    echo "Iptables:"
+    sudo iptables -L -nv
+    echo ""
+    echo "ip route"
+    ip route
+}
+
+Usage() {
+    echo -e "${RED}Usage: $0 { start | stop | restart | status }${NC}"
+    exit 1
+}
+
+Parameter_num() {
+    correct_num=$1
+    real_num=$2
+    if [ $correct_num != $real_num ];then
+        Usage
+    fi
+}
+
+case "$1" in
+    start)
+        Parameter_num 1 $#
+        START
+        ;;
+
+    stop)
+        Parameter_num 1 $#
+        STOP
+        ;;
+
+    restart)
+        Parameter_num 1 $#
+        STOP
+        START
+        ;;
+
+    status)
+        Parameter_num 1 $#
+        STATUS
+        ;; 
+
+    *)
+        Usage
+esac

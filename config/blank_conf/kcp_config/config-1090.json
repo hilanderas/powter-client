@@ -1,0 +1,47 @@
+{
+	"kcp":{
+	    "kcp1":{
+			"localaddr": "127.0.0.1:3001",
+			"remoteaddr": "Group2_VPS2:Port1",
+			"key": "kcp_key_221",
+			"mode": "fast2",
+			"snmplog": "/home/kcplog/snmpa-20060102.log"
+	    },
+	    "kcp2":{
+			"localaddr": "127.0.0.1:3002",
+			"remoteaddr": "Group2_VPS2:Port2",
+			"key": "kcp_key_222",
+			"mode": "fast2",
+			"snmplog": "/home/kcplog/snmpb-20060102.log"
+	    },
+	    "kcp3":{
+			"localaddr": "127.0.0.1:3003",
+			"remoteaddr": "Group2_VPS1:Port3",
+			"key": "kcp_key_213",
+			"mode": "fast2",
+			"snmplog": "/home/kcplog/snmpc-20060102.log"
+	    },
+	    "kcp4":{
+			"localaddr": "127.0.0.1:3004",
+			"remoteaddr": "Group2_VPS1:Port4",
+			"key": "kcp_key_214",
+			"mode": "fast2",
+			"snmplog": "/home/kcplog/snmpd-20060102.log"
+	    }
+
+	},
+	"pen":{
+		"max_connection": "4000"
+	},
+	"ss": {
+	    "server":"127.0.0.1",
+	    "server_port":8389,
+	    "local_address": "0.0.0.0",
+	    "local_port":1090,
+	    "password":"ss_key_string",
+	    "timeout":600,
+	    "method":"aes-256-cfb",
+	    "fast_open": true
+	}
+}
+

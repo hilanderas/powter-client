@@ -1,0 +1,56 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+NC='\033[0m'
+
+base_path="$HOME/Powter-Client"
+
+Red_echo() {
+    echo -e "${RED}$1 ${NC}"
+}
+
+Autotest() {    
+    cd $base_path/AutoTest/
+    Red_echo "Autotest"
+    sudo ./test-control $1
+}
+
+
+# install system and see Autotest
+cd $base_path
+sudo ./system-init.sh install
+sleep 5
+Autotest install
+
+# restart client and see Autotest
+cd $base_path/client/
+Red_echo "restart client"
+sudo ./client-control restart 
+sleep 5
+Autotest install
+
+# restart kcp and see Autotest
+cd $base_path/client/kcp/
+Red_echo "restart kcp"
+sudo ./exec_all restart
+sleep 2
+Autotest install
+
+# restart bypass and Autotest
+cd $base_path/client/bypass/
+Red_echo "restart bypass"
+sudo ./bypass-control restart br0
+sleep 5
+Autotest install
+
+# restart dns and autotest
+cd $base_path/client/dns/
+sudo ./dns-control restart
+sleep 2
+Autotest install
+
+# uninstall and autotest
+cd $base_path/
+sudo ./system-init.sh uninstall
+sleep 2
+Autotest uninstall

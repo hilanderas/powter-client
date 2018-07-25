@@ -1,0 +1,84 @@
+#!/bin/bash
+config_dir=`pwd`/bypass_config
+
+Usage(){
+    echo "Usage: $0 { start br0 | stop br0 | restart br0 | status }"
+    exit 1
+}
+
+Parameter_num() {
+    correct_num=$1
+    real_num=$2
+    if [ $correct_num != $real_num ];then
+        Usage
+    fi
+}
+
+
+START() {
+    lan="$1" 
+    sudo mkdir -p /powter_data/bypass_conf
+    sudo cp $config_dir/white/* /powter_data/bypass_conf/
+    docker run  -itd \
+                --privileged \
+                --restart=always \
+                --cap-add=NET_ADMIN \
+                --net=host \
+                -v /powter_data/bypass_conf:/bypass \
+                -e LAN=$lan \
+                -e PORT_1=1060 \
+                -e PORT_2=1070 \
+                -e PORT_3=1080 \
+                -e PORT_4=1090 \
+                --name router_bypass \
+                meninasx86/bypass-x86:latest
+}
+
+STOP(){
+    lan="$1"
+    docker exec -it router_bypass ./clean-rule $lan
+    docker exec -it router_bypass ./clean-ipset
+    docker rm -f router_bypass
+    sudo rm /powter_data/bypass_conf/*   
+    sudo rm -rf /powter_data/bypass_conf 
+}
+
+Status() {
+    echo ""
+    echo "---------------------------- bypass status ---------------------------"
+    docker ps -a | grep bypass
+    sudo iptables -t nat -L -nv
+    sudo ipset list |grep Name
+}
+
+
+case "$1" in
+    start)
+        lan="$2"
+        Parameter_num 2 $#
+        START $lan
+        ;;
+
+    stop)
+        lan="$2"
+        Parameter_num 2 $#
+        STOP $lan
+        ;;
+
+    restart)
+        lan="$2"
+        Parameter_num 2 $#
+        STOP $lan
+        START $lan
+        ;; 
+
+    status)
+        Parameter_num 1 $#
+        Status
+        ;;
+
+    *)
+        Usage
+        ;;
+            
+esac

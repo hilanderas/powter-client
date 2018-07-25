@@ -1,0 +1,10 @@
+
+# python
+AutoTest/**/*.pyc
+
+# project config
+client/**/*_config
+routing/*_config
+
+# build
+*.zip

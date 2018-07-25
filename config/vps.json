@@ -1,0 +1,82 @@
+{
+    "Group1_VPS1" : {
+        "IP" : "ip11",
+        "Port1" : {
+            "port" : "p1", 
+            "kcp_key" : "kk111"
+        },
+        "Port2" : {
+            "port" : "p2", 
+            "kcp_key" : "kk112"
+        },
+        "Port3" : {
+            "port" : "p3", 
+            "kcp_key" : "kk113"
+        },
+        "Port4" : {
+            "port" : "p4", 
+            "kcp_key" : "kk114"
+        },
+        "ss_key" : "sk11"
+    },
+    "Group1_VPS2" : {
+        "IP" : "ip12",
+        "Port1" : {
+            "port" : "p1", 
+            "kcp_key" : "kk121"
+        },
+        "Port2" : {
+            "port" : "p2", 
+            "kcp_key" : "kk122"
+        },
+        "Port3" : {
+            "port" : "p3", 
+            "kcp_key" : "kk123"
+        },
+        "Port4" : {
+            "port" : "p4", 
+            "kcp_key" : "kk124"
+        },
+        "ss_key" : "sk12"
+    },
+    "Group2_VPS1" : {
+        "IP" : "ip21",
+        "Port1" : {
+            "port" : "p1", 
+            "kcp_key" : "kk211"
+        },
+        "Port2" : {
+            "port" : "p2", 
+            "kcp_key" : "kk212"
+        },
+        "Port3" : {
+            "port" : "p3", 
+            "kcp_key" : "kk213"
+        },
+        "Port4" : {
+            "port" : "p4", 
+            "kcp_key" : "kk214"
+        },
+        "ss_key" : "sk21"
+    },
+    "Group2_VPS2" : {
+        "IP" : "ip22",
+        "Port1" : {
+            "port" : "p1", 
+            "kcp_key" : "kk221"
+        },
+        "Port2" : {
+            "port" : "p2", 
+            "kcp_key" : "kk222"
+        },
+        "Port3" : {
+            "port" : "p3", 
+            "kcp_key" : "kk223"
+        },
+        "Port4" : {
+            "port" : "p4", 
+            "kcp_key" : "kk224"
+        },
+        "ss_key" : "sk22"
+    }
+}

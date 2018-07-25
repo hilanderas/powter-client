@@ -1,0 +1,114 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+NC='\033[0m'
+
+basepath=$(dirname $"$0")
+
+SERVICE_PATH=/etc/Cleaner
+
+# Config service
+
+config_cleaner_service() {
+	echo -e "${RED}Config kcplog cleaner as a systemd service, called kcplogcleaner.service${NC}"
+	mkdir -p $SERVICE_PATH
+	cp $basepath/cleanKCPLog.sh $SERVICE_PATH/
+	cp $basepath/kcplogcleaner.service /etc/systemd/system/
+	cp $basepath/kcplogcleaner.timer /etc/systemd/system/
+}
+
+# Start service
+
+start_cleaner_service() {
+	echo -e "${RED}Enable and start kcplogcleaner.service${NC}"
+	for cmd in "enable" "start" "status"
+	do
+	  systemctl $cmd kcplogcleaner.timer
+	done
+}
+
+# Remove config file
+
+remove_cleaner_config() {
+	rm /etc/systemd/system/kcplogcleaner.service
+	rm /etc/systemd/system/kcplogcleaner.timer
+	rm -rf $SERVICE_PATH/cleanKCPLog.sh
+}
+
+# Stop service
+
+stop_cleaner_service() {
+	echo -e "${RED}Stop and disable kcplogcleaner.service${NC}"
+	for cmd in "disable" "stop" "status"
+	do
+	    systemctl $cmd kcplogcleaner.timer
+	done
+}
+
+# Install system
+
+install() {
+	config_cleaner_service
+	start_cleaner_service
+#	reboot
+}
+
+# Uninstall system
+
+uninstall() {
+	stop_cleaner_service
+	remove_cleaner_config
+#	reboot
+}
+
+# Display status 
+
+status() {
+	echo -e "${RED}kcplog cleaner${NC}"
+	systemctl status kcplogcleaner.timer
+}
+
+Usage() {
+    echo "Usage: $0 { install | uninstall | status | start | stop }"
+    exit 1
+}
+
+Parameter_num() {
+    correct_num=$1
+    real_num=$2
+    if [ $correct_num != $real_num ];then
+        Usage
+    fi
+}
+
+# Entry point
+
+case "$1" in
+    install)
+        Parameter_num 1 $#
+        install
+        ;;
+
+    uninstall)
+        Parameter_num 1 $#
+        uninstall
+        ;;
+
+    start)
+        Parameter_num 1 $#
+        start_cleaner_service
+        ;;
+
+    stop)
+        Parameter_num 1 $#
+        stop_cleaner_service
+        ;;
+
+    status)
+        Parameter_num 1 $#
+        status
+        ;;
+
+    *)
+        Usage
+esac

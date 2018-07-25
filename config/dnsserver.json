@@ -1,0 +1,16 @@
+{
+    "Server1" : {
+        "IP" : "server1_ip",
+        "PORT" : [ 
+            "server1_port1", 
+            "server1_port2", 
+            "server1_port3" ]
+    },
+    "Server2" : {
+        "IP" : "server2_ip",
+        "PORT" : [ 
+            "server2_port1", 
+            "server2_port2", 
+            "server2_port3" ]
+    }
+}
