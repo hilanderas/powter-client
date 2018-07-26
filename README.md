@@ -2,7 +2,7 @@
 Diversion Client on x86-based platform
 
 
-# Road map
+# Road map (todo)
 (Add road map)
 
 
