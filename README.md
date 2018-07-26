@@ -1,46 +1,58 @@
 # Powter-Client
-
-
 Diversion Client on x86-based platform
 
 
+# Release history (todo)
+More details on wiki [here]()
+
+
+# Network topology (todo)
+(Need picture here or redirect to wiki)
+
+
 # Deployment
+This is a simply steps for deployment. More details see wiki page [here]().(todo)
 
-### Download released package 
-### Unzip
-    ```
-    unzip Powter-Client-[VERSION].zip
-    cd Powter-Client-[VERSION] 
-    ```
+### 1. Download released package 
+Go to the release page( [here](https://github.com/hilanderas/Powter-Client/releases) ). Select the version you want to use, and click to download.
 
-### Check the package md5
-    ```
-    md5sum -c Powter-Client-[VERSION].md5
-    ```
+### 2. Unzip and check the md5
+```
+unzip Powter-Client-[VERSION].zip
+cd Powter-Client-[VERSION] 
+md5sum -c Powter-Client-[VERSION].md5
+```
 
-### Set configuration
-    According to your ss-kcp-server and dns-server, set the configuration.
-    ```
-    cd config/
-    vim vps.json
-    vim dnsserver.json
-    ./config.sh
-    ```
+### 3. Set configuration
+According to your ss-kcp-server and dns-server, set the configuration. More detail of setting configuration see the wiki page [here]().
+```
+cd config/
+vim vps.json
+vim dnsserver.json
+./config.sh
+```
 
-### Install the project
-    ```
-    cd Powter-Client-[VERSION]/
-    ./system-init.sh install
-    ```
+### 4. Install the project
+```
+cd Powter-Client-[VERSION]/
+./system-init.sh install
+```
 
-# Getting Started
+### 5. Test status
+```
+cd AutoTest
+sudo ./test-control install
+```
+
+
+# Development setup
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
-### Prerequisites
+## Prerequisites
 Develop Environment
 * Ubuntu server 16.04 
-* python 2.7.12 
+* python 2.7
 * shell bin/bash
 
 Software Needed
@@ -48,58 +60,7 @@ Software Needed
 * [Docker installed](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 * Ipset installed by `sudo apt install ipset`
 
-
-### Installing
-
-* Install project
-```
-git clone https://github.com/meninasx86/Powter-Client.git
-cd Powter-Client
-sudo ./system-init.sh install 
-```
-
-* Uninstall project
-
-```
-cd Powter-Client
-sudo ./system-init.sh uninstall 
-```
-
-* View the Diversion status
-
-```
- cd Powter-Client
- ./system-init.sh status
-```
-
-
-
-### Running the tests
-
-Go to the test directory
-```
-cd Powter-Client/Autotest/
-```
-
-Test status
-
-```
-# test whether project is installed completely
-sudo ./test-control install
-
-# test whether project is removed completely
-sudo ./test-control uninstall
-```
-
-Test flow 
-```
-sudo ./test-flow
-```
-
-
-### Build
-# TODO
-./build_release.sh 
+## Build (todo)
 
 
 # Logistics
@@ -113,9 +74,6 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * **AP1001** - *Initial work* - [AP1001](https://github.com/ap1001)
 
 See also the list of [contributors](https://github.com/meniasx86/Powter-Client/contributors) who participated in this project.
-
-
-
 
 ### License (open source only)
 
