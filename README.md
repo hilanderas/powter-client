@@ -2,6 +2,10 @@
 Diversion Client on x86-based platform
 
 
+# Road map
+(Add road map)
+
+
 # Release history (todo)
 More details on wiki [here]()
 
