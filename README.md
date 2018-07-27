@@ -106,7 +106,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 See also the list of [contributors](https://github.com/meniasx86/Powter-Client/contributors) who participated in this project.
 
-### License (open source only)
+### License 
 
 This project is licensed under the MIT License 
 
