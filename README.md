@@ -1,34 +1,37 @@
 # Powter-Client
 
-With Powter, you can build a powerful router without knowing details of how the router works
+* With Powter-Client, you can build a powerful router without knowing details of how the router works
+* The arm and x86 are both supported
 
-### For a small enterprise
-* Choose the approach method to Internet
-* Choose among different strategies to connect to Powter-Server
-* Customize DNS server 
+### Who should use
 
-### For Soho
+* If the number of clients in a local network is between  1-10, arm version is recommended
 
-Use as simple as an arm-based architecture like raspberry pi to build working environments, so you can work anywhere at anytime
+* If the number of clients in a private network is between  11-500, x86 version is recommended
+ 
 
-### For self-study
+### Pros and cons
 
-We believe that the best way to learn the route in TCP/IP is building one and trying to control it
+##### Pros
 
-## Why Powter-Client
+* Integration of bypass, shadowsocks, pen, kcp with less configuration required
+* Anti DNS pollution
+* Long term plan of development and maintenance(check roadmap) 
 
-* No special hardware needs, a pc with 2 or more network interfaces is fine
+##### Cons
 
-* We have a team to do this full time, we give our commitment to contribute to open source continually 
+* Only ss:kcp = 1:4 is supported currently
+* Strategy can't be changed, such as from ss+kcp to ss+BBR
 
+### Road map
 
-## Vision
-We aim to contribute to the open source community and provide our professional services to people who are willing to build a powerful and user-friendly router.
-
-Powter-Client can be run on x86 (mostly for the company) and arm (mostly for individual) architecture; Powter-Server can be run on remote x86 pc (mostly vps) with ubuntu server OS.
-
-Anything can be configured conveniently with GUI.
-
+* Build and install on arm infrastructure
+* The ss:kcp can be configured from 1:1 to 1:n in docker images
+* Strategy can be configured
+* Real-time monitoring framework 
+* Performance test framework
+* Machine learning on snmp
+* User-friendly interface
 
 
 # Network topology (todo)
