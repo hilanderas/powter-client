@@ -1,10 +1,12 @@
 #!/bin/bash
 
+Kcp_dir=$(cd `dirname $0`; pwd)
+
 Run() {
     action=$1
     for port in 1060 1070 1080 1090 
     do
-        sudo ./kcp-control $action $port
+        sudo $Kcp_dir/kcp-control $action $port
     done
 }
 

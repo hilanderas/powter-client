@@ -1,5 +1,6 @@
 #!/bin/bash
-config_dir=`pwd`/bypass_config
+Bypass_dir=$(cd `dirname $0`; pwd)
+config_dir=$Bypass_dir/bypass_config
 
 Usage(){
     echo "Usage: $0 { start br0 | stop br0 | restart br0 | status }"

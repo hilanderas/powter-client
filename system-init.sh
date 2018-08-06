@@ -1,8 +1,10 @@
 #!/bin/bash
 
+Client_dir=$(cd `dirname $0`; pwd)
+
 # ROUTING_CTL=`pwd`/routing/routing-control
-CLIENT_CTL=`pwd`/client/client-control
-CONFIG_CTL=`pwd`/config/config-control
+CLIENT_CTL=$Client_dir/client/client-control
+CONFIG_CTL=$Client_dir/config/config-control
 
 # Uninstall system
 

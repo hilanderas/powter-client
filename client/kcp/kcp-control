@@ -3,9 +3,10 @@
 RED='\033[0;31m'
 NC='\033[0m'
 
+Kcp_dir=$(cd `dirname $0`; pwd)
 path="/powter_data/ss_kcp_client_conf"
 log_path="/powter_data/kcplog"
-config_dir=`pwd`/kcp_config
+config_dir=$Kcp_dir/kcp_config
 version=0.1.0
 
 Start() {

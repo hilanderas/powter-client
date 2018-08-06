@@ -1,6 +1,7 @@
 #!/bin/bash
 
-config_dir=`pwd`/dns_config
+DNS_dir=$(cd `dirname $0`; pwd)
+config_dir=$DNS_dir/dns_config
 
 START() {
     if [ ! -d "/powter_data/dnsmasq_conf" ]; then
