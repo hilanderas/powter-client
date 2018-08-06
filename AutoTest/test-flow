@@ -3,7 +3,8 @@
 RED='\033[0;31m'
 NC='\033[0m'
 
-base_path=`cd $(dirname $0); pwd`
+test_dir=`cd $(dirname $0); pwd`
+base_path=$test_dir/..
 
 Red_echo() {
     echo -e "${RED}$1 ${NC}"
