@@ -47,7 +47,7 @@ def GetIptableRule( table, chain, grep ):
     '''
     get iptable rule in [table] [chain] and [grep]
     '''
-    rule = os.popen( "sudo iptables -t %s -L %s -nv | grep %s " % ( table, chain, grep ) ).read().replace('\n','')
+    rule = os.popen( "sudo iptables -t %s -L %s -nv 2> /dev/null | grep %s " % ( table, chain, grep ) ).read().replace('\n','')
     return rule
 
 def ResolveIP( domain, dnsserver ):
