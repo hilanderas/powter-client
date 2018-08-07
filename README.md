@@ -87,6 +87,7 @@ Software Needed
 * System is updated by `sudo apt update; sudo apt full-upgrade`
 * [Docker installed](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 * Ipset installed by `sudo apt install ipset`
+* jq installed by `sudo apt install jq`
 
 ## Build (todo)
 
