@@ -7,7 +7,7 @@ Kcp_dir=$(cd `dirname $0`; pwd)
 path="/powter_data/ss_kcp_client_conf"
 log_path="/powter_data/kcplog"
 config_dir=$Kcp_dir/kcp_config
-version=0.1.0
+version=0.2.0
 
 Start() {
   	port="$1"
