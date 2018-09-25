@@ -1,9 +1,0 @@
-[Unit]
-Description=KCP log cleaner
-
-[Service]
-Type=simple
-ExecStart=/etc/Cleaner/cleanKCPLog.sh
-
-
-
