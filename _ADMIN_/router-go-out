@@ -1,2 +1,0 @@
-#!/bin/bash
-sudo iptables -t nat -A OUTPUT -p tcp -j BYPASS
