@@ -20,7 +20,7 @@
 
 ##### Cons
 
-* Only ss:kcp = 1:4 is supported currently
+* Only ss:kcp = 1:1 is supported currently
 * Strategy can't be changed, such as from ss+kcp to ss+BBR
 
 ### Road map
@@ -46,30 +46,26 @@ Go to the release page( [here](https://github.com/hilanderas/Powter-Client/relea
 
 ### 2. Unzip and check the md5
 ```
-unzip Powter-Client-[VERSION].zip
-cd Powter-Client-[VERSION] 
-md5sum -c Powter-Client-[VERSION].md5
+$ unzip Powter-Client-[VERSION].zip
+$ cd Powter-Client
+$ md5sum -c Powter-Client-[VERSION].md5
 ```
 
 ### 3. Set configuration
 According to your ss-kcp-server and dns-server, set the configuration. More detail of setting configuration see the wiki page [here]().
 ```
-cd config/
-vim vps.json
-vim dnsserver.json
-./config.sh
+$ cd config/
 ```
 
 ### 4. Install the project
 ```
-cd Powter-Client-[VERSION]/
-./system-init.sh install
+$ cd Powter-Client
+$ make start
 ```
 
-### 5. Test status
+### 5. Check status
 ```
-cd AutoTest
-sudo ./test-control install
+$ make status
 ```
 
 
@@ -80,7 +76,7 @@ These instructions will get you a copy of the project up and running on your loc
 ## Prerequisites
 Develop Environment
 * Ubuntu server 16.04 
-* python 2.7
+* make command
 * shell bin/bash
 
 Software Needed
@@ -107,6 +103,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ### Authors
 
 * **AP1001** - *Initial work* - [AP1001](https://github.com/ap1001)
+* **Valerio-Perez** - *Rebuild* - [Valerio-Perez](https://github.com/valerio-perez)
 
 See also the list of [contributors](https://github.com/meniasx86/Powter-Client/contributors) who participated in this project.
 
