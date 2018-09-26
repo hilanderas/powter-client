@@ -1,0 +1,17 @@
+  router_sskcp_-PORT-:
+    image: elespejo/sskcp-x86:latest
+
+    ports:
+      - -PORT-:10030
+
+    volumes: 
+      - type: bind
+        source: ${SSKCP_CONFIG}/-PORT-
+        target: /clientconf
+
+      - type: bind
+        source: ${SSKCP_LOG}/-PORT-
+        target: /clientlog
+      
+    command: supervisord -c /service.conf.d/sskcp-redir.conf
+
