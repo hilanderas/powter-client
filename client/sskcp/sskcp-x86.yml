@@ -1,0 +1,18 @@
+version: '3.7'
+services: 
+  router_sskcp:
+    image: elespejo/sskcp-x86:latest
+
+    ports:
+      - 1080:1080
+
+    volumes: 
+      - type: bind
+        source: ${SSKCP_CONFIG}/1080
+        target: /clientconf
+
+      - type: bind
+        source: ${SSKCP_LOG}/1080
+        target: /clientlog
+      
+    command: supervisord -c /service.conf.d/sskcp-redir.conf
