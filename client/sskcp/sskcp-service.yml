@@ -1,8 +1,7 @@
   router_sskcp_-PORT-:
     image: elespejo/sskcp-x86:latest
 
-    ports:
-      - -PORT-:10030
+    network_mode: "host"
 
     volumes: 
       - type: bind
