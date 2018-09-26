@@ -1,6 +1,8 @@
   router_sskcp_-PORT-:
     image: elespejo/sskcp-x86:latest
 
+    restart: always
+    
     network_mode: "host"
 
     volumes: 

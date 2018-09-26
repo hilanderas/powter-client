@@ -3,6 +3,8 @@ services:
   router_bypass:
     image: elespejo/bypass-x86:latest
 
+    restart: always
+
     network_mode: 'host'
     
     cap_add: 

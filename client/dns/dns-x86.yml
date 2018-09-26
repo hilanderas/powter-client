@@ -3,6 +3,8 @@ services:
   router_dnsmasq:
     image: elespejo/dnsmasq-x86:master
     
+    restart: always
+
     network_mode: "host"
 
     cap_add:
