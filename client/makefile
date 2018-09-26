@@ -20,7 +20,10 @@ status_sskcp: ${Powter_SSKCP} ${SSKCP_CONFIG} ${SSKCP_LOG}
 status_bypass: ${Powter_BYPASS} ${BYPASS_CONFIG}
 	make -C ${Powter_BYPASS} \
 		bypass_status \
-		BYPASS_CONFIG=${BYPASS_CONFIG}
+		BYPASS_CONFIG=${BYPASS_CONFIG} \
+		NUMBER=${NUMBER} \
+		BASE_PORT=${BASE_PORT} \
+		LAN=${LAN}
 
 status: status_dns status_sskcp status_bypass
 
@@ -44,7 +47,10 @@ start_sskcp: ${Powter_SSKCP} ${SSKCP_CONFIG} ${SSKCP_LOG}
 start_bypass: ${Powter_BYPASS} ${BYPASS_CONFIG}
 	make -C ${Powter_BYPASS} \
 		bypass_start \
-		BYPASS_CONFIG=${BYPASS_CONFIG}
+		BYPASS_CONFIG=${BYPASS_CONFIG} \
+		NUMBER=${NUMBER} \
+		BASE_PORT=${BASE_PORT} \
+		LAN=${LAN}
 
 start: start_dns start_sskcp start_bypass
 
@@ -68,7 +74,10 @@ restart_sskcp: ${Powter_SSKCP} ${SSKCP_CONFIG} ${SSKCP_LOG}
 restart_bypass: ${Powter_BYPASS} ${BYPASS_CONFIG}
 	make -C ${Powter_BYPASS} \
 		bypass_restart \
-		BYPASS_CONFIG=${BYPASS_CONFIG}
+		BYPASS_CONFIG=${BYPASS_CONFIG} \
+		NUMBER=${NUMBER} \
+		BASE_PORT=${BASE_PORT} \
+		LAN=${LAN}
 
 restart: restart_dns restart_sskcp restart_bypass
 
@@ -92,6 +101,9 @@ stop_sskcp: ${Powter_SSKCP} ${SSKCP_CONFIG} ${SSKCP_LOG}
 stop_bypass: ${Powter_BYPASS} ${BYPASS_CONFIG}
 	make -C ${Powter_BYPASS} \
 		bypass_stop \
-		BYPASS_CONFIG=${BYPASS_CONFIG}
+		BYPASS_CONFIG=${BYPASS_CONFIG} \
+		NUMBER=${NUMBER} \
+		BASE_PORT=${BASE_PORT} \
+		LAN=${LAN}
 
 stop: stop_dns stop_sskcp stop_bypass
