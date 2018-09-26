@@ -46,4 +46,5 @@ sskcp_restart: ${COMPOSE_FILE} ${ENV_FILE} sskcp_stop sskcp_start
 sskcp_status:
 	docker-compose -f ${COMPOSE_FILE} ps
 	docker-compose -f ${COMPOSE_FILE} logs
-	sudo netstat -tunpl | grep docker
+	sudo netstat -tunpl | grep ss-redir
+	sudo netstat -tunpl | grep client
