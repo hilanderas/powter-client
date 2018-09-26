@@ -1,10 +1,8 @@
-
-# python
-AutoTest/**/*.pyc
-
 # project config
-client/**/*_config
-routing/*_config
+client/config/*
+
+# project log
+client/log
 
 # build
 *.zip
