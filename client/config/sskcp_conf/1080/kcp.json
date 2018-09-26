@@ -1,7 +1,0 @@
-{
-    "localaddr": "127.0.0.1:8388",
-    "remoteaddr": "123.123.123.123:4000",
-    "key": "testkcp",
-    "mode": "fast2",
-    "snmplog":"/clientlog/kcp-20060102.log"
-}
