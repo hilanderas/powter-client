@@ -9,6 +9,7 @@ set_dns_env:
 	touch ${ENV_FILE}
 	echo "DNS_CONFIG=${DNS_CONFIG}" > ${ENV_FILE}
 	echo "DNS_LOG=${DNS_LOG}" >> ${ENV_FILE}
+	mkdir -p ${DNS_LOG}
 
 .PHONY: dns_start
 dns_start: ${COMPOSE_FILE} set_dns_env
