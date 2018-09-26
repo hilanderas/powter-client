@@ -30,13 +30,13 @@ status: status_dns status_sskcp status_bypass
 # Start service
 .PHONY: start_dns start_sskcp start_bypass start
 
-start_dns: ${Powter_DNS} ${DNS_CONFIG} ${DNS_LOG}
+start_dns: ${Powter_DNS} ${DNS_CONFIG} 
 	make -C ${Powter_DNS} \
 		dns_start \
 		DNS_CONFIG=${DNS_CONFIG} \
 		DNS_LOG=${DNS_LOG}
 
-start_sskcp: ${Powter_SSKCP} ${SSKCP_CONFIG} ${SSKCP_LOG}
+start_sskcp: ${Powter_SSKCP} ${SSKCP_CONFIG} 
 	make -C ${Powter_SSKCP} \
 		sskcp_start \
 		SSKCP_CONFIG=${SSKCP_CONFIG} \
