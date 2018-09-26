@@ -6,7 +6,7 @@ ENV_FILE = ${CURDIR}/.env
 .PHONY: set_bypass_env
 set_bypass_env:
 	touch ${ENV_FILE}
-	echo "BYPASS_CONFIG=${BYPASS_CONFIG}" >> ${ENV_FILE}
+	echo "BYPASS_CONFIG=${BYPASS_CONFIG}" > ${ENV_FILE}
 
 .PHONY: bypass_start
 bypass_start: ${COMPOSE_FILE} set_bypass_env
