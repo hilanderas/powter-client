@@ -44,30 +44,39 @@ This is a simple step of deployment. More details see wiki page [here]().(todo)
 ### 1. Download released package 
 Go to the release page( [here](https://github.com/hilanderas/Powter-Client/releases) ). Select the version you want to use, and click to download.
 
-### 2. Unzip and check the md5
-```
+### 2. Download configuration template
+Go to the release page( [here](https://github.com/hilanderas/Powter-Client/releases) ). Select the version you want to use, and click to download.
+
+### 3. Unzip and check the md5
+Powter-Client:
+```bash
 $ unzip Powter-Client-[VERSION].zip
-$ cd Powter-Client
+$ cd Powter-Client/
 $ md5sum -c Powter-Client-[VERSION].md5
 ```
+Configuration:
+```bash
+$ unzip conf_pkg-[version].zip
+$ cd conf_pkg/
+$ md5sum -c conf_pkg-[version].md5
+```
 
-### 3. Set configuration
+### 4. Set configuration
 According to your ss-kcp-server and dns-server, set the configuration. More detail of setting configuration see the wiki page [here]().
 ```
-$ cd config/
+$ cd conf_pkg/
 ```
 
-### 4. Install the project
+### 5. Install the project
 ```
 $ cd Powter-Client
-$ make start
+$ make start CONFIG_PKG=/path/to/configuration
 ```
 
-### 5. Check status
+### 6. Check status
 ```
-$ make status
+$ make status CONFIG_PKG=/path/to/configuration
 ```
-
 
 # Development setup
 
@@ -82,6 +91,7 @@ Develop Environment
 Software Needed
 * System is updated by `sudo apt update; sudo apt full-upgrade`
 * [Docker installed](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+* docker-compose
 * Ipset installed by `sudo apt install ipset`
 * jq installed by `sudo apt install jq`
 
