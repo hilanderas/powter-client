@@ -16,7 +16,7 @@ services:
 
     volumes: 
       - type: bind
-        source: ${BYPASS_CONFIG}/white
+        source: ${BYPASS_CONFIG}
         target: /bypass
 
     stdin_open: true
