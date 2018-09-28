@@ -1,13 +1,16 @@
 
 DNS_CONFIG = ${CURDIR}/dns_conf
 DNS_LOG = ${CURDIR}/dns_log
+ARCH = x86
+
 COMPOSE_FILE = ${CURDIR}/dns-x86.yml
 ENV_FILE = ${CURDIR}/.env
 
 .PHONY: set_dns_env
 set_dns_env:
 	touch ${ENV_FILE}
-	echo "DNS_CONFIG=${DNS_CONFIG}" > ${ENV_FILE}
+	echo "ARCH=${ARCH}" > ${ENV_FILE}
+	echo "DNS_CONFIG=${DNS_CONFIG}" >> ${ENV_FILE}
 	echo "DNS_LOG=${DNS_LOG}" >> ${ENV_FILE}
 	mkdir -p ${DNS_LOG}
 

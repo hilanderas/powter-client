@@ -3,6 +3,7 @@ BYPASS_CONFIG = ${CURDIR}/bypass_conf
 NUMBER = 4
 BASE_PORT = 1000
 LAN = br0
+ARCH = x86
 
 COMPOSE_FILE = ${CURDIR}/bypass-x86.yml
 ENV_FILE = ${CURDIR}/.env 
@@ -10,7 +11,8 @@ ENV_FILE = ${CURDIR}/.env
 .PHONY: set_bypass_env
 set_bypass_env:
 	touch ${ENV_FILE}
-	echo "BYPASS_CONFIG=${BYPASS_CONFIG}" > ${ENV_FILE}
+	echo "ARCH=${ARCH}" > ${ENV_FILE}
+	echo "BYPASS_CONFIG=${BYPASS_CONFIG}" >> ${ENV_FILE}
 	
 	touch ${BYPASS_CONFIG}/bypass.env
 	echo "LAN=${LAN}" > ${BYPASS_CONFIG}/bypass.env

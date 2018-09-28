@@ -1,19 +1,22 @@
 
 SSKCP_CONFIG = ${CURDIR}/sskcp_conf
 SSKCP_LOG = ${CURDIR}/sskcp_log
+
+ARCH = x86
 NUMBER = 4
 BASE_PORT = 1000
 
 SERVICE_TEMPLATE = ${CURDIR}/sskcp-service.yml
 COMPOSE_FILE = ${CURDIR}/sskcp-x86.yml
-ENV_FILE = ${CURDIR}/.env 
+ENV_FILE = ${CURDIR}/.env
 
 SHELL = /bin/bash
 
 .PHONY: set_sskcp_env
 set_sskcp_env:
 	touch ${ENV_FILE}
-	echo "SSKCP_CONFIG=${SSKCP_CONFIG}" > ${ENV_FILE}
+	echo "ARCH=${ARCH}" > ${ENV_FILE}
+	echo "SSKCP_CONFIG=${SSKCP_CONFIG}" >> ${ENV_FILE}
 	echo "SSKCP_LOG=${SSKCP_LOG}" >> ${ENV_FILE}
 
 generate_compose:
