@@ -1,8 +1,5 @@
-# project config
-client/config/*
-
 # project log
-client/log
+config_pkg/log
 
 # build
 *.zip
