@@ -96,6 +96,6 @@ stop_sskcp: ${Powter_SSKCP} ${Powter_SSKCP}/.env
 	make -C ${Powter_SSKCP} sskcp_stop
 
 stop_bypass: ${Powter_BYPASS} ${Powter_BYPASS}/.env
-	make -C ${Powter_BYPASS} bypass_stop BYPASS_CONFIG=${BYPASS_CONFIG}
+	make -C ${Powter_BYPASS} bypass_stop 
 
 stop: stop_dns stop_sskcp stop_bypass
