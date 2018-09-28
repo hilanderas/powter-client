@@ -1,6 +1,7 @@
 
-POWTER_ENV = ${CURDIR}/powter.env 
-CONFIG_ENV = ${CURDIR}/config.env
+POWTER_ENV = ${CURDIR}/powter.env
+CONFIG_PKG = ${CURDIR}
+CONFIG_ENV = ${CONFIG_PKG}/config.env
 
 include ${POWTER_ENV}
 include ${CONFIG_ENV}
