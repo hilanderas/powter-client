@@ -12,14 +12,12 @@ ENV_FILE = ${CURDIR}/.env
 .PHONY: set_bypass_env
 set_bypass_env:
 	touch ${ENV_FILE}
-	echo "ARCH=${ARCH}" > ${ENV_FILE}
+	echo "LAN=${LAN}" > ${ENV_FILE}
+	echo "ARCH=${ARCH}" >> ${ENV_FILE}
 	echo "BYPASS_CONFIG=${BYPASS_CONFIG}" >> ${ENV_FILE}
-	echo "BYPASS_VERSION=${BYPASS_VERSION}" >> ${ENV_FILE}
-	
-	touch ${BYPASS_CONFIG}/bypass.env
-	echo "LAN=${LAN}" > ${BYPASS_CONFIG}/bypass.env
-	echo "BALANCE_NUM=${NUMBER}" >> ${BYPASS_CONFIG}/bypass.env
-	echo "BASE_PORT=${BASE_PORT}" >> ${BYPASS_CONFIG}/bypass.env
+	echo "BYPASS_VERSION=${BYPASS_VERSION}" >> ${ENV_FILE}	
+	echo "BALANCE_NUM=${NUMBER}" >> ${ENV_FILE}
+	echo "BASE_PORT=${BASE_PORT}" >> ${ENV_FILE}
 
 .PHONY: bypass_start
 bypass_start: ${COMPOSE_FILE} set_bypass_env
@@ -30,7 +28,6 @@ bypass_stop: ${COMPOSE_FILE} ${ENV_FILE}
 	docker-compose -f ${COMPOSE_FILE} exec router_bypass ./clean-rule
 	docker-compose -f ${COMPOSE_FILE} exec router_bypass ./clean-ipset
 	docker-compose -f ${COMPOSE_FILE} down
-	rm ${BYPASS_CONFIG}/bypass.env
 	rm ${ENV_FILE}
 
 .PHONY: bypass_restart
