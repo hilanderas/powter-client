@@ -1,7 +1,7 @@
 version: '3.7'
 services: 
   router_bypass:
-    image: elespejo/bypass-${ARCH}:0.2.1
+    image: elespejo/bypass-${ARCH}:${BYPASS_VERSION}
     restart: always
 
     network_mode: 'host'

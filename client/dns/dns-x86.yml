@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   router_dnsmasq:
-    image: elespejo/dnsmasq-${ARCH}:0.4.3
+    image: elespejo/dnsmasq-${ARCH}:${DNS_VERSION}
     
     restart: always
 

@@ -5,6 +5,7 @@ SSKCP_LOG = ${CURDIR}/sskcp_log
 ARCH = x86
 NUMBER = 4
 BASE_PORT = 1000
+SSKCP_VERSION = latest
 
 SERVICE_TEMPLATE = ${CURDIR}/sskcp-service.yml
 COMPOSE_FILE = ${CURDIR}/sskcp-x86.yml
@@ -16,6 +17,7 @@ SHELL = /bin/bash
 set_sskcp_env:
 	touch ${ENV_FILE}
 	echo "ARCH=${ARCH}" > ${ENV_FILE}
+	echo "SSKCP_VERSION=${SSKCP_VERSION}" >> ${ENV_FILE}
 	echo "SSKCP_CONFIG=${SSKCP_CONFIG}" >> ${ENV_FILE}
 	echo "SSKCP_LOG=${SSKCP_LOG}" >> ${ENV_FILE}
 
