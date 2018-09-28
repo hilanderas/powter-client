@@ -1,7 +1,7 @@
 
 version = 0.1.0
-project = Powter-Client
-config = conf_pkg
+project = powter-client
+config = powter-config
 
 .PHONY: build_code build_config build
 build_code:
