@@ -1,5 +1,5 @@
   router_sskcp_-PORT-:
-    image: elespejo/sskcp-${ARCH}:latest
+    image: elespejo/sskcp-${ARCH}:0.1.2
 
     restart: always
     
