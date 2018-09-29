@@ -3,7 +3,7 @@ language: generic
 sudo: false
 dist: trusty
 
-branch:
+branches:
   only:
     - /^\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/
 
