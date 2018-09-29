@@ -5,7 +5,7 @@ dist: trusty
 
 branches:
   only:
-    - /^\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/
+    - /^\d+(\.\d+){2}$/
 
 env:
   global:
