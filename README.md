@@ -1,6 +1,6 @@
-# Powter-Client
+# powter-client
 
-* With Powter-Client, you can build a powerful router without knowing details of how the router works
+* With powter-client, you can build a powerful router without knowing details of how the router works
 * The arm and x86 are both supported
 
 ### Who should use
@@ -42,34 +42,34 @@
 This is a simple step of deployment. More details see wiki page [here]().(todo)
 
 ### 1. Download released package 
-Go to the release page( [here](https://github.com/hilanderas/Powter-Client/releases) ). Select the version you want to use, and click to download.
+Go to the release page( [here](https://github.com/hilanderas/powter-client/releases) ). Select the version you want to use, and click to download.
 
 ### 2. Download configuration template
-Go to the release page( [here](https://github.com/hilanderas/Powter-Client/releases) ). Select the version you want to use, and click to download.
+Go to the release page( [here](https://github.com/hilanderas/powter-client/releases) ). Select the version you want to use, and click to download.
 
 ### 3. Unzip and check the md5
-Powter-Client:
+powter-client:
 ```bash
-$ unzip Powter-Client-[VERSION].zip
-$ cd Powter-Client/
-$ md5sum -c Powter-Client-[VERSION].md5
+$ unzip powter-client-[VERSION].zip
+$ cd powter-client/
+$ md5sum -c powter-client-[VERSION].md5
 ```
 Configuration:
 ```bash
-$ unzip conf_pkg-[version].zip
-$ cd conf_pkg/
-$ md5sum -c conf_pkg-[version].md5
+$ unzip powter-config-[version].zip
+$ cd powter-config/
+$ md5sum -c powter-config-[version].md5
 ```
 
 ### 4. Set configuration
 According to your ss-kcp-server and dns-server, set the configuration. More detail of setting configuration see the wiki page [here]().
 ```
-$ cd conf_pkg/
+$ cd powter-config/
 ```
 
 ### 5. Install the project
 ```
-$ cd Powter-Client
+$ cd powter-client
 $ make start CONFIG_PKG=/path/to/configuration
 ```
 
@@ -114,7 +114,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * **AP1001** - *Initial work* - [AP1001](https://github.com/ap1001)
 * **Valerio-Perez** - *Upgrade* - [Valerio-Perez](https://github.com/valerio-perez)
 
-See also the list of [contributors](https://github.com/meniasx86/Powter-Client/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/meniasx86/powter-client/contributors) who participated in this project.
 
 ### License 
 
