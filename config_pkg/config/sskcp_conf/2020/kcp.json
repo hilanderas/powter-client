@@ -1,5 +1,5 @@
 {
-    "localaddr": "127.0.0.1:11000",
+    "localaddr": "127.0.0.1:12020",
     "remoteaddr": "123.123.123.123:4000",
     "key": "testkcp",
     "mode": "fast2",

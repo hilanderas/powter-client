@@ -1,8 +1,8 @@
 {
     "server":"127.0.0.1",
-    "server_port":11030,
+    "server_port":12030,
     "local_address": "0.0.0.0",
-    "local_port":1030,
+    "local_port":2030,
     "password":"testss",
     "timeout":600,
     "method":"aes-256-cfb",
