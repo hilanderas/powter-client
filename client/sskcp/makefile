@@ -1,17 +1,17 @@
 
-SSKCP_CONFIG = ${CURDIR}/sskcp_conf
-SSKCP_LOG = ${CURDIR}/sskcp_log
+SSKCP_CONFIG=${CURDIR}/sskcp_conf
+SSKCP_LOG=${CURDIR}/sskcp_log
 
-ARCH = x86
-NUMBER = 4
-BASE_PORT = 1000
-SSKCP_VERSION = latest
+ARCH=x86
+NUMBER=4
+BASE_PORT=1000
+SSKCP_VERSION=latest
 
-SERVICE_TEMPLATE = ${CURDIR}/sskcp-service.yml
-COMPOSE_FILE = ${CURDIR}/sskcp-x86.yml
-ENV_FILE = ${CURDIR}/.env
+SERVICE_TEMPLATE=${CURDIR}/sskcp-service.yml
+COMPOSE_FILE=${CURDIR}/sskcp-x86.yml
+ENV_FILE=${CURDIR}/.env
 
-SHELL = /bin/bash
+SHELL=/bin/bash # used in for loop in generate_compose
 
 .PHONY: set_sskcp_env
 set_sskcp_env:
