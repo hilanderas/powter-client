@@ -13,7 +13,6 @@ build_code:
 
 build_config:
 	cp -r config_pkg ${config}
-	rm -r ${config}/log
 	cd ${config}/; find . -type f -exec md5sum {} \; > ${CURDIR}/${config}-${version}.md5; cd -
 	mv ${config}-${version}.md5 ${config}
 	zip -r ${config}-${version}.zip ${config}
