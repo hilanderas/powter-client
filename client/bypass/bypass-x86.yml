@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.2'
 services: 
   router_bypass:
     image: elespejo/bypass-${ARCH}:${BYPASS_VERSION}
@@ -10,9 +10,9 @@ services:
       - 'NET_ADMIN'
 
     environment: 
-      - LAN = ${LAN}
-      - BASE_PORT = ${BASE_PORT}
-      - BALANCE_NUM = ${BALANCE_NUM}
+      - LAN=${LAN}
+      - BASE_PORT=${BASE_PORT}
+      - BALANCE_NUM=${BALANCE_NUM}
 
     volumes: 
       - type: bind

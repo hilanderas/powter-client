@@ -33,6 +33,5 @@ dns_status: ${COMPOSE_FILE}
 	docker-compose -f ${COMPOSE_FILE} ps
 	docker-compose -f ${COMPOSE_FILE} logs
 	sudo netstat -tunpl | grep dnsmasq
-	sudo netstat -tunpl | grep dhclient
 	nslookup www.baidu.com 127.0.0.1
 	nslookup www.youtube.com 127.0.0.1

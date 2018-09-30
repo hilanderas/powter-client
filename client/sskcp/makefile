@@ -1,17 +1,17 @@
 
-SSKCP_CONFIG = ${CURDIR}/sskcp_conf
-SSKCP_LOG = ${CURDIR}/sskcp_log
+SSKCP_CONFIG=${CURDIR}/sskcp_conf
+SSKCP_LOG=${CURDIR}/sskcp_log
 
-ARCH = x86
-NUMBER = 4
-BASE_PORT = 1000
-SSKCP_VERSION = latest
+ARCH=x86
+NUMBER=4
+BASE_PORT=1000
+SSKCP_VERSION=latest
 
-SERVICE_TEMPLATE = ${CURDIR}/sskcp-service.yml
-COMPOSE_FILE = ${CURDIR}/sskcp-x86.yml
-ENV_FILE = ${CURDIR}/.env
+SERVICE_TEMPLATE=${CURDIR}/sskcp-service.yml
+COMPOSE_FILE=${CURDIR}/sskcp-x86.yml
+ENV_FILE=${CURDIR}/.env
 
-SHELL = /bin/bash
+SHELL=/bin/bash # used in for loop in generate_compose
 
 .PHONY: set_sskcp_env
 set_sskcp_env:
@@ -23,7 +23,7 @@ set_sskcp_env:
 
 generate_compose:
 	touch ${COMPOSE_FILE}
-	echo "version: '3.7'" > ${COMPOSE_FILE}
+	echo "version: '3.2'" > ${COMPOSE_FILE}
 	echo "services:" >> ${COMPOSE_FILE}
 	for i in {1..${NUMBER}}; \
 	do \
@@ -50,6 +50,5 @@ sskcp_restart: ${COMPOSE_FILE} ${ENV_FILE} sskcp_stop sskcp_start
 .PONHY: sskcp_status
 sskcp_status:
 	docker-compose -f ${COMPOSE_FILE} ps
-	docker-compose -f ${COMPOSE_FILE} logs
 	sudo netstat -tunpl | grep ss-redir
 	sudo netstat -tunpl | grep client
