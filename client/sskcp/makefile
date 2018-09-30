@@ -23,7 +23,7 @@ set_sskcp_env:
 
 generate_compose:
 	touch ${COMPOSE_FILE}
-	echo "version: '3.7'" > ${COMPOSE_FILE}
+	echo "version: '3.2'" > ${COMPOSE_FILE}
 	echo "services:" >> ${COMPOSE_FILE}
 	for i in {1..${NUMBER}}; \
 	do \
@@ -50,6 +50,5 @@ sskcp_restart: ${COMPOSE_FILE} ${ENV_FILE} sskcp_stop sskcp_start
 .PONHY: sskcp_status
 sskcp_status:
 	docker-compose -f ${COMPOSE_FILE} ps
-	docker-compose -f ${COMPOSE_FILE} logs
 	sudo netstat -tunpl | grep ss-redir
 	sudo netstat -tunpl | grep client
