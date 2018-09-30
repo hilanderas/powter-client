@@ -8,7 +8,7 @@ BASE_PORT=1000
 SSKCP_VERSION=latest
 
 SERVICE_TEMPLATE=${CURDIR}/sskcp-service.yml
-COMPOSE_FILE=${CURDIR}/sskcp-x86.yml
+COMPOSE_FILE=${CURDIR}/sskcp.yml
 ENV_FILE=${CURDIR}/.env
 
 SHELL=/bin/bash # used in for loop in generate_compose
