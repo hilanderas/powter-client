@@ -6,7 +6,7 @@ BASE_PORT = 1000
 BYPASS_VERSION = latest
 BYPASS_CONFIG = ${CURDIR}/bypass_conf
 
-COMPOSE_FILE = ${CURDIR}/bypass-x86.yml
+COMPOSE_FILE = ${CURDIR}/bypass.yml
 ENV_FILE = ${CURDIR}/.env 
 
 .PHONY: set_bypass_env

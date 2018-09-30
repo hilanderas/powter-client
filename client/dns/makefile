@@ -4,7 +4,7 @@ DNS_VERSION = master
 DNS_CONFIG = ${CURDIR}/dns_conf
 DNS_LOG = ${CURDIR}/dns_log
 
-COMPOSE_FILE = ${CURDIR}/dns-x86.yml
+COMPOSE_FILE = ${CURDIR}/dns.yml
 ENV_FILE = ${CURDIR}/.env
 
 .PHONY: set_dns_env
