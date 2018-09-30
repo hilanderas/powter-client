@@ -16,7 +16,7 @@
 
 * Integration of bypass, shadowsocks, pen, kcp with less configuration required
 * Anti DNS pollution
-* Long term plan of development and maintenance(check roadmap) 
+* Long term plan of development and maintenance(check roadmap)
 
 ##### Cons
 
@@ -93,7 +93,6 @@ Software Needed
 * [Docker installed](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 * docker-compose
 * Ipset installed by `sudo apt install ipset`
-* jq installed by `sudo apt install jq`
 
 ## Build (todo)
 
@@ -113,7 +112,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ### Authors
 
 * **AP1001** - *Initial work* - [AP1001](https://github.com/ap1001)
-* **Valerio-Perez** - *Rebuild* - [Valerio-Perez](https://github.com/valerio-perez)
+* **Valerio-Perez** - *Upgrade* - [Valerio-Perez](https://github.com/valerio-perez)
 
 See also the list of [contributors](https://github.com/meniasx86/Powter-Client/contributors) who participated in this project.
 
