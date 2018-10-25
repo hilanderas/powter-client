@@ -6,6 +6,49 @@ CONFIG_ENV=${CONFIG_PKG}/config.env
 include ${POWTER_ENV}
 include ${CONFIG_ENV}
 
+# Download the project
+## download dns
+.PHONY: download_dns_api download_dns_image download_dns
+download_dns_api:
+	wget https://github.com/elespejo/dnsmasq/releases/download/$(DNS_VERSION)/dnsmasq-$(ARCH)-$(DNS_VERSION).zip
+	unzip dnsmasq-$(ARCH)-$(DNS_VERSION).zip
+
+download_dns_image:
+	docker pull elespejo/dnsmasq-$(ARCH):$(DNS_VERSION)
+	docker images | grep dnsmasq
+
+download_dns: download_dns_api download_dns_image
+
+## download sskcp
+.PHONY: download_sskcp_api download_sskcp_image download_sskcp
+download_sskcp_api:
+	wget https://github.com/elespejo/sskcp/releases/download/$(SSKCP_VERSION)/sskcp-client-$(ARCH)-$(SSKCP_VERSION).zip
+	unzip sskcp-client-$(ARCH)-$(SSKCP_VERSION).zip
+
+download_sskcp_image:
+	docker pull elespejo/sskcp-$(ARCH):$(SSKCP_VERSION)
+	docker images | grep sskcp
+
+download_sskcp: download_sskcp_api download_sskcp_image
+
+## download bypass
+.PHONY: download_bypass_api download_bypass_image download_bypass
+download_bypass_api:
+	wget https://github.com/elespejo/bypass/releases/download/$(BYPASS_VERSION)/bypass-$(ARCH)-$(BYPASS_VERSION).zip
+	unzip bypass-$(ARCH)-$(BYPASS_VERSION).zip
+
+download_bypass_image:
+	docker pull elespejo/bypass-$(ARCH):$(BYPASS_VERSION)
+	docker images | grep bypass
+
+download_bypass: download_bypass_api download_bypass_image
+
+## download
+download_api: download_dns_api download_sskcp_api download_bypass_api
+download_image: download_dns_image download_sskcp_image download_bypass_image
+download: download_api download_image
+
+
 # Check status
 .PHONY: status_dns status_sskcp status_bypass status
 
