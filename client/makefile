@@ -1,10 +1,15 @@
 
-POWTER_ENV=${CURDIR}/powter.env
 CONFIG_PKG=${CURDIR}
 CONFIG_ENV=${CONFIG_PKG}/config.env
 
-include ${POWTER_ENV}
 include ${CONFIG_ENV}
+
+SHELL=/bin/bash
+
+# Project stracture 
+Powter_DNS = ${CURDIR}/dnsmasq-imageAPI-$(ARCH)
+Powter_SSKCP = ${CURDIR}/sskcp-client-$(ARCH)
+Powter_BYPASS = ${CURDIR}/bypass-imageAPI-$(ARCH)
 
 # Download the project
 ## download dns
@@ -49,16 +54,35 @@ download_image: download_dns_image download_sskcp_image download_bypass_image
 download: download_api download_image
 
 
+# Generate compose file
+.PHONY: config_dns config_sskcp config_bypass config
+
+config_dns: $(Powter_DNS) $(DNS_CONFIG)
+	make -C $(Powter_DNS) config CONF=$(DNS_CONFIG) LOG=$(DNS_LOG) NAME=dns
+
+config_sskcp: $(Powter_SSKCP) $(SSKCP_CONFIG)
+	for (( num=0; num < $(NUMBER); num++ )); \
+	do \
+		port=$$[$(BASE_PORT)+10*$$num]; \
+		make -C $(Powter_SSKCP) config CONF=$(SSKCP_CONFIG)/$$port LOG=$(SSKCP_LOG)/$$port NAME=$$port; \
+	done
+
+config_bypass: $(Powter_BYPASS) $(BYPASS_CONFIG) 
+	make -C $(Powter_BYPASS) config LAN=$(LAN) BASE_PORT=$(BASE_PORT) NUM=$(NUMBER) CONF=$(BYPASS_CONFIG) NAME=bypass
+
+config: config_dns config_sskcp config_bypass
+
+
 # Check status
 .PHONY: status_dns status_sskcp status_bypass status
 
-status_dns: ${Powter_DNS} ${Powter_DNS}/.env
+status_dns: ${Powter_DNS} 
 	make -C ${Powter_DNS} dns_status
 
-status_sskcp: ${Powter_SSKCP} ${Powter_SSKCP}/.env
+status_sskcp: ${Powter_SSKCP} 
 	make -C ${Powter_SSKCP} sskcp_status
 
-status_bypass: ${Powter_BYPASS} ${Powter_BYPASS}/.env
+status_bypass: ${Powter_BYPASS} 
 	make -C ${Powter_BYPASS} bypass_status
 
 status: status_dns status_sskcp status_bypass
@@ -132,13 +156,13 @@ restart: restart_dns restart_sskcp restart_bypass
 # Stop service
 .PHONY: stop_dns stop_sskcp stop_bypass stop
 
-stop_dns: ${Powter_DNS} ${Powter_DNS}/.env
+stop_dns: ${Powter_DNS} 
 	make -C ${Powter_DNS} dns_stop 
 
-stop_sskcp: ${Powter_SSKCP} ${Powter_SSKCP}/.env
+stop_sskcp: ${Powter_SSKCP} 
 	make -C ${Powter_SSKCP} sskcp_stop
 
-stop_bypass: ${Powter_BYPASS} ${Powter_BYPASS}/.env
+stop_bypass: ${Powter_BYPASS} 
 	make -C ${Powter_BYPASS} bypass_stop 
 
 stop: stop_dns stop_sskcp stop_bypass
