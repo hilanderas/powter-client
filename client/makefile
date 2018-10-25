@@ -77,13 +77,17 @@ config: config_dns config_sskcp config_bypass
 .PHONY: status_dns status_sskcp status_bypass status
 
 status_dns: ${Powter_DNS} 
-	make -C ${Powter_DNS} dns_status
+	make -C ${Powter_DNS} status NAME=dns
 
 status_sskcp: ${Powter_SSKCP} 
-	make -C ${Powter_SSKCP} sskcp_status
+	for (( num=0; num < $(NUMBER); num++ )); \
+	do \
+		port=$$[$(BASE_PORT)+10*$$num]; \
+		make -C $(Powter_SSKCP) status NAME=$$port; \
+	done
 
 status_bypass: ${Powter_BYPASS} 
-	make -C ${Powter_BYPASS} bypass_status
+	make -C ${Powter_BYPASS} status NAME=bypass
 
 status: status_dns status_sskcp status_bypass
 
@@ -91,65 +95,35 @@ status: status_dns status_sskcp status_bypass
 .PHONY: start_dns start_sskcp start_bypass start
 
 start_dns: ${Powter_DNS} ${DNS_CONFIG} 
-	make -C ${Powter_DNS} \
-		dns_start \
-		ARCH=${ARCH} \
-		DNS_VERSION=${DNS_VERSION} \
-		DNS_LOG=${DNS_LOG} \
-		DNS_CONFIG=${DNS_CONFIG} 		
+	make -C ${Powter_DNS} start NAME=dns
 
 start_sskcp: ${Powter_SSKCP} ${SSKCP_CONFIG} 
-	make -C ${Powter_SSKCP} \
-		sskcp_start \
-		ARCH=${ARCH} \
-		SSKCP_VERSION=${SSKCP_VERSION} \
-		NUMBER=${NUMBER} \
-		BASE_PORT=${BASE_PORT} \
-		SSKCP_CONFIG=${SSKCP_CONFIG} \
-		SSKCP_LOG=${SSKCP_LOG} 
+	for (( num=0; num < $(NUMBER); num++ )); \
+	do \
+		port=$$[$(BASE_PORT)+10*$$num]; \
+		make -C $(Powter_SSKCP) start NAME=$$port; \
+	done
 
 start_bypass: ${Powter_BYPASS} ${BYPASS_CONFIG}
-	make -C ${Powter_BYPASS} \
-		bypass_start \
-		ARCH=${ARCH} \
-		BYPASS_VERSION=${BYPASS_VERSION} \
-		LAN=${LAN} \
-		NUMBER=${NUMBER} \
-		BASE_PORT=${BASE_PORT} \
-		BYPASS_CONFIG=${BYPASS_CONFIG} 
+	make -C ${Powter_BYPASS} start NAME=bypass 
 
 start: start_dns start_sskcp start_bypass
 
 # Restart service
 .PHONY: restart_dns restart_sskcp restart_bypass restart
 
-restart_dns: ${Powter_DNS} ${DNS_CONFIG} ${DNS_LOG}
-	make -C ${Powter_DNS} \
-		dns_restart \
-		ARCH=${ARCH} \
-		DNS_VERSION=${DNS_VERSION} \
-		DNS_LOG=${DNS_LOG} \
-		DNS_CONFIG=${DNS_CONFIG} 
+restart_dns: ${Powter_DNS} ${DNS_CONFIG} 
+	make -C ${Powter_DNS} restart NAME=dns 
 
-restart_sskcp: ${Powter_SSKCP} ${SSKCP_CONFIG} ${SSKCP_LOG}
-	make -C ${Powter_SSKCP} \
-		sskcp_restart \
-		ARCH=${ARCH} \
-		SSKCP_VERSION=${SSKCP_VERSION} \
-		NUMBER=${NUMBER} \
-		BASE_PORT=${BASE_PORT} \
-		SSKCP_CONFIG=${SSKCP_CONFIG} \
-		SSKCP_LOG=${SSKCP_LOG}
+restart_sskcp: ${Powter_SSKCP} ${SSKCP_CONFIG} 
+	for (( num=0; num < $(NUMBER); num++ )); \
+	do \
+		port=$$[$(BASE_PORT)+10*$$num]; \
+		make -C $(Powter_SSKCP) restart NAME=$$port; \
+	done
 
 restart_bypass: ${Powter_BYPASS} ${BYPASS_CONFIG}
-	make -C ${Powter_BYPASS} \
-		bypass_restart \
-		ARCH=${ARCH} \
-		BYPASS_VERSION=${BYPASS_VERSION} \
-		LAN=${LAN} \
-		NUMBER=${NUMBER} \
-		BASE_PORT=${BASE_PORT} \
-		BYPASS_CONFIG=${BYPASS_CONFIG}
+	make -C ${Powter_BYPASS} restart NAME=bypass
 
 restart: restart_dns restart_sskcp restart_bypass
 
@@ -157,12 +131,16 @@ restart: restart_dns restart_sskcp restart_bypass
 .PHONY: stop_dns stop_sskcp stop_bypass stop
 
 stop_dns: ${Powter_DNS} 
-	make -C ${Powter_DNS} dns_stop 
+	make -C ${Powter_DNS} stop NAME=dns
 
 stop_sskcp: ${Powter_SSKCP} 
-	make -C ${Powter_SSKCP} sskcp_stop
+	for (( num=0; num < $(NUMBER); num++ )); \
+	do \
+		port=$$[$(BASE_PORT)+10*$$num]; \
+		make -C $(Powter_SSKCP) stop NAME=$$port; \
+	done
 
 stop_bypass: ${Powter_BYPASS} 
-	make -C ${Powter_BYPASS} bypass_stop 
+	make -C ${Powter_BYPASS} stop NAME=bypass 
 
 stop: stop_dns stop_sskcp stop_bypass
