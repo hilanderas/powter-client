@@ -1,3 +1,0 @@
-import basic
-
-help(basic)
