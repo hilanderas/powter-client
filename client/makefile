@@ -144,3 +144,16 @@ stop_bypass: ${Powter_BYPASS}
 	make -C ${Powter_BYPASS} stop NAME=bypass 
 
 stop: stop_dns stop_sskcp stop_bypass
+
+# Remove compose file
+.PHONY: remove_dns remove_sskcp remove_bypass remove
+remove_dns:
+	rm -r $(Powter_DNS)/compose
+
+remove_sskcp:
+	rm -r $(Powter_SSKCP)/compose
+
+remove_bypass:
+	rm -r $(Powter_BYPASS)/compose
+
+remove: remove_dns remove_sskcp remove_bypass
