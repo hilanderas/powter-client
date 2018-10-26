@@ -2,6 +2,12 @@
 version=0.1.0
 project=powter-client
 config=powter-config
+GITBOOK=$(CURDIR)/gitbook
+DOCS=$(CURDIR)/docs
+
+.PHONY: build_book
+build_book: $(GITBOOK)
+	gitbook build $(GITBOOK) $(DOCS)
 
 .PHONY: build_code build_config build
 build_code:
