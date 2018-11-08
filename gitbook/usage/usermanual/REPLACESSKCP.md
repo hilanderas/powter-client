@@ -16,7 +16,7 @@ make remove_sskcp NAME=[NAME]
 
 ### In powter-config, generate new configuration
 
-* Update dnsmasq [conf-info](CONFIG.md)
+* Update sskcp [conf-info](CONFIG.md)
 
 * Create configuration for sskcp
 ```bash
@@ -27,7 +27,7 @@ make config_sskcp INFO=/path/to/conf-info/sskcp.yml DEST=/path/to/config_sskcp
 
 * Regenerate docker compose with **same** `NAME` and new configuration
 ```bash
-make config_dns CONFIG=/path/to/config_sskcp NAME=[NAME]
+make config_sskcp CONFIG=/path/to/config_sskcp NAME=[NAME]
 ```
 
 * Start sskcp service again
