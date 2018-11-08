@@ -1,1 +1,1 @@
-[back to github](https://github.com/hilanderas/powter-client)
+[back to github](https://github.com/[OWNER]]/[REPO])
