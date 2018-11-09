@@ -1,21 +1,24 @@
 # Restart
 
-### Restart all modules
+### Restart all services
 ```
-make restart NAME=[NAME]
+make restart
 ```
 
 ### Restart dns
 ```
-make restart_dns NAME=[NAME]
+make restart_dns 
 ```
 
 ### Restart sskcp
 ```
-make restart_sskcp NAME=[NAME]
+make restart_sskcp 
 ```
 
 ### Restart bypass
 ```
-make restart_bypass NAME=[NAME]
+make restart_bypass 
 ```
+
+
+

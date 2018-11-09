@@ -10,12 +10,12 @@
 * [Deployment](usage/DEPLOYMENT.md)
 
 ### User manual
-* [Conf-info](usage/usermanual/CONFIG.md)
+* [info](usage/usermanual/INFO.md)
 * [Install](usage/usermanual/INSTALL.md)
 * [Uninstall](usage/usermanual/UNINSTALL.md)
+* [Start](usage/usermanual/START.md)
+* [Stop](usage/usermanual/STOP.md)
 * [Restart](usage/usermanual/RESTART.md)
-* [Check VPS](usage/usermanual/CHECKVPS.md)
-
-#### Replace VPS
-* [Replace dns](usage/usermanual/REPLACEDNS.md)
-* [Replace sskcp](usage/usermanual/REPLACESSKCP.md)
+* [Check status](usage/usermanual/CHECKSTATUS.md)
+* [Update dns](usage/usermanual/UPDATEDNS.md)
+* [Update sskcp](usage/usermanual/UPDATESSKCP.md)

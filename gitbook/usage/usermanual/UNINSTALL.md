@@ -1,19 +1,8 @@
 # Uninstall 
 
-### Uninstall 
-
-* Check all services' `NAME` 
-```bash
-make list
-```
-
-* Stop the services 
+### Uninstall the services 
+Delete all services, default `info`, `compose` `configuration`  
 ```
 cd powter-client
-make stop NAME=[NAME]
-```
-
-* Remove `compose` directory
-```
-make remove NAME=[NAME]
+make uninstall 
 ```
