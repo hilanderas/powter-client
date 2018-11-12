@@ -1,5 +1,8 @@
-# project log
-config_pkg/log
-
+dnsmasq*
+bypass*
+sskcp*
+confgenerator
 # build
 *.zip
+
+
