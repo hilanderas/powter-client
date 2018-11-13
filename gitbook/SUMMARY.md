@@ -19,3 +19,4 @@
 * [Check status](usage/usermanual/CHECKSTATUS.md)
 * [Update dns](usage/usermanual/UPDATEDNS.md)
 * [Update sskcp](usage/usermanual/UPDATESSKCP.md)
+* [Reset conf](usage/usermanual/RESET.md)
