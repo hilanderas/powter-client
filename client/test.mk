@@ -42,6 +42,6 @@ is-sskcp-api-existed:
 .PHONY: test test-dns test-bypass test-sskcp
 test: test-dns test-bypass test-sskcp
 
-test-dns: is-dns-confgen-existed is-dns-image-existed is-dns-api-existed
-test-bypass: is-bypass-confgen-existed is-bypass-image-existed is-bypass-api-existed
-test-sskcp: is-sskcp-confgen-existed is-sskcp-image-existed is-sskcp-api-existed
+test-dns: is-dns-image-existed is-dns-confgen-existed is-dns-api-existed
+test-bypass: is-bypass-image-existed is-bypass-confgen-existed is-bypass-api-existed
+test-sskcp: is-sskcp-image-existed is-sskcp-confgen-existed is-sskcp-api-existed
