@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="usermanual/INFO.html" />
     
-    <link rel="prev" href="GENCONF.html" />
+    
+    <link rel="prev" href="DEPENDENCY.html" />
     
 
     </head>
@@ -136,16 +138,16 @@
 
     
         
-        <li class="header">Deploy</li>
+        <li class="header">Deployment</li>
         
         
     
-        <li class="chapter " data-level="3.1" data-path="GENCONF.html">
+        <li class="chapter active" data-level="3.1" data-path="DEPLOYMENT.html">
             
-                <a href="GENCONF.html">
+                <a href="DEPLOYMENT.html">
             
                     
-                    Generate configuration
+                    Deployment
             
                 </a>
             
@@ -153,12 +155,136 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.2" data-path="DEPLOYMENT.html">
+
+    
+        
+        <li class="header">User manual</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="usermanual/INFO.html">
             
-                <a href="DEPLOYMENT.html">
+                <a href="usermanual/INFO.html">
             
                     
-                    Deployment
+                    info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="usermanual/INSTALL.html">
+            
+                <a href="usermanual/INSTALL.html">
+            
+                    
+                    Install
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="usermanual/UNINSTALL.html">
+            
+                <a href="usermanual/UNINSTALL.html">
+            
+                    
+                    Uninstall
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="usermanual/START.html">
+            
+                <a href="usermanual/START.html">
+            
+                    
+                    Start
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="usermanual/STOP.html">
+            
+                <a href="usermanual/STOP.html">
+            
+                    
+                    Stop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="usermanual/RESTART.html">
+            
+                <a href="usermanual/RESTART.html">
+            
+                    
+                    Restart
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="usermanual/CHECKSTATUS.html">
+            
+                <a href="usermanual/CHECKSTATUS.html">
+            
+                    
+                    Check status
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="usermanual/UPDATEDNS.html">
+            
+                <a href="usermanual/UPDATEDNS.html">
+            
+                    
+                    Update dns
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="usermanual/UPDATESSKCP.html">
+            
+                <a href="usermanual/UPDATESSKCP.html">
+            
+                    
+                    Update sskcp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="usermanual/RESET.html">
+            
+                <a href="usermanual/RESET.html">
+            
+                    
+                    Reset conf
             
                 </a>
             
@@ -215,125 +341,91 @@
 <h3 id="download-the-deployment-package">Download the deployment package</h3>
 <p>You can download the deployment package from web page or command line.</p>
 <ul>
-<li><p>From web:<br>Go to the <a href="https://github.com/hilanderas/powter-client/releases" target="_blank">release page</a> of this project. Select the package according to the architecture of your machine.</p>
+<li><p>From web:<br>Go to the <a href="https://github.com/[OWNER]/[REPO]/releases" target="_blank">release page</a> of this project. Select the package according to the architecture of your machine.</p>
 </li>
 <li><p>From command line:  </p>
-<pre><code class="lang-bash">wget https://github.com/hilanderas/powter-client/releases/download/[VERSION]/powter-client-[VERSION].zip
+<pre><code class="lang-bash">wget https://github.com/[OWNER]/[REPO]/releases/download/[VERSION]/[REPO]-[ARCH]-[VERSION].zip
 </code></pre>
 <ul>
 <li>VERSION : the release tag  </li>
+<li>ARCH : the architecture of your machine </li>
 </ul>
-<p>e.g : Deploy a powter-client with the release 0.3.0 by executing</p>
-<pre><code class="lang-bash">wget https://github.com/hilanderas/powter-client/releases/download/0.3.0/powter-client-0.3.0.zip
+<p>e.g : Deploy a [REPO] on a x86 machine with the release 0.5.6 by executing</p>
+<pre><code class="lang-bash">wget https://github.com/[OWNER]/[REPO]/releases/download/0.5.6/[REPO]-x86-0.5.6.zip
 </code></pre>
 </li>
 </ul>
 <h3 id="unzip">Unzip</h3>
-<pre><code class="lang-bash">unzip powter-client-[VERSION].zip
-<span class="hljs-built_in">cd</span> powter-client/
+<pre><code class="lang-bash">unzip [REPO]-[ARCH]-[VERSION].zip
+<span class="hljs-built_in">cd</span> [REPO]-imageAPI-[ARCH]
 </code></pre>
-<h3 id="download-needed-project">Download needed project</h3>
-<p>Three projects are needed in powter-client. They are dns, sskcp, bypass.</p>
-<pre><code class="lang-bash">make download CONFIG_PKG=[CONF_PATH]
-</code></pre>
-<ul>
-<li>[CONF_PATH] : the absolute path of configuration package  </li>
-</ul>
-<p>This action downloads the image API and image of dns, sskcp, bypass to current directory. The version of those are specified in <code>[CONF_PATH]/config.env</code>.</p>
-<p>Also, The download of single project is supported.
-e.g: </p>
-<ul>
-<li>download dns project image API<pre><code class="lang-bash">make download_dns_api CONFIG_PKG=[CONF_PATH]
-</code></pre>
-</li>
-<li>download dns project image<pre><code class="lang-bash">make download_dns_image CONFIG_PKG=[CONF_PATH]
-</code></pre>
-</li>
-<li>download all image <pre><code class="lang-bash">make download_image CONFIG_PKG=[CONF_PATH]
-</code></pre>
-</li>
-<li>download all api<pre><code class="lang-bash">make download_api CONFIG_PKG=[CONF_PATH]
-</code></pre>
-</li>
-</ul>
-<p>See more target of make file by using <code>make(space)(tab)(tab)</code></p>
 <h3 id="generate-the-docker-compose-file">Generate the docker compose file</h3>
-<p>Docker compose file is used for powter-client deployment. </p>
-<pre><code class="lang-bash">make config CONFIG_PKG=[CONF_PATH]
-</code></pre>
-<p>This action generates compose files in <code>[image_API]/compose</code>.</p>
-<p>Also, The generation of single project is supported.
-e.g:</p>
+<p>Docker compose file is used for [REPO] deployment. Its generation requires three parameters:</p>
 <ul>
-<li>generate dns compose file<pre><code class="lang-bash">make config_dns CONFIG_PKG=[CONF_PATH]
-</code></pre>
-</li>
+<li>[VARIABLE] : EXPLAINATION.  </li>
 </ul>
-<h3 id="start-the-service">Start the service</h3>
-<pre><code class="lang-bash">make start CONFIG_PKG=[CONF_PATH]
+<pre><code class="lang-bash">make config
 </code></pre>
-<p>This action starts all services( <code>dns</code>, <code>sskcp</code>, <code>bypass</code> ).<br>Also, the start of single service is supported.
-e.g: start service <code>dns</code></p>
-<pre><code class="lang-bash">make start_dns CONFIG_PKG=[CONF_PATH]
+<p>e.g : Generate a compose file named <code>[NAME].yml</code> .
+cd ~/[REPO]-x86/
+make config </p>
+<pre><code>Therefore a compose file named `[NAME].yml` is generated in `~/[REPO]-imageAPI-x86/compose/`.
+```yaml
+# [NAME].yml
+</code></pre><h3 id="start-the-service">Start the service</h3>
+<p>Start the service with the name you specified in the config step above.</p>
+<pre><code class="lang-bash">make start NAME=[COMP_NAME]
 </code></pre>
-<p>After starting the dns service successfully, you may see the output similar with the following: </p>
-<pre><code>docker-compose -p dns -f ~/dnsmasq-imageAPI-x86/compose/dns.yml up -d
-Pulling router_dnsmasq (elespejo/dnsmasq-x86:0.5.6)...
-0.5.6: Pulling from elespejo/dnsmasq-x86
-4fe2ade4980c: Already exists
-5a492975f351: Pull complete
-070fe1f3f59a: Pull complete
-Digest: sha256:f4682be5a4eb5b740d865eef6bb79f537410739f233e495292f09ffeba1b6344
-Status: Downloaded newer image for elespejo/dnsmasq-x86:0.5.6
-Creating dns_router_dnsmasq_1 ... done
+<p>e.g: start service <code>[NAME]</code></p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> [REPO]-imageAPI-x86/
+make start NAME=[NAME]
+</code></pre>
+<p>After starting the service successfully, you may see the output similar with the following: </p>
+<pre><code>docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml up -d
 </code></pre><h3 id="restart-the-service">Restart the service</h3>
-<pre><code class="lang-bash">make restart CONFIG_PKG=[CONF_PATH]
+<pre><code class="lang-bash">make restart NAME=[COMP_NAME]
 </code></pre>
-<p>This action restarts all services( <code>dns</code>, <code>sskcp</code>, <code>bypass</code> ).<br>Also, restarting single service is supported.</p>
-<p>e.g: restart dns service</p>
-<pre><code class="lang-bash">make restart_dns CONFIG_PKG=[CONF_PATH]
+<p>e.g</p>
+<pre><code class="lang-bash">make restart NAME=[NAME]
 </code></pre>
-<p>After restarting the dns service successfully, you may see the output similar with the following:</p>
-<pre><code>docker-compose -p dns -f ~/dnsmasq-imageAPI-x86/compose/dns.yml up -d --force-recreate
-Recreating dns_router_dnsmasq_1 ... done
+<p>After restarting the service successfully, you may see the output similar with the following:</p>
+<pre><code>docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml up -d --force-recreate
 </code></pre><h3 id="check-status-of-the-service">Check status of the service</h3>
 <pre><code class="lang-bash">make status NAME=[COMP_NAME]
 </code></pre>
-<p>This action shows the status of all services( <code>dns</code>, <code>sskcp</code>, <code>bypass</code> ).<br>Also, checking status of single service is supported.
-e.g: check the status of dns service</p>
-<pre><code class="lang-bash">make status_dns CONFIG_PKG=[CONF_PATH]
+<p>e.g,</p>
+<pre><code class="lang-bash">make stop NAME=[NAME]
 </code></pre>
 <p>You may see the output similar with the following:</p>
-<pre><code>docker-compose -p dns -f ~/dnsmasq-imageAPI-x86/compose/dns.yml ps
-        Name                Command          State      Ports
--------------------------------------------------------------
-dns_router_dnsmasq_1   /bin/sh -c ./init      UP
-docker-compose -p dns -f ~/dnsmasq-imageAPI-x86/compose/dns.yml logs
-Attaching to dns_router_dnsmasq_1
-router_dnsmasq_1  | ...
-...
+<pre><code>docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml ps
+docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml logs
 </code></pre><h3 id="stop-the-service">Stop the service</h3>
-<pre><code class="lang-bash">make stop CONFIG_PKG=[CONF_PATH]
+<pre><code class="lang-bash">make stop NAME=[COMP_NAME]
 </code></pre>
-<p>This action stops all services( <code>dns</code>, <code>sskcp</code>, <code>bypass</code> ).<br>Also, the stop of single service is supported.
-e.g: stop dns service</p>
-<pre><code class="lang-bash">make stop CONFIG_PKG=[CONF_PATH]
+<p>e.g,</p>
+<pre><code class="lang-bash">make stop NAME=[NAME]
 </code></pre>
 <p>After stoping the service successfully, you may see the output similar with the following:</p>
-<pre><code>docker-compose -p dns -f ~/dnsmasq-imageAPI-x86/compose/dns.yml down
-Stopping dns_router_dnsmasq_1 ... done
-Removing dns_router_dnsmasq_1 ... done
-</code></pre><h3 id="remove-the-compose-file">Remove the compose file</h3>
-<pre><code class="lang-bash">make remove CONFIG_PKG=[CONF_PATH]
-</code></pre>
-<p>This action removes all the compose files of all services( <code>dns</code>, <code>sskcp</code>, <code>bypass</code> ).<br>Also, removing the compose file of single service is supported.
-e.g: remove compose file of dns </p>
-<pre><code class="lang-bash">make remove_dns CONFIG_PKG=[CONF_PATH]
+<pre><code>docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml down
+</code></pre><h3 id="list-the-services">List the services</h3>
+<pre><code class="lang-bash">make list
 </code></pre>
 <p>You may see the output similar with the following:</p>
-<pre><code>rm ~/dnsmasq-imageAPI-x86/compose
+<pre><code>for compose in `ls ~/[REPO]-imageAPI-x86/compose`;do name=`echo $compose|awk -F &quot;.&quot; &apos;{print $1}&apos;`;echo $name;docker-compose -p $name -f ~/[REPO]-imageAPI-x86/compose/$compose ps;done
+[NAME]
+Name   Command   State   Ports
+------------------------------
+...
+</code></pre><h3 id="remove-the-compose-file">Remove the compose file</h3>
+<pre><code class="lang-bash">make remove NAME=[COMP_NAME]
+</code></pre>
+<p>e.g,</p>
+<pre><code class="lang-bash">make remove NAME=[NAME]
+</code></pre>
+<p>You may see the output similar with the following:</p>
+<pre><code>rm ~/[REPO]-imageAPI-x86/compose/[NAME].yml
 </code></pre><p>Check whether the remove step successfully:</p>
-<pre><code class="lang-bash">ls compose | grep dns
+<pre><code class="lang-bash">ls compose | grep [NAME]
 </code></pre>
 
                                 
@@ -362,10 +454,14 @@ e.g: remove compose file of dns </p>
 
             
                 
-                <a href="GENCONF.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Generate configuration">
+                <a href="DEPENDENCY.html" class="navigation navigation-prev " aria-label="Previous page: Dependency">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="usermanual/INFO.html" class="navigation navigation-next " aria-label="Next page: info">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -374,7 +470,7 @@ e.g: remove compose file of dns </p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Deployment","level":"3.2","depth":1,"previous":{"title":"Generate configuration","level":"3.1","depth":1,"path":"usage/GENCONF.md","ref":"usage/GENCONF.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"usage/DEPLOYMENT.md","mtime":"2018-10-26T02:50:00.946Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T03:38:27.336Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Deployment","level":"3.1","depth":1,"next":{"title":"info","level":"4.1","depth":1,"path":"usage/usermanual/INFO.md","ref":"usage/usermanual/INFO.md","articles":[]},"previous":{"title":"Dependency","level":"2.2","depth":1,"path":"usage/DEPENDENCY.md","ref":"usage/DEPENDENCY.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"usage/DEPLOYMENT.md","mtime":"2018-11-15T01:28:23.364Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-15T02:43:09.219Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
