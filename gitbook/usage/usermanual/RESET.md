@@ -1,6 +1,6 @@
 # Reset
 
-Reset info to default. After resetting, you will lose the `info` generated with `make config -e`. 
+Reset info to default.
 
 ```bash
 make reset_info

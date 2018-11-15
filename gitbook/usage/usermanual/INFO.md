@@ -47,7 +47,7 @@ sskcp:
 	
 ```
 cd powter-client
-make testinfo INFO=path/to/info
+make test_info INFO=path/to/info
 ```
 
 Detailed info about how to modify `info` of [dnsmasq](https://elespejo.github.io/dnsmasq/usage/GENCONF.html), [bypass](https://elespejo.github.io/bypass/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 

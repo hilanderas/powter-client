@@ -11,7 +11,7 @@ There are 2 ways to do this:
 ### Modify info on line
 * Modify  `vpsip`, `vpsport` and `key` in sskcp and save
 ```bash
-make config_sskcp -e 
+make config
 ```
 
 * Restart sskcp service
@@ -30,6 +30,11 @@ make status_sskcp
 vi /path/to/info
 ```
 
+* Generate configuration
+```bash
+make config INFO=/path/to/info INTERATION=no
+```
+
 * Restart sskcp service
 ```bash
 make restart_sskcp 
@@ -39,4 +44,3 @@ make restart_sskcp
 ```bash
 make status_sskcp
 ```
-
