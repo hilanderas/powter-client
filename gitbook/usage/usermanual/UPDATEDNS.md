@@ -8,9 +8,9 @@ There are 2 ways to do this:
 
 
 ### Modify info on line
-* Modify  `ip` in dnsserver and save
+* Modify  `ip` in dns-server and save
 ```bash
-make config_dns -e 
+make config
 ```
 
 * Restart dns service
@@ -24,9 +24,13 @@ make status_dns
 ```
 
 ### Modify info file
-* Modify  `ip` in dnsserver in `info` file and save
+* Modify  `ip` in dns-server in `info` file and save
 ```bash
 vi /path/to/info
+```
+* Generate configuration
+```bash
+make config INFO=/path/to/info INTERATION=no
 ```
 
 * Restart dns service

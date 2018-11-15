@@ -9,16 +9,29 @@ wget  https://github.com/hilanderas/powter-client/releases/download/version/powt
 ```bash
 make prepare
 ``` 
-
-### Generate configuration
-* Provide `info` file
+Test whether download resources successfully
 ```bash
-make config -f path/to/info
+make test_prepare
 ```
 
-* Edit info on line
+### Generate configuration
+* Provide `info` file, you will be asked to edit it on line, just enter `:wq` to save the file if you don't need to modify it.
 ```bash
-make config -e
+make config INFO=path/to/info
+```
+**Please note that if `info` is not provided, a default one will pop up and you can edit it on line before save.**
+```bash
+make config 
+```
+
+* If you want script keep running without stopping, add `INTRERACTION=false` at the end of the command
+```bash
+make config INFO=path/to/info INTRERACTION=false
+```
+
+### Test configuration generated
+```bash
+make test_config
 ```
 
 ### Start services

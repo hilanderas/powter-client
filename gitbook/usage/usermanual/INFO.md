@@ -35,25 +35,19 @@ bypass:
       - ip/net
       - ip/net
 sskcp:
-  config:
-    - log-dir: 
-  client:
-    - ssport: 
-      sskey:
-      ip: 
-      kcpport: 
-      kcpkey:
-    - ssport:
-      sskey:  
-      ip: 
-      kcpport: 
-      kcpkey:
+  - mode: sskcp/ss
+    logdir: ~/snmplog 
+    listenport: 2001
+    vpsip: 
+    vpsport: 
+    key:
+    dest: ~/conf 
 ```
 `info` is yaml file and you can test whether it is ok after modification with:
 	
 ```
 cd powter-client
-make testinfo INFO=path/to/info
+make test_info INFO=path/to/info
 ```
 
 Detailed info about how to modify `info` of [dnsmasq](https://elespejo.github.io/dnsmasq/usage/GENCONF.html), [bypass](https://elespejo.github.io/bypass/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 
