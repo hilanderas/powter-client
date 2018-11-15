@@ -1,4 +1,4 @@
-CONFIG_ENV=${CURDIR}/config.env
+CONFIG_ENV=${CURDIR}/setting.env
 
 include ${CONFIG_ENV}
 
