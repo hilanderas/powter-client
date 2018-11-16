@@ -52,8 +52,13 @@ remove-sskcp: rm-sskcp-api rm-sskcp-genconf rm-sskcp-image
 remove-info:
 	rm $(POWTER_CLIENT_INFO)
 
+.PHONY: remove-apis remove-images remove-genconfs remove-content
 remove-apis: rm-dns-api rm-bypass-api rm-sskcp-api
 remove-images: rm-dns-image rm-bypass-image rm-sskcp-image
 remove-genconfs: rm-dns-genconf rm-bypass-genconf rm-sskcp-genconf
-remove: remove-apis remove-genconfs remove-images remove-info
+remove-content: remove-apis remove-genconfs remove-images remove-info
+
+.PHONY: remove
+remove:	$(SRC_DIR)
+	rm -rf $(SRC_DIR)
 

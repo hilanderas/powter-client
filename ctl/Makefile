@@ -1,3 +1,8 @@
+.PHONY: install uninstall update
+install: prepare config start
+uninstall: stop restore remove
+update: config restart
+
 .PHONY: prepare config start restart status stop remove 
 prepare:
 	make -f prepare.mk prepare
@@ -6,7 +11,7 @@ remove:
 config:
 	make -f config.mk config
 restore:
-	make -f config.mk cleanconf
+	make -f config.mk rmconf
 start:
 	make -f start.mk start
 stop:
@@ -27,13 +32,15 @@ test_prepare:
 	make -s -f test.mk is-info-valid
 
 test_remove:
-	make -s -f test.mk test-files
+	make -s -f test.mk test-client-dir
 
 test_info:
 	make -s -f test.mk is-info-valid 
 
 test_config:
 	make -s -f test.mk test-config
+	make -f status.mk showconf 
+
 test_restore:
 	make -s -f test.mk test-restore
 

@@ -49,8 +49,10 @@ endif
 is-info-existed:
 	((test -e $(POWTER_CLIENT_INFO)) && echo "$(POWTER_CLIENT_INFO) exists") || (echo "$(POWTER_CLIENT_INFO) does NOT exist") 
 
-.PHONY: test-files
+.PHONY: test-files test-dir
 test-files: test-dns test-bypass test-sskcp is-info-existed
+test-client-dir: is-info-existed
+	((test -d $(SRC_DIR)) && echo "$(SRC_DIR) exists") || (echo "$(SRC_DIR) does NOT exist") 
 
 .PHONY: test-dns test-bypass test-sskcp
 test-dns: is-dns-image-existed is-dns-confgen-existed is-dns-api-existed
@@ -63,9 +65,7 @@ test-sskcp: is-sskcp-image-existed is-sskcp-confgen-existed is-sskcp-api-existed
 test-config: $(POWTER_CLIENT_CONF)
 	tree $(POWTER_CLIENT_CONF)
 
-test-restore: $(POWTER_CLIENT_CONF)
-	((test -d $(POWTER_CLIENT_CONF)/dnsconf) && echo "$(POWTER_CLIENT_CONF)/dnsconf exists") || (echo "$(POWTER_CLIENT_CONF)/dnsconf does NOT exist") 
-	((test -d $(POWTER_CLIENT_CONF)/bypassconf) && echo "$(POWTER_CLIENT_CONF)/bypassconf exists") || (echo "$(POWTER_CLIENT_CONF)/bypassconf does NOT exist") 
-	((test -d $(POWTER_CLIENT_CONF)/sskcpconf) && echo "$(POWTER_CLIENT_CONF)/sskcpconf exists") || (echo "$(POWTER_CLIENT_CONF)/sskcpconf does NOT exist") 
+test-restore:
+	((test -d $(POWTER_CLIENT_CONF)) && echo "$(POWTER_CLIENT_CONF) exists") || (echo "$(POWTER_CLIENT_CONF) does NOT exist") 
 
 
