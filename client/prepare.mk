@@ -51,10 +51,17 @@ dl_sskcp_confgen:
 download_sskcp: dl_sskcp_api dl_sskcp_confgen dl_sskcp_image
 
 
+.PHONY: download_apis download_confgens download_images
 # Download the project
 download_apis: dl_dns_api dl_bypass_api dl_sskcp_api
 download_images: dl_dns_image dl_bypass_image dl_sskcp_image
 download_confgens: dl_dns_confgen dl_bypass_confgen dl_sskcp_confgen
 
-prepare: download_apis download_confgens download_images
+.PHONY: geninfo reset_info
+geninfo:
+	./confmgr.py mergeinfo --dns $(DNS_CONFGEN)/dnsmasq-info.yml --bypass $(BYPASS_CONFGEN)/bypass-info.yml --sskcp $(SSKCP_CONFGEN)/sskcp-client-info.yml --info $(POWTER_CLIENT_INFO) 
+
+resetinfo: geninfo
+.PHONY: prepare
+prepare: download_apis download_confgens download_images geninfo
 

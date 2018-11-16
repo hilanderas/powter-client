@@ -38,10 +38,34 @@ is-sskcp-api-existed:
 	((test -d $(SSKCP_API)) && echo "$(SSKCP_API) exists") || (echo "$(SSKCP_API) does NOT exist") 
 	((test -e $(SSKCP_API_ZIP)) && echo "$(SSKCP_API_ZIP) exists") || (echo "$(SSKCP_API_ZIP) does NOT exist") 
 
+.PHONY: is-info-existed is-info-valid
+is-info-valid: $(POWTER_CLIENT_INFO)
+ifdef INFO
+	./confmgr.py validate --info $(INFO)
+else
+	./confmgr.py validate --info $(POWTER_CLIENT_INFO)
+endif
 
-.PHONY: test test-dns test-bypass test-sskcp
-test: test-dns test-bypass test-sskcp
+is-info-existed:
+	((test -e $(POWTER_CLIENT_INFO)) && echo "$(POWTER_CLIENT_INFO) exists") || (echo "$(POWTER_CLIENT_INFO) does NOT exist") 
 
+.PHONY: test-files
+test-files: test-dns test-bypass test-sskcp is-info-existed
+
+.PHONY: test-dns test-bypass test-sskcp
 test-dns: is-dns-image-existed is-dns-confgen-existed is-dns-api-existed
 test-bypass: is-bypass-image-existed is-bypass-confgen-existed is-bypass-api-existed
 test-sskcp: is-sskcp-image-existed is-sskcp-confgen-existed is-sskcp-api-existed
+
+
+
+.PHONY: test-config test-restore
+test-config: $(POWTER_CLIENT_CONF)
+	tree $(POWTER_CLIENT_CONF)
+
+test-restore: $(POWTER_CLIENT_CONF)
+	((test -d $(POWTER_CLIENT_CONF)/dnsconf) && echo "$(POWTER_CLIENT_CONF)/dnsconf exists") || (echo "$(POWTER_CLIENT_CONF)/dnsconf does NOT exist") 
+	((test -d $(POWTER_CLIENT_CONF)/bypassconf) && echo "$(POWTER_CLIENT_CONF)/bypassconf exists") || (echo "$(POWTER_CLIENT_CONF)/bypassconf does NOT exist") 
+	((test -d $(POWTER_CLIENT_CONF)/sskcpconf) && echo "$(POWTER_CLIENT_CONF)/sskcpconf exists") || (echo "$(POWTER_CLIENT_CONF)/sskcpconf does NOT exist") 
+
+

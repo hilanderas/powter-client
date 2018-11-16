@@ -48,10 +48,12 @@ rm-sskcp-genconf:
 
 remove-sskcp: rm-sskcp-api rm-sskcp-genconf rm-sskcp-image
 
+.PHONY: remove-info
+remove-info:
+	rm $(POWTER_CLIENT_INFO)
 
-# Download the project
 remove-apis: rm-dns-api rm-bypass-api rm-sskcp-api
 remove-images: rm-dns-image rm-bypass-image rm-sskcp-image
 remove-genconfs: rm-dns-genconf rm-bypass-genconf rm-sskcp-genconf
-remove: remove-apis remove-genconfs remove-images
+remove: remove-apis remove-genconfs remove-images remove-info
 
