@@ -1,8 +1,3 @@
-dnsmasq*
-bypass*
-sskcp*
-confgenerator
-# build
-*.zip
-
-
+.dns-info.yml
+.bypass-info.yml
+.sskcp-info.yml

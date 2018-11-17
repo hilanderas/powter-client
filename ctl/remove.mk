@@ -2,8 +2,8 @@ CONFIG_ENV=${CURDIR}/setting.env
 
 include ${CONFIG_ENV}
 
-## download dns
-.PHONY: rm-dns-api rm-dns-genconf rm-dns-image download-dns
+## remove dns
+.PHONY: rm-dns-api rm-dns-genconf rm-dns-image remove-dns
 rm-dns-api:
 	rm $(DNS_API_ZIP)
 	rm -rf $(DNS_API) 
@@ -17,8 +17,8 @@ rm-dns-image:
 
 remove-dns: rm-dns-api rm-dns-genconf rm-dns-image
 
-## download bypass
-.PHONY: rm-bypass-api rm-bypass-genconf rm-bypass-image download-bypass
+## remove bypass
+.PHONY: rm-bypass-api rm-bypass-genconf rm-bypass-image remove-bypass
 rm-bypass-api:
 	rm $(BYPASS_API_ZIP)
 	rm -rf $(BYPASS_API) 
@@ -32,8 +32,8 @@ rm-bypass-genconf:
 
 remove-bypass: rm-bypass-api rm-bypass-genconf rm-bypass-image
 
-## download sskcp
-.PHONY: rm-sskcp-api rm-sskcp-genconf rm-sskcp-image download-sskcp
+## remove sskcp
+.PHONY: rm-sskcp-api rm-sskcp-genconf rm-sskcp-image remove-sskcp
 rm-sskcp-api:
 	rm $(SSKCP_API_ZIP)
 	rm -rf $(SSKCP_API)

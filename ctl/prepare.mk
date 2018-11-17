@@ -60,6 +60,7 @@ resetinfo: geninfo
 .PHONY: create-client
 create-client:
 	mkdir client
+
 .PHONY: prepare
 prepare: create-client download-apis download-confgens download-images geninfo
 

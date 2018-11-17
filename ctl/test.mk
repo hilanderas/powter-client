@@ -49,7 +49,7 @@ endif
 is-info-existed:
 	((test -e $(POWTER_CLIENT_INFO)) && echo "$(POWTER_CLIENT_INFO) exists") || (echo "$(POWTER_CLIENT_INFO) does NOT exist") 
 
-.PHONY: test-files test-dir
+.PHONY: test-files test-client-dir
 test-files: test-dns test-bypass test-sskcp is-info-existed
 test-client-dir: is-info-existed
 	((test -d $(SRC_DIR)) && echo "$(SRC_DIR) exists") || (echo "$(SRC_DIR) does NOT exist") 
