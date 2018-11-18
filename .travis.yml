@@ -23,9 +23,7 @@ deploy:
   skip_cleanup: true
   api_key:
     secure: TnoSc9eVTG55y8HQsZP3lSuEvN+PnLBUtsLEB8rM88CeD5WTv9Go7649GeRFbB52mYJpyWtZuezlG1wgtj2zfPlpYfotRiP+/6Kq6t7OTuINZjs1xk/FfdpS+Iq9ELOWLQDWGKJPVXCP4J46FLGYHh1/j1gKizXQ+Jg8c6zuur4ocxOezaEl3pxVTILEscHK3oA0fj8/y75ocgUXIfoPL+IXBOZX/5EWqkyOOJzQYOvp037Pej+rgE7erXx4e+7IYzss2JGakCeo3vxqXk5wH3S/W1qt8RssMP7r5CcjbkkJJu69B6tg3tSkjsqakgh0XIz8x2pxjaV1LPqQp5bBw5As2NqVbe+sACFRjBOLupvQTiANflAfc9baQSLc8cqmJkqGqt9rlk+hS6Ey5Vj7k0pwTyRWqAIbDrPDZbvDAvT6SVVbqNsBsiuWVYeC7f3PAf5VNhll3DqgpdAnTu25okMTVDiiKu9VT5cryBAE3N4JvHIuvZ6jYDihs9MIIgf+/9+VKWvJ7wIXRbX9oEjW71EmVa08LLaz4QH3jfeNk4xSytBuEFaXONSnO120TkbtNRxaZaDqwu8+BQcLPngcW1gJnBLqjaCs1ZySIYqtIyI+anaC9MBJkrFcFRj0sqeYpHvNi2o+LiqhKA3usIogw8aenjW6hVHXyiE6prt1Z4A=
-  file: 
-    - "${PROJECT}-${VERSION}.zip"
-    - "${CONFIG}-${VERSION}.zip"
+  file: "${PROJECT}-${VERSION}.zip"
   on:
     tags: true
     all_branches: true
