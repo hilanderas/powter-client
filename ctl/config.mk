@@ -26,8 +26,8 @@ cleanconf:
 
 genconf: $(POWTER_CLIENT_INFO) mkconf cleanconf
 	./confmgr.py divideinfo --info $(POWTER_CLIENT_INFO) --dns $(DNS_INFO) --bypass $(BYPASS_INFO) --sskcp $(SSKCP_INFO)
-	cd $(DNS_CONFGEN) && python3 -m confgenerator.cli $(DNS_INFO) -d $(POWTER_CLIENT_CONF)/dnsconf
-	cd $(BYPASS_CONFGEN) && python3 -m confgenerator.cli $(BYPASS_INFO) -d $(POWTER_CLIENT_CONF)/bypassconf
+	cd $(DNS_CONFGEN) && python3 -m confgenerator.cli -f $(DNS_INFO) -d $(POWTER_CLIENT_CONF)/dnsconf
+	cd $(BYPASS_CONFGEN) && python3 -m confgenerator.cli -f $(BYPASS_INFO) -d $(POWTER_CLIENT_CONF)/bypassconf
 	cd $(SSKCP_CONFGEN) && python3 -m confgenerator.cli client -f $(SSKCP_INFO) -d $(POWTER_CLIENT_CONF)/sskcpconf
 
 
