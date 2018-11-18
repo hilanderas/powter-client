@@ -10,7 +10,6 @@ branches:
 env:
   global:
     - PROJECT="powter-client"
-    - CONFIG="powter-config"
     - VERSION="$TRAVIS_TAG"
 
 install: true
