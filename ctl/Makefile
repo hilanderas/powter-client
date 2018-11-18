@@ -32,7 +32,7 @@ test_prepare:
 	make -s -f test.mk is-info-valid
 
 test_remove:
-	make -s -f test.mk test-client-dir
+	make -s -f test.mk test-remove
 
 test_info:
 	make -s -f test.mk is-info-valid 

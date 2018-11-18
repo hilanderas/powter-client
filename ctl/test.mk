@@ -51,7 +51,7 @@ is-info-existed:
 
 .PHONY: test-files test-client-dir
 test-files: test-dns test-bypass test-sskcp is-info-existed
-test-client-dir: is-info-existed
+test-client-dir:
 	((test -d $(SRC_DIR)) && echo "$(SRC_DIR) exists") || (echo "$(SRC_DIR) does NOT exist") 
 
 .PHONY: test-dns test-bypass test-sskcp
@@ -68,4 +68,4 @@ test-config: $(POWTER_CLIENT_CONF)
 test-restore:
 	((test -d $(POWTER_CLIENT_CONF)) && echo "$(POWTER_CLIENT_CONF) exists") || (echo "$(POWTER_CLIENT_CONF) does NOT exist") 
 
-
+test-remove: test-client-dir is-dns-image-existed is-bypass-image-existed is-sskcp-image-existed
