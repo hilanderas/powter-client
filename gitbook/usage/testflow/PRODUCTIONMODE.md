@@ -3,6 +3,7 @@
 ###  Login router and download powter-client testflow packages
 ```bash
 wget https://github.com/hilanderas/powter-client/releases/download/0.4.3/powter-client-testflow-0.4.3.zip
+unzip powter-client-testflow-0.4.3.zip
 ```
 [Check releases page for other versions](https://github.com/hilanderas/powter-client/releases)
 
@@ -32,7 +33,7 @@ make config PROJ=$PWD/powter-client-x86 INFO=$PWD/info.yml LAN=br0
 
 * Check configuration
 ```bash
-make -s check_config
+make -s read_config
 ```
 
 ### Run test flow
@@ -41,12 +42,11 @@ make -s check_config
 make test_prepare
 ```
 
-
+* Run scenarios
 ```bash
 make [SCENARIO]
 ```
 `SCENARIO:` Name of a test scenario, you can enter `make` and `tab` to see the whole lists.
-
 	e.g,
 * Install
 ```bash

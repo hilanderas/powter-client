@@ -3,7 +3,7 @@ dnsmasq:
   dhcp-option: 6,192.168.0.1
   cache-size: 3000
   domain: powter
-  local: /powter
+  local: /powter/
   dns-server:
     - ip: 3.3.3.3
       ports:
@@ -25,13 +25,13 @@ bypass:
       - 4.4.4.4
 sskcp:
   client:
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2010, vpsip: 3.3.3.3, vpsport: 4201, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2020, vpsip: 3.3.3.3, vpsport: 4202, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2030, vpsip: 3.3.3.3, vpsport: 4203, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2040, vpsip: 3.3.3.3, vpsport: 4204, key: test}
+    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2010, vpsip: 3.3.3.3, vpsport: 4201, key: test}
+    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2020, vpsip: 3.3.3.3, vpsport: 4202, key: test}
+    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2030, vpsip: 3.3.3.3, vpsport: 4203, key: test}
+    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2040, vpsip: 3.3.3.3, vpsport: 4204, key: test}
    
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2050, vpsip: 4.4.4.4, vpsport: 4201, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2060, vpsip: 4.4.4.4, vpsport: 4202, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2070, vpsip: 4.4.4.4, vpsport: 4203, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2080, vpsip: 4.4.4.4, vpsport: 4204, key: test}
+    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2050, vpsip: 4.4.4.4, vpsport: 4201, key: test}
+    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2060, vpsip: 4.4.4.4, vpsport: 4202, key: test}
+    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2070, vpsip: 4.4.4.4, vpsport: 4203, key: test}
+    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2080, vpsip: 4.4.4.4, vpsport: 4204, key: test}
    

@@ -51,7 +51,9 @@ test_prepare:
 test_remove:
 	./remove.sh
 
-cleanup: test_remove reset_env
+cleanup: 
+	./stop.sh
+	./restore.sh
 
 test_install:
 ifeq ($(TESTMODE),dev)
