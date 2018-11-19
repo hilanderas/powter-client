@@ -1,5 +1,5 @@
 #!/bin/bash 
-source ../.env
+source .env
 
 hint() {
     GREEN='\033[0;32m'

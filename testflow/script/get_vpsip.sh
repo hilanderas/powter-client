@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../.env
+source .env
 
 VPS=($(grep -o 'vpsip: [0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' ${INFO} | sort -u))
 

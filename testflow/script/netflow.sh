@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../script/lib.sh
+source lib.sh
 source get_vpsip.sh
 
 netflow "${VPS_SERVER[@]}"

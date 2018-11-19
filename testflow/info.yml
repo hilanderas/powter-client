@@ -5,11 +5,11 @@ dnsmasq:
   domain: powter
   local: /powter
   dns-server:
-    - ip: 45.33.110.198
+    - ip: 1.1.1.1
       ports:
         start-port: 16350
         end-port: 16370
-    - ip: 192.81.128.152
+    - ip: 2.2.2.2
       ports:
         start-port: 16350
         end-port: 16370
@@ -21,17 +21,17 @@ bypass:
   white:
     - filename: 03-vps
       content:
-      - 45.33.110.198
-      - 192.81.128.152
+      - 1.1.1.1
+      - 2.2.2.2
 sskcp:
   client:
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2010, vpsip: 45.33.110.198, vpsport: 4201, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2020, vpsip: 45.33.110.198, vpsport: 4202, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2030, vpsip: 45.33.110.198, vpsport: 4203, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2040, vpsip: 45.33.110.198, vpsport: 4204, key: test}
+    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2010, vpsip: 1.1.1.1, vpsport: 4201, key: test}
+    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2020, vpsip: 1.1.1.1, vpsport: 4202, key: test}
+    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2030, vpsip: 1.1.1.1, vpsport: 4203, key: test}
+    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2040, vpsip: 1.1.1.1, vpsport: 4204, key: test}
    
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2050, vpsip: 192.81.128.152, vpsport: 4201, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2060, vpsip: 192.81.128.152, vpsport: 4202, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2070, vpsip: 192.81.128.152, vpsport: 4203, key: test}
-    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2080, vpsip: 192.81.128.152, vpsport: 4204, key: test}
+    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2050, vpsip: 2.2.2.2, vpsport: 4201, key: test}
+    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2060, vpsip: 2.2.2.2, vpsport: 4202, key: test}
+    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2070, vpsip: 2.2.2.2, vpsport: 4203, key: test}
+    - {mode: sskcp, log-dir: ~/snmplog, listenport: 2080, vpsip: 2.2.2.2, vpsport: 4204, key: test}
    
