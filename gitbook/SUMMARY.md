@@ -20,3 +20,8 @@
 * [Update dns](usage/usermanual/UPDATEDNS.md)
 * [Update sskcp](usage/usermanual/UPDATESSKCP.md)
 * [Reset conf](usage/usermanual/RESET.md)
+
+### Testflow
+* [Develop mode](usage/testflow/DEVELOPMODE.md)
+* [Topology for production mode](usage/testflow/TOPOLOGY.md)
+* [Production mode](usage/testflow/PRODUCTIONMODE.md)
