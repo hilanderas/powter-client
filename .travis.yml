@@ -10,12 +10,14 @@ branches:
 env:
   global:
     - PROJECT="powter-client"
+    - TESTFLOW=$PROJECT-testflow
     - VERSION="$TRAVIS_TAG"
 
 install: true
 
 script:
   - make build version=${VERSION}
+  - make build-testflow version=${VERSION}
 
 deploy:
   provider: releases

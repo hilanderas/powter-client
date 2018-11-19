@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source ../script/lib.sh
+source lib.sh
 re_boot

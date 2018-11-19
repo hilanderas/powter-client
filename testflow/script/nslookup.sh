@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../script/lib.sh
+source lib.sh
 ns_lookup "www.youtube.com"
 ns_lookup "www.iqiyi.com"
 ns_lookup "www.123u.com"

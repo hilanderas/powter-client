@@ -1,6 +1,6 @@
 #!/bin/bash
 
 
-source ../script/lib.sh
+source lib.sh
 ctl "remove"
 ctl "test_remove"

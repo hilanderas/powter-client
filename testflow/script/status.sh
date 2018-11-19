@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../script/lib.sh
+source lib.sh
 
 #sleep 120
 ctl "status" $1
