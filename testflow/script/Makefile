@@ -1,4 +1,4 @@
-.PHONY: config check_config init_config set_mod read_mod test_prepare test_remove cleanup test_install test_uninstall test_checkvps test_installafteruninstall test_reinstall test_uninstall test_reboot_p1 test_reboot_p2 test_poweroff_p1 test_poweroff_p2 test_isprestart test_restartall test_switch test_updateconfig_sskcp test_updateconfig_bypass 
+.PHONY: config read_config init_config set_mod read_mod test_prepare test_remove cleanup test_install test_uninstall test_checkvps test_installafteruninstall test_reinstall test_uninstall test_reboot_p1 test_reboot_p2 test_poweroff_p1 test_poweroff_p2 test_isprestart test_restartall test_switch test_updateconfig_sskcp test_updateconfig_bypass 
 include .env
 LIB=".env"
 
@@ -7,7 +7,7 @@ config:
 	sed -i '/INFO/c\export INFO=${INFO}' ${LIB}
 	sed -i '/LAN/c\export LAN=${LAN}' ${LIB}
 
-check_config:
+read_config:
 	cat ${LIB} | grep "PROJ"
 	cat ${LIB} | grep "INFO"
 	cat ${LIB} | grep "LAN"
@@ -18,8 +18,12 @@ init_config:
 	sed -i '/LAN/c\export LAN=br0' ${LIB}
 
 reset_env:
-	git checkout ${LIB}
+	sed -i '/PROJ/c\export PROJ=' ${LIB}
+	sed -i '/INFO/c\export INFO=' ${LIB}
+	sed -i '/LAN/c\export LAN=' ${LIB}
+	sed -i '/TESTMODE/c\export TESTMODE=' ${LIB}
 	cat ${LIB}
+
 set_mod:
 	sed -i '/TESTMODE/c\export TESTMODE=${TESTMODE}' ${LIB}
 read_mod:
@@ -37,11 +41,13 @@ test_install:
 ifeq ($(TESTMODE),dev)
 	./config_f.sh ${INFO}
 	./start.sh
+	./status.sh
 	./stop.sh
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
 	./config_f.sh ${INFO}
 	./start.sh
+	./status.sh
 	./nslookup.sh
 	./netflow.sh
 	./stop.sh
