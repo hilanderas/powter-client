@@ -1,7 +1,19 @@
-.PHONY: config read_config init_config set_mod read_mod test_prepare test_remove cleanup test_install test_uninstall test_checkvps test_installafteruninstall test_reinstall test_uninstall test_reboot_p1 test_reboot_p2 test_poweroff_p1 test_poweroff_p2 test_isprestart test_restartall test_switch test_updateconfig_sskcp test_updateconfig_bypass 
+#!make
 include .env
 LIB=".env"
+VERSION=0.4.3
+PROJECT=powter-client
 
+.PHONY: download rm_download
+download:
+	wget https://github.com/hilanderas/powter-client/releases/download/${VERSION}/${PROJECT}-${ARCH}-${VERSION}.zip
+	unzip ${PROJECT}-${ARCH}-${VERSION}.zip
+
+rm_download:
+	rm -rf ${PROJECT}-${ARCH}*
+
+
+.PHONY: config read_config init_config 
 config: 
 	sed -i '/PROJ/c\export PROJ=${PROJ}' ${LIB}
 	sed -i '/INFO/c\export INFO=${INFO}' ${LIB}
@@ -17,6 +29,7 @@ init_config:
 	sed -i '/INFO/c\export INFO=${CURDIR}/../info.yml' ${LIB}
 	sed -i '/LAN/c\export LAN=br0' ${LIB}
 
+.PHONY: reset_env
 reset_env:
 	sed -i '/PROJ/c\export PROJ=' ${LIB}
 	sed -i '/INFO/c\export INFO=' ${LIB}
@@ -24,11 +37,14 @@ reset_env:
 	sed -i '/TESTMODE/c\export TESTMODE=' ${LIB}
 	cat ${LIB}
 
+.PHONY: set_mod read_mod 
 set_mod:
 	sed -i '/TESTMODE/c\export TESTMODE=${TESTMODE}' ${LIB}
 read_mod:
 	printenv TESTMODE
 
+
+.PHONY: test_prepare test_remove cleanup test_install test_uninstall test_checkvps test_installafteruninstall test_reinstall test_uninstall test_reboot_p1 test_reboot_p2 test_poweroff_p1 test_poweroff_p2 test_isprestart test_restartall test_switch test_updateconfig_sskcp test_updateconfig_bypass 
 test_prepare:
 	./prepare.sh
 

@@ -1,24 +1,20 @@
 # Test flow in production mode
 
-###  Git clone 
+###  Login router and download powter-client testflow packages
 ```bash
-git clone https://github.com/hilanderas/powter-client.git
+wget https://github.com/hilanderas/powter-client/releases/download/0.4.3/powter-client-testflow-0.4.3.zip
 ```
+[Check releases page for other versions](https://github.com/hilanderas/powter-client/releases)
 
-### Set as production mode
-* Set mode
+### Download powter-client packages
 ```bash
-cd powter-client/testflow/script
-make set_mod TESTMODE=prod
+cd powter-client-testflow
+make download ARCH=[ARCH]
 ```
-
-* Read mode
-```bash
-make -s read_mod
-```
-
+`ARCH`: x86 or armv6
 
 ### Config test environment
+* Update `info.yml` and `info_slave.yml` in `powter-client-testflow` to meet your test environment
 
 * Set project path, info file path and lan port 
 ```bash
@@ -31,7 +27,7 @@ Description of each attribute:
 
 	e.g,
 ```bash
-make config PROJ=/home/qa/powter-client/client INFO=/home/qa/info.yml LAN=enp0s25
+make config PROJ=$PWD/powter-client-x86 INFO=$PWD/info.yml LAN=br0
 ```
 
 * Check configuration
