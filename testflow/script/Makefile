@@ -27,7 +27,7 @@ read_config:
 init_config: 
 	sed -i '/TEST_PROJ/c\export TEST_PROJ=${TEST_PROJ}' ${LIB}
 	sed -i '/TEST_INFO/c\export TEST_INFO=${CURDIR}/../info.yml' ${LIB}
-	sed -i '/IFACE/c\export IFACE=br0' ${LIB}
+	sed -i '/IFACE/c\export IFACE=enp2s0' ${LIB}
 
 .PHONY: reset_env
 reset_env:
