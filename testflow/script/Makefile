@@ -353,6 +353,7 @@ ifeq ($(TESTMODE),dev)
 #same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh sskcp
+	./restart.sh bypass 
 	./status.sh sskcp
 	./stop.sh
 	./restore.sh
@@ -363,6 +364,7 @@ else ifeq ($(TESTMODE), prod)
 	#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh sskcp
+	./restart.sh bypass 
 	./status.sh sskcp
 	./nslookup.sh
 	./netflow.sh
@@ -383,6 +385,7 @@ ifeq ($(TESTMODE),dev)
 #same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh bypass
+	./restart.sh sskcp
 	./status.sh bypass
 	./stop.sh
 	./restore.sh
@@ -393,6 +396,7 @@ else ifeq ($(TESTMODE), prod)
 	#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh bypass
+	./restart.sh sskcp
 	./status.sh bypass
 	./nslookup.sh
 	./netflow.sh
