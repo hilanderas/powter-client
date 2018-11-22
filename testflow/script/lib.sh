@@ -15,7 +15,7 @@ netflow() {
     for i in "${VPS[@]}"
     do
         echo "$i"
-				sudo iftop -i ${IFACE} -NnP -F "$i/24" -t -s 1
+				sudo iftop -i ${IFACE} -NnP -F "$i/24" -t -s 10
 		done
 }
 
