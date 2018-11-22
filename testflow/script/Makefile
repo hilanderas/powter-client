@@ -15,25 +15,25 @@ rm_download:
 
 .PHONY: config read_config init_config 
 config: 
-	sed -i '/PROJ/c\export PROJ=${PROJ}' ${LIB}
-	sed -i '/INFO/c\export INFO=${INFO}' ${LIB}
-	sed -i '/LAN/c\export LAN=${LAN}' ${LIB}
+	sed -i '/TEST_PROJ/c\export TEST_PROJ=${TEST_PROJ}' ${LIB}
+	sed -i '/TEST_INFO/c\export TEST_INFO=${TEST_INFO}' ${LIB}
+	sed -i '/IFACE/c\export IFACE=${IFACE}' ${LIB}
 
 read_config:
-	cat ${LIB} | grep "PROJ"
-	cat ${LIB} | grep "INFO"
-	cat ${LIB} | grep "LAN"
+	cat ${LIB} | grep "TEST_PROJ"
+	cat ${LIB} | grep "TEST_INFO"
+	cat ${LIB} | grep "IFACE"
 
 init_config: 
-	sed -i '/PROJ/c\export PROJ=${PROJ}' ${LIB}
-	sed -i '/INFO/c\export INFO=${CURDIR}/../info.yml' ${LIB}
-	sed -i '/LAN/c\export LAN=br0' ${LIB}
+	sed -i '/TEST_PROJ/c\export TEST_PROJ=${TEST_PROJ}' ${LIB}
+	sed -i '/TEST_INFO/c\export TEST_INFO=${CURDIR}/../info.yml' ${LIB}
+	sed -i '/IFACE/c\export IFACE=br0' ${LIB}
 
 .PHONY: reset_env
 reset_env:
-	sed -i '/PROJ/c\export PROJ=' ${LIB}
-	sed -i '/INFO/c\export INFO=' ${LIB}
-	sed -i '/LAN/c\export LAN=' ${LIB}
+	sed -i '/TEST_PROJ/c\export TEST_PROJ=' ${LIB}
+	sed -i '/TEST_INFO/c\export TEST_INFO=' ${LIB}
+	sed -i '/IFACE/c\export IFACE=' ${LIB}
 	sed -i '/TESTMODE/c\export TESTMODE=' ${LIB}
 	cat ${LIB}
 
@@ -57,12 +57,12 @@ cleanup:
 
 test_install:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./stop.sh
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./nslookup.sh
 	./netflow.sh
@@ -74,12 +74,12 @@ endif
 
 test_uninstall:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./stop.sh	
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./stop.sh
 	./nslookup.sh
@@ -90,7 +90,7 @@ else
 endif
 
 test_checkvps:
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./showconf.sh
 	./stop.sh
@@ -98,20 +98,20 @@ test_checkvps:
 
 test_installafteruninstall:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./stop.sh
 	./restore.sh
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./stop.sh
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./stop.sh
 	./restore.sh
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./nslookup.sh
 	./netflow.sh
@@ -125,16 +125,16 @@ endif
 
 test_reinstall:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./stop.sh
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./nslookup.sh
 	./netflow.sh
@@ -146,14 +146,14 @@ endif
 
 test_reuninstall:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./stop.sh
 	./restore.sh
 	./stop.sh
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./stop.sh
 	./restore.sh
@@ -167,11 +167,11 @@ endif
 
 test_reboot_p1:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./reboot.sh
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./reboot.sh
 else 
@@ -195,13 +195,13 @@ endif
 
 test_poweroff_p1:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	echo "============================="
 	echo "Please power off the powter client"
 	echo "============================="
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	echo "============================="
 	echo "Please power off the powter client"
@@ -227,7 +227,7 @@ endif
 
 test_isprestart:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	echo "=============================="
 	echo "Please restart isp before continue........"
@@ -237,7 +237,7 @@ ifeq ($(TESTMODE),dev)
 	./stop.sh
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	echo "=============================="
 	echo "Please restart isp before continue........"
@@ -254,14 +254,14 @@ endif
 
 test_restartall:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./restart.sh
 	./status.sh
 	./stop.sh
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./restart.sh
 	./status.sh
@@ -276,14 +276,14 @@ endif
 
 test_switch:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./config_f.sh ${SLAVE}
 	./restart.sh dns
 	./restart.sh sskcp
 	./status.sh dns
 	./status.sh sskcp
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./restart.sh dns
 	./restart.sh sskcp
 	./status.sh dns
@@ -291,7 +291,7 @@ ifeq ($(TESTMODE),dev)
 	./stop.sh 
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
 	./config_f.sh ${SLAVE}
 	./restart.sh dns
@@ -300,7 +300,7 @@ else ifeq ($(TESTMODE), prod)
 	./status.sh sskcp
 	./nslookup.sh
 	./netflow.sh
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./restart.sh dns
 	./restart.sh sskcp
 	./status.sh dns
@@ -316,19 +316,19 @@ endif
 
 test_updateconfig_dns:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
-	#same as config_f cause $INFO is still exist
+	#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh dns
 	./status.sh dns
 	./stop.sh
 	./restore.sh
-	git checkout ${INFO}
+	git checkout ${TEST_INFO}
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
-	#same as config_f cause $INFO is still exist
+	#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh dns
 	./status.sh dns
@@ -336,7 +336,7 @@ else ifeq ($(TESTMODE), prod)
 	./netflow.sh
 	./stop.sh
 	./restore.sh
-	git checkout ${INFO}
+	git checkout ${TEST_INFO}
 else 
 	echo "Please set the env either dev or prod!"
 endif
@@ -344,19 +344,19 @@ endif
 
 test_updateconfig_sskcp:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
-	#same as config_f cause $INFO is still exist
+	#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh sskcp
 	./status.sh sskcp
 	./stop.sh
 	./restore.sh
-	git checkout ${INFO}
+	git checkout ${TEST_INFO}
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
-	#same as config_f cause $INFO is still exist
+	#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh sskcp
 	./status.sh sskcp
@@ -364,7 +364,7 @@ else ifeq ($(TESTMODE), prod)
 	./netflow.sh
 	./stop.sh
 	./restore.sh
-	git checkout ${INFO}
+	git checkout ${TEST_INFO}
 else 
 	echo "Please set the env either dev or prod!"
 endif
@@ -372,19 +372,19 @@ endif
 
 test_updateconfig_bypass:
 ifeq ($(TESTMODE),dev)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
-	#same as config_f cause $INFO is still exist
+	#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh bypass
 	./status.sh bypass
 	./stop.sh
 	./restore.sh
-	git checkout ${INFO}
+	git checkout ${TEST_INFO}
 else ifeq ($(TESTMODE), prod)
-	./config_f.sh ${INFO}
+	./config_f.sh ${TEST_INFO}
 	./start.sh
-	#same as config_f cause $INFO is still exist
+	#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh bypass
 	./status.sh bypass
@@ -392,7 +392,7 @@ else ifeq ($(TESTMODE), prod)
 	./netflow.sh
 	./stop.sh
 	./restore.sh
-	git checkout ${INFO}
+	git checkout ${TEST_INFO}
 else 
 	echo "Please set the env either dev or prod!"
 endif

@@ -1,7 +1,7 @@
 #!/bin/bash
 source .env
 
-VPS=($(grep -o 'vpsip: [0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' ${INFO} | sort -u))
+VPS=($(grep -o 'vpsip: [0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' ${TEST_INFO} | sort -u))
 
 i=0
 VPS_SERVER=()
