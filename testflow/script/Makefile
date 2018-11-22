@@ -293,6 +293,8 @@ ifeq ($(TESTMODE),dev)
 else ifeq ($(TESTMODE), prod)
 	./config_f.sh ${TEST_INFO}
 	./start.sh
+	./nslookup.sh
+	./netflow.sh
 	./config_f.sh ${SLAVE}
 	./restart.sh dns
 	./restart.sh sskcp
