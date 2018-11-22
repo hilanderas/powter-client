@@ -338,7 +338,6 @@ else ifeq ($(TESTMODE), prod)
 	./netflow.sh
 	./stop.sh
 	./restore.sh
-	git checkout ${TEST_INFO}
 else 
 	echo "Please set the env either dev or prod!"
 endif
@@ -370,7 +369,6 @@ else ifeq ($(TESTMODE), prod)
 	./netflow.sh
 	./stop.sh
 	./restore.sh
-	git checkout ${TEST_INFO}
 else 
 	echo "Please set the env either dev or prod!"
 endif
@@ -402,7 +400,6 @@ else ifeq ($(TESTMODE), prod)
 	./netflow.sh
 	./stop.sh
 	./restore.sh
-	git checkout ${TEST_INFO}
 else 
 	echo "Please set the env either dev or prod!"
 endif
