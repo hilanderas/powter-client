@@ -328,6 +328,8 @@ ifeq ($(TESTMODE),dev)
 else ifeq ($(TESTMODE), prod)
 	./config_f.sh ${TEST_INFO}
 	./start.sh
+	./nslookup.sh
+	./netflow.sh
 	#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh dns
@@ -346,7 +348,9 @@ test_updateconfig_sskcp:
 ifeq ($(TESTMODE),dev)
 	./config_f.sh ${TEST_INFO}
 	./start.sh
-	#same as config_f cause $TEST_INFO is still exist
+	./nslookup.sh
+	./netflow.sh
+#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh sskcp
 	./status.sh sskcp
@@ -374,7 +378,9 @@ test_updateconfig_bypass:
 ifeq ($(TESTMODE),dev)
 	./config_f.sh ${TEST_INFO}
 	./start.sh
-	#same as config_f cause $TEST_INFO is still exist
+	./nslookup.sh
+	./netflow.sh
+#same as config_f cause $TEST_INFO is still exist
 	./config_e.sh 
 	./restart.sh bypass
 	./status.sh bypass
