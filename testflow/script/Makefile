@@ -59,13 +59,11 @@ test_install:
 ifeq ($(TESTMODE),dev)
 	./config_f.sh ${INFO}
 	./start.sh
-	./status.sh
 	./stop.sh
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
 	./config_f.sh ${INFO}
 	./start.sh
-	./status.sh
 	./nslookup.sh
 	./netflow.sh
 	./stop.sh
@@ -106,7 +104,6 @@ ifeq ($(TESTMODE),dev)
 	./restore.sh
 	./config_f.sh ${INFO}
 	./start.sh
-	./status.sh
 	./stop.sh
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
@@ -116,7 +113,6 @@ else ifeq ($(TESTMODE), prod)
 	./restore.sh
 	./config_f.sh ${INFO}
 	./start.sh
-	./status.sh
 	./nslookup.sh
 	./netflow.sh
 	./stop.sh
@@ -133,7 +129,6 @@ ifeq ($(TESTMODE),dev)
 	./start.sh
 	./config_f.sh ${INFO}
 	./start.sh
-	./status.sh
 	./stop.sh
 	./restore.sh
 else ifeq ($(TESTMODE), prod)
@@ -141,7 +136,6 @@ else ifeq ($(TESTMODE), prod)
 	./start.sh
 	./config_f.sh ${INFO}
 	./start.sh
-	./status.sh
 	./nslookup.sh
 	./netflow.sh
 	./stop.sh
@@ -238,7 +232,7 @@ ifeq ($(TESTMODE),dev)
 	echo "=============================="
 	echo "Please restart isp before continue........"
 	echo "=============================="
-	sleep 10
+	sleep 60
 	./status.sh
 	./stop.sh
 	./restore.sh
