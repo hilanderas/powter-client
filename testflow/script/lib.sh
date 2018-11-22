@@ -38,11 +38,11 @@ re_boot() {
 
 config(){
 	hint "Config"
-	cd ${TEST_PORJ}
+	cd ${TEST_PROJ}
 	if [ $1 ]
 	then
 		echo "make config TEST_INFO=${1} successfully"
-		make config TEST_INFO=$1
+		make config INFO=$1
 		confirm
 	else
 		echo $TEST_INFO
@@ -54,7 +54,7 @@ config(){
 
 test_config(){
 	hint "Test config"
-	cd ${TEST_PORJ}
+	cd ${TEST_PROJ}
 	if [ $1 ]
 	then
 		make test_config TEST_INFO=$1
@@ -69,7 +69,7 @@ ctl(){
 	cmd=${1}
 	service=${2}
 	hint "${cmd} ${service}"
-	cd ${TEST_PORJ}
+	cd ${TEST_PROJ}
 	if [ ${service} ]  
 	then
 		make ${cmd}_${service}

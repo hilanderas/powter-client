@@ -20,12 +20,12 @@ make -s read_mod
 
 ### Initial configuration
 ```bash
-make init_config PROJ=[PROJ]
+make init_config TEST_PROJ=[TEST_PROJ]
 ```
-`PROJ`: Path of `power-client/client`
+`TEST_PROJ`: Path of `power-client/client`
 e.g,
 ```bash
-make init_config PROJ=/home/qa/powter-client/ctl
+make init_config TEST_PROJ=/home/qa/powter-client/ctl
 ```
 
 ### Run test flow

@@ -2,8 +2,8 @@
 
 ###  Login router and download powter-client testflow packages
 ```bash
-wget https://github.com/hilanderas/powter-client/releases/download/0.4.3/powter-client-testflow-0.4.3.zip
-unzip powter-client-testflow-0.4.3.zip
+wget https://github.com/hilanderas/powter-client/releases/download/0.4.4/powter-client-testflow-0.4.4.zip
+unzip powter-client-testflow-0.4.4.zip
 ```
 [Check releases page for other versions](https://github.com/hilanderas/powter-client/releases)
 
@@ -19,16 +19,16 @@ make download ARCH=[ARCH]
 
 * Set project path, info file path and lan port 
 ```bash
-make config PROJ=[PROJECT] INFO=[INFO] LAN=[LAN]
+make config TEST_PROJ=[PROJECT] TEST_INFO=[TEST_INFO] IFACE=[IFACE]
 ```
 Description of each attribute:
-* `PROJ`: Path of `power-client/client`
-* `INFO`: Absolute path of `info.yml`
-* `LAN`: Lan port of router
+* `TEST_PROJ`: Path of `power-client/client`
+* `TEST_INFO`: Absolute path of `info.yml`
+* `IFACE`: WAN of router
 
 	e.g,
 ```bash
-make config PROJ=$PWD/powter-client-x86 INFO=$PWD/info.yml LAN=br0
+make config TEST_PROJ=$PWD/powter-client-x86 TEST_INFO=$PWD/info.yml IFACE=enp2s0
 ```
 
 * Check configuration
