@@ -92,7 +92,7 @@
                 <a href="../../">
             
                     
-                    Introduction 0.4.3
+                    Introduction 0.4.4
             
                 </a>
             
@@ -383,8 +383,8 @@
                                 
                                 <h1 id="test-flow-in-production-mode">Test flow in production mode</h1>
 <h3 id="login-router-and-download-powter-client-testflow-packages">Login router and download powter-client testflow packages</h3>
-<pre><code class="lang-bash">wget https://github.com/hilanderas/powter-client/releases/download/0.4.3/powter-client-testflow-0.4.3.zip
-unzip powter-client-testflow-0.4.3.zip
+<pre><code class="lang-bash">wget https://github.com/hilanderas/powter-client/releases/download/0.4.4/powter-client-testflow-0.4.4.zip
+unzip powter-client-testflow-0.4.4.zip
 </code></pre>
 <p><a href="https://github.com/hilanderas/powter-client/releases" target="_blank">Check releases page for other versions</a></p>
 <h3 id="download-powter-client-packages">Download powter-client packages</h3>
@@ -397,15 +397,15 @@ make download ARCH=[ARCH]
 <li><p>Update <code>info.yml</code> and <code>info_slave.yml</code> in <code>powter-client-testflow</code> to meet your test environment</p>
 </li>
 <li><p>Set project path, info file path and lan port </p>
-<pre><code class="lang-bash">make config PROJ=[PROJECT] INFO=[INFO] LAN=[LAN]
+<pre><code class="lang-bash">make config TEST_PROJ=[PROJECT] TEST_INFO=[TEST_INFO] IFACE=[IFACE]
 </code></pre>
 <p>Description of each attribute:</p>
 </li>
-<li><code>PROJ</code>: Path of <code>power-client/client</code></li>
-<li><code>INFO</code>: Absolute path of <code>info.yml</code></li>
-<li><p><code>LAN</code>: Lan port of router</p>
+<li><code>TEST_PROJ</code>: Path of <code>power-client/client</code></li>
+<li><code>TEST_INFO</code>: Absolute path of <code>info.yml</code></li>
+<li><p><code>IFACE</code>: WAN of router</p>
 <p>  e.g,</p>
-<pre><code class="lang-bash">make config PROJ=<span class="hljs-variable">$PWD</span>/powter-client-x86 INFO=<span class="hljs-variable">$PWD</span>/info.yml LAN=br0
+<pre><code class="lang-bash">make config TEST_PROJ=<span class="hljs-variable">$PWD</span>/powter-client-x86 TEST_INFO=<span class="hljs-variable">$PWD</span>/info.yml IFACE=enp2s0
 </code></pre>
 </li>
 <li><p>Check configuration</p>
@@ -486,7 +486,7 @@ make download ARCH=[ARCH]
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Production mode","level":"5.3","depth":1,"previous":{"title":"Topology for production mode","level":"5.2","depth":1,"path":"usage/testflow/TOPOLOGY.md","ref":"usage/testflow/TOPOLOGY.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"usage/testflow/PRODUCTIONMODE.md","mtime":"2018-11-21T02:32:57.984Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-21T02:33:14.094Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Production mode","level":"5.3","depth":1,"previous":{"title":"Topology for production mode","level":"5.2","depth":1,"path":"usage/testflow/TOPOLOGY.md","ref":"usage/testflow/TOPOLOGY.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"usage/testflow/PRODUCTIONMODE.md","mtime":"2018-11-23T04:24:21.012Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-23T04:25:08.577Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
