@@ -35,9 +35,8 @@
 * All kinds of documents
 
 
-# Network topology (todo)
-(Need picture here or redirect to wiki)
-
+# Network topology
+![topology](https://www.lucidchart.com/publicSegments/view/ad585615-1dee-4b69-a5cf-a893afd0a46c/image.png)
 
 # Deployment
 
