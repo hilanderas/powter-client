@@ -10,7 +10,7 @@ dnsmasq:
   dhcp-option: 6,192.168.0.1
   cache-size: 3000
   domain: powter
-  local: /powter
+  local: /powter/
   dns-server:
     - ip: 1.1.1.1
       ports:
@@ -36,12 +36,12 @@ bypass:
       - ip/net
 sskcp:
   - mode: sskcp/ss
-    logdir: ~/snmplog 
+    logdir: /home/USER/snmplog 
     listenport: 2001
     vpsip: 
     vpsport: 
     key:
-    dest: ~/conf 
+    dest: /home/USER/conf 
 ```
 `info` is yaml file and you can test whether it is ok after modification with:
 	

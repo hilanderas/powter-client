@@ -273,8 +273,13 @@ else
 	echo "Please set the env either dev or prod!"
 endif
 
+.PHONY: check-env
+check_env:
+ifndef SLAVE
+	$(error SLAVE is underfined)
+endif
 
-test_switch:
+test_switch: check_env
 ifeq ($(TESTMODE),dev)
 	./config_f.sh ${TEST_INFO}
 	./start.sh

@@ -11,7 +11,8 @@ hint() {
 }
 
 netflow() {
-    VPS=( "$@" )
+	 #sudo iftop -NnP -i ${IFACE} -f "portrange $1" -t -s 10   
+	  VPS=( "$@" )
     for i in "${VPS[@]}"
     do
         echo "$i"

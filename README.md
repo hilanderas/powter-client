@@ -14,24 +14,25 @@
 
 ##### Pros
 
-* Integration of bypass, shadowsocks, pen, kcp with less configuration required
+* Integration of bypass, ss (short for shadowsocks), kcp with less configuration required
+* Flexible strategy supported, ss+kcp or just ss
+* Any number (usually 4-16) of ss+kcp is supported to satisfy different network flow requirement
 * Anti DNS pollution
 * Long term plan of development and maintenance(check roadmap)
 
 ##### Cons
 
-* Only ss:kcp = 1:1 is supported currently
-* Strategy can't be changed, such as from ss+kcp to ss+BBR
+* No UI
+* No much documents about how to trouble shooting 
+* Android, ios and windows is not supported
 
 ### Road map
 
-* Build and install on arm infrastructure
-* The ss:kcp can be configured from 1:1 to 1:n in docker images
-* Strategy can be configured
 * Real-time monitoring framework 
 * Performance test framework
 * Machine learning on snmp
 * User-friendly interface
+* All kinds of documents
 
 
 # Network topology (todo)
@@ -39,44 +40,8 @@
 
 
 # Deployment
-This is a simple step of deployment. More details see wiki page [here]().(todo)
 
-### 1. Download released package 
-Go to the release page( [here](https://github.com/hilanderas/powter-client/releases) ). Select the version you want to use, and click to download.
-
-### 2. Download configuration template
-Go to the release page( [here](https://github.com/hilanderas/powter-client/releases) ). Select the version you want to use, and click to download.
-
-### 3. Unzip and check the md5
-powter-client:
-```bash
-$ unzip powter-client-[VERSION].zip
-$ cd powter-client/
-$ md5sum -c powter-client-[VERSION].md5
-```
-Configuration:
-```bash
-$ unzip powter-config-[version].zip
-$ cd powter-config/
-$ md5sum -c powter-config-[version].md5
-```
-
-### 4. Set configuration
-According to your ss-kcp-server and dns-server, set the configuration. More detail of setting configuration see the wiki page [here]().
-```
-$ cd powter-config/
-```
-
-### 5. Install the project
-```
-$ cd powter-client
-$ make start CONFIG_PKG=/path/to/configuration
-```
-
-### 6. Check status
-```
-$ make status CONFIG_PKG=/path/to/configuration
-```
+See github page [here](https://hilanderas.github.io/powter-client/usage/DEPLOYMENT.html).
 
 # Development setup
 
@@ -84,24 +49,30 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Prerequisites
 Develop Environment
-* Ubuntu server 16.04 
-* make command
+* Ubuntu 18.04 
 * shell bin/bash
 
 Software Needed
 * System is updated by `sudo apt update; sudo apt full-upgrade`
-* [Docker installed](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
+* [Docker CE installed](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 * docker-compose
+* make
 * Ipset installed by `sudo apt install ipset`
 
-## Build (todo)
+## Build
 
-
-# Release history (todo)
-More details on wiki [here]()
-
-# Roadmap
-https://time.graphics/line/108579
+* Build production package
+```bash
+make build version=[VERSION]
+```
+* Build testflow package
+```bash
+make build-testflow version=[VERSION]
+```
+* Build docs for github page
+```bash
+make build_book
+```
 
 # Logistics
 

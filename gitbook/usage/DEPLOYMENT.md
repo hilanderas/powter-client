@@ -1,133 +1,90 @@
 # Deployment
 
-### Download the deployment package
-    
-You can download the deployment package from web page or command line.
-
-* From web:  
-Go to the [release page](https://github.com/[OWNER]/[REPO]/releases) of this project. Select the package according to the architecture of your machine.
-
-* From command line:  
+### Download relased package 0.4.4
+* For x86
 ```bash
-wget https://github.com/[OWNER]/[REPO]/releases/download/[VERSION]/[REPO]-[ARCH]-[VERSION].zip
+wget https://github.com/hilanderas/powter-client/releases/download/0.4.4/powter-client-x86-0.4.4.zip
 ```
-  * VERSION : the release tag  
-  * ARCH : the architecture of your machine 
 
-  e.g : Deploy a [REPO] on a x86 machine with the release 0.5.6 by executing
-  ```bash
-  wget https://github.com/[OWNER]/[REPO]/releases/download/0.5.6/[REPO]-x86-0.5.6.zip
-  ```
-
-### Unzip
-
+* For armv6
 ```bash
-unzip [REPO]-[ARCH]-[VERSION].zip
-cd [REPO]-imageAPI-[ARCH]
+wget https://github.com/hilanderas/powter-client/releases/download/0.4.4/powter-client-armv6-0.4.4.zip
 ```
 
-### Generate the docker compose file
-
-Docker compose file is used for [REPO] deployment. Its generation requires three parameters:
-* [VARIABLE] : EXPLAINATION.  
-
-
+### Install 
+* Unzip packages
 ```bash
-make config 
+unzip powter-client-[ARCH]-0.4.4.zip
 ```
 
-e.g : Generate a compose file named `[NAME].yml` .
-cd ~/[REPO]-x86/
-make config 
-```
-Therefore a compose file named `[NAME].yml` is generated in `~/[REPO]-imageAPI-x86/compose/`.
-```yaml
-# [NAME].yml
+* Prepare installation environment
+
+	In this step, dependency used by powter-client will be downloaded(including docker images)
+```bash
+cd powter-client-[ARCH]
+make prepare
 ```
 
-### Start the service
-Start the service with the name you specified in the config step above.
-```bash 
-make start NAME=[COMP_NAME]
-```
-e.g: start service `[NAME]`
+* Test status after preparation
 ```bash
-cd [REPO]-imageAPI-x86/
-make start NAME=[NAME]
+make test_prepare
 ```
-After starting the service successfully, you may see the output similar with the following: 
-```
-docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml up -d
-
-```
-
-### Restart the service
-```bash
-make restart NAME=[COMP_NAME]
-```
-e.g
-```bash
-make restart NAME=[NAME]
-```
-After restarting the service successfully, you may see the output similar with the following:
-```
-docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml up -d --force-recreate
+If preparation succeeds, you will see output like below:
+```log
+make -s -f test.mk test-files
+elespejo/dnsmasq-armv6:0.8.2 exists
+/home/ubuntu/powter-client-armv6/client/dnsmasq-confgenerator exists
+/home/ubuntu/powter-client-armv6/client/dnsmasq-confgenerator-0.8.2.zip exists
+/home/ubuntu/powter-client-armv6/client/dnsmasq-imageAPI-armv6 exists
+/home/ubuntu/powter-client-armv6/client/dnsmasq-imageAPI-armv6-0.8.2.zip exists
+elespejo/bypass-armv6:0.5.1 does exist
+/home/ubuntu/powter-client-armv6/client/bypass-confgenerator exists
+/home/ubuntu/powter-client-armv6/client/bypass-confgenerator-0.5.1.zip exists
+/home/ubuntu/powter-client-armv6/client/bypass-imageAPI-armv6 exists
+/home/ubuntu/powter-client-armv6/client/bypass-imageAPI-armv6-0.5.1.zip exists
+elespejo/sskcp-armv6:0.4.7 does exist
+/home/ubuntu/powter-client-armv6/client/sskcp-confgenerator exists
+/home/ubuntu/powter-client-armv6/client/sskcp-confgenerator-0.4.7.zip exists
+/home/ubuntu/powter-client-armv6/client/sskcp-client-imageAPI-armv6 exists
+/home/ubuntu/powter-client-armv6/client/sskcp-client-imageAPI-armv6-0.4.7.zip exists
+/home/ubuntu/powter-client-armv6/client/info.yml exists
+make -s -f test.mk is-info-valid
+/home/ubuntu/powter-client-armv6/client/info.yml is valid
 ```
 
-### Check status of the service
+* Disable `systemd-resolved` services (only for ubuntu 18.04)
 ```bash
-make status NAME=[COMP_NAME]
+sudo systemctl disable systemd-resolved
+sudo systemctl stop systemd-resolved
+sudo systemctl status systemd-resolved
 ```
-e.g,
-```bash
-make stop NAME=[NAME]
+If disable succeeds,  you will see output like below:
 ```
-You may see the output similar with the following:
-```
-docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml ps
-docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml logs
+sudo: unable to resolve host ubuntu: Resource temporarily unavailable
+● systemd-resolved.service - Network Name Resolution
+   Loaded: loaded (/lib/systemd/system/systemd-resolved.service; disabled; vendor preset: enabled)
+   Active: inactive (dead)
+     Docs: man:systemd-resolved.service(8)
+           https://www.freedesktop.org/wiki/Software/systemd/resolved
+           https://www.freedesktop.org/wiki/Software/systemd/writing-network-configuration-managers
+           https://www.freedesktop.org/wiki/Software/systemd/writing-resolver-clients
 ```
 
-### Stop the service
+* Config powter-client
+
+ In this step, a `info` file will pop out asking you to edit and save with `:wq`
 ```bash
-make stop NAME=[COMP_NAME]
-```
-e.g,
-```bash
-make stop NAME=[NAME]
-```
-After stoping the service successfully, you may see the output similar with the following:
-```
-docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml down
+make config
+make test_config
 ```
 
-### List the services
+* Start powter-client
 ```bash
-make list
-```
-You may see the output similar with the following:
-```
-for compose in `ls ~/[REPO]-imageAPI-x86/compose`;do name=`echo $compose|awk -F "." '{print $1}'`;echo $name;docker-compose -p $name -f ~/[REPO]-imageAPI-x86/compose/$compose ps;done
-[NAME]
-Name   Command   State   Ports
-------------------------------
-...
+make start
 ```
 
-### Remove the compose file
+* Check status of powter-client
 ```bash
-make remove NAME=[COMP_NAME]
-```
-e.g,
-```bash
-make remove NAME=[NAME]
-```
-You may see the output similar with the following:
-```
-rm ~/[REPO]-imageAPI-x86/compose/[NAME].yml
-```
-Check whether the remove step successfully:
-```bash
-ls compose | grep [NAME]
+make status
 ```
 
