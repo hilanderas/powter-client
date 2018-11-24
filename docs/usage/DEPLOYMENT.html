@@ -94,7 +94,7 @@
                 <a href="../">
             
                     
-                    Introduction 0.4.4
+                    Introduction powter-client-0.4.4
             
                 </a>
             
@@ -384,95 +384,84 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="deployment">Deployment</h1>
-<h3 id="download-the-deployment-package">Download the deployment package</h3>
-<p>You can download the deployment package from web page or command line.</p>
+<h3 id="download-relased-package-044">Download relased package 0.4.4</h3>
 <ul>
-<li><p>From web:<br>Go to the <a href="https://github.com/[OWNER]/[REPO]/releases" target="_blank">release page</a> of this project. Select the package according to the architecture of your machine.</p>
-</li>
-<li><p>From command line:  </p>
-<pre><code class="lang-bash">wget https://github.com/[OWNER]/[REPO]/releases/download/[VERSION]/[REPO]-[ARCH]-[VERSION].zip
+<li><p>For x86</p>
+<pre><code class="lang-bash">wget https://github.com/hilanderas/powter-client/releases/download/0.4.4/powter-client-x86-0.4.4.zip
 </code></pre>
-<ul>
-<li>VERSION : the release tag  </li>
-<li>ARCH : the architecture of your machine </li>
-</ul>
-<p>e.g : Deploy a [REPO] on a x86 machine with the release 0.5.6 by executing</p>
-<pre><code class="lang-bash">wget https://github.com/[OWNER]/[REPO]/releases/download/0.5.6/[REPO]-x86-0.5.6.zip
+</li>
+<li><p>For armv6</p>
+<pre><code class="lang-bash">wget https://github.com/hilanderas/powter-client/releases/download/0.4.4/powter-client-armv6-0.4.4.zip
 </code></pre>
 </li>
 </ul>
-<h3 id="unzip">Unzip</h3>
-<pre><code class="lang-bash">unzip [REPO]-[ARCH]-[VERSION].zip
-<span class="hljs-built_in">cd</span> [REPO]-imageAPI-[ARCH]
-</code></pre>
-<h3 id="generate-the-docker-compose-file">Generate the docker compose file</h3>
-<p>Docker compose file is used for [REPO] deployment. Its generation requires three parameters:</p>
+<h3 id="install">Install</h3>
 <ul>
-<li>[VARIABLE] : EXPLAINATION.  </li>
-</ul>
+<li><p>Unzip packages</p>
+<pre><code class="lang-bash">unzip powter-client-[ARCH]-0.4.4.zip
+</code></pre>
+</li>
+<li><p>Prepare installation environment</p>
+<p>  In this step, dependency used by powter-client will be downloaded(including docker images)</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> powter-client-[ARCH]
+make prepare
+</code></pre>
+</li>
+<li><p>Test status after preparation</p>
+<pre><code class="lang-bash">make <span class="hljs-built_in">test</span>_prepare
+</code></pre>
+<p>If preparation succeeds, you will see output like below:</p>
+<pre><code class="lang-log">make -s -f test.mk test-files
+elespejo/dnsmasq-armv6:0.8.2 exists
+/home/ubuntu/powter-client-armv6/client/dnsmasq-confgenerator exists
+/home/ubuntu/powter-client-armv6/client/dnsmasq-confgenerator-0.8.2.zip exists
+/home/ubuntu/powter-client-armv6/client/dnsmasq-imageAPI-armv6 exists
+/home/ubuntu/powter-client-armv6/client/dnsmasq-imageAPI-armv6-0.8.2.zip exists
+elespejo/bypass-armv6:0.5.1 does exist
+/home/ubuntu/powter-client-armv6/client/bypass-confgenerator exists
+/home/ubuntu/powter-client-armv6/client/bypass-confgenerator-0.5.1.zip exists
+/home/ubuntu/powter-client-armv6/client/bypass-imageAPI-armv6 exists
+/home/ubuntu/powter-client-armv6/client/bypass-imageAPI-armv6-0.5.1.zip exists
+elespejo/sskcp-armv6:0.4.7 does exist
+/home/ubuntu/powter-client-armv6/client/sskcp-confgenerator exists
+/home/ubuntu/powter-client-armv6/client/sskcp-confgenerator-0.4.7.zip exists
+/home/ubuntu/powter-client-armv6/client/sskcp-client-imageAPI-armv6 exists
+/home/ubuntu/powter-client-armv6/client/sskcp-client-imageAPI-armv6-0.4.7.zip exists
+/home/ubuntu/powter-client-armv6/client/info.yml exists
+make -s -f test.mk is-info-valid
+/home/ubuntu/powter-client-armv6/client/info.yml is valid
+</code></pre>
+</li>
+<li><p>Disable <code>systemd-resolved</code> services (only for ubuntu 18.04)</p>
+<pre><code class="lang-bash">sudo systemctl <span class="hljs-built_in">disable</span> systemd-resolved
+sudo systemctl stop systemd-resolved
+sudo systemctl status systemd-resolved
+</code></pre>
+<p>If disable succeeds,  you will see output like below:</p>
+<pre><code>sudo: unable to resolve host ubuntu: Resource temporarily unavailable
+&#x25CF; systemd-resolved.service - Network Name Resolution
+ Loaded: loaded (/lib/systemd/system/systemd-resolved.service; disabled; vendor preset: enabled)
+ Active: inactive (dead)
+   Docs: man:systemd-resolved.service(8)
+         https://www.freedesktop.org/wiki/Software/systemd/resolved
+         https://www.freedesktop.org/wiki/Software/systemd/writing-network-configuration-managers
+         https://www.freedesktop.org/wiki/Software/systemd/writing-resolver-clients
+</code></pre></li>
+<li><p>Config powter-client</p>
+<p>In this step, a <code>info</code> file will pop out asking you to edit and save with <code>:wq</code></p>
 <pre><code class="lang-bash">make config
+make <span class="hljs-built_in">test</span>_config
 </code></pre>
-<p>e.g : Generate a compose file named <code>[NAME].yml</code> .
-cd ~/[REPO]-x86/
-make config </p>
-<pre><code>Therefore a compose file named `[NAME].yml` is generated in `~/[REPO]-imageAPI-x86/compose/`.
-```yaml
-# [NAME].yml
-</code></pre><h3 id="start-the-service">Start the service</h3>
-<p>Start the service with the name you specified in the config step above.</p>
-<pre><code class="lang-bash">make start NAME=[COMP_NAME]
+</li>
+<li><p>Start powter-client</p>
+<pre><code class="lang-bash">make start
 </code></pre>
-<p>e.g: start service <code>[NAME]</code></p>
-<pre><code class="lang-bash"><span class="hljs-built_in">cd</span> [REPO]-imageAPI-x86/
-make start NAME=[NAME]
+</li>
+<li><p>Check status of powter-client</p>
+<pre><code class="lang-bash">make status
 </code></pre>
-<p>After starting the service successfully, you may see the output similar with the following: </p>
-<pre><code>docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml up -d
-</code></pre><h3 id="restart-the-service">Restart the service</h3>
-<pre><code class="lang-bash">make restart NAME=[COMP_NAME]
-</code></pre>
-<p>e.g</p>
-<pre><code class="lang-bash">make restart NAME=[NAME]
-</code></pre>
-<p>After restarting the service successfully, you may see the output similar with the following:</p>
-<pre><code>docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml up -d --force-recreate
-</code></pre><h3 id="check-status-of-the-service">Check status of the service</h3>
-<pre><code class="lang-bash">make status NAME=[COMP_NAME]
-</code></pre>
-<p>e.g,</p>
-<pre><code class="lang-bash">make stop NAME=[NAME]
-</code></pre>
-<p>You may see the output similar with the following:</p>
-<pre><code>docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml ps
-docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml logs
-</code></pre><h3 id="stop-the-service">Stop the service</h3>
-<pre><code class="lang-bash">make stop NAME=[COMP_NAME]
-</code></pre>
-<p>e.g,</p>
-<pre><code class="lang-bash">make stop NAME=[NAME]
-</code></pre>
-<p>After stoping the service successfully, you may see the output similar with the following:</p>
-<pre><code>docker-compose -p [NAME] -f ~/[REPO]-imageAPI-x86/compose/[NAME].yml down
-</code></pre><h3 id="list-the-services">List the services</h3>
-<pre><code class="lang-bash">make list
-</code></pre>
-<p>You may see the output similar with the following:</p>
-<pre><code>for compose in `ls ~/[REPO]-imageAPI-x86/compose`;do name=`echo $compose|awk -F &quot;.&quot; &apos;{print $1}&apos;`;echo $name;docker-compose -p $name -f ~/[REPO]-imageAPI-x86/compose/$compose ps;done
-[NAME]
-Name   Command   State   Ports
-------------------------------
-...
-</code></pre><h3 id="remove-the-compose-file">Remove the compose file</h3>
-<pre><code class="lang-bash">make remove NAME=[COMP_NAME]
-</code></pre>
-<p>e.g,</p>
-<pre><code class="lang-bash">make remove NAME=[NAME]
-</code></pre>
-<p>You may see the output similar with the following:</p>
-<pre><code>rm ~/[REPO]-imageAPI-x86/compose/[NAME].yml
-</code></pre><p>Check whether the remove step successfully:</p>
-<pre><code class="lang-bash">ls compose | grep [NAME]
-</code></pre>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -516,7 +505,7 @@ Name   Command   State   Ports
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Deployment","level":"3.1","depth":1,"next":{"title":"info","level":"4.1","depth":1,"path":"usage/usermanual/INFO.md","ref":"usage/usermanual/INFO.md","articles":[]},"previous":{"title":"Dependency","level":"2.2","depth":1,"path":"usage/DEPENDENCY.md","ref":"usage/DEPENDENCY.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"usage/DEPLOYMENT.md","mtime":"2018-11-21T02:34:55.059Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-23T04:47:05.384Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Deployment","level":"3.1","depth":1,"next":{"title":"info","level":"4.1","depth":1,"path":"usage/usermanual/INFO.md","ref":"usage/usermanual/INFO.md","articles":[]},"previous":{"title":"Dependency","level":"2.2","depth":1,"path":"usage/DEPENDENCY.md","ref":"usage/DEPENDENCY.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"usage/DEPLOYMENT.md","mtime":"2018-11-24T03:29:12.871Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-24T06:34:57.024Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
