@@ -59,6 +59,6 @@ remove-genconfs: rm-dns-genconf rm-bypass-genconf rm-sskcp-genconf
 remove-content: remove-apis remove-genconfs remove-images remove-info
 
 .PHONY: remove
-remove:	$(SRC_DIR) remove-images
+remove:	$(SRC_DIR)
 	rm -rf $(SRC_DIR)
 

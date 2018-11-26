@@ -1,14 +1,15 @@
 CONFIG_ENV=${CURDIR}/setting.env
 
-include ${CONFIG_ENV}
+include $(CONFIG_ENV)
+
 
 ## download dns
 .PHONY: dl-dns-api dl-dns-confgen dl-dns-image download-dns
 dl-dns-api:
-	cd $(SRC_DIR) && wget $(DNS_API_URL) && unzip $(DNS_API_ZIP) 
+	./dlzip.sh $(DNS_API_ZIP) $(SRC_DIR) $(DNS_API_URL) $(DNS_API)
 
 dl-dns-confgen:
-	cd $(SRC_DIR) && wget $(DNS_CONFGEN_URL) && unzip $(DNS_CONFGEN_ZIP) 
+	./dlzip.sh $(DNS_CONFGEN_ZIP) $(SRC_DIR) $(DNS_CONFGEN_URL) $(DNS_CONFGEN)
 
 dl-dns-image:
 	docker pull $(DNS_IMAGE)
@@ -19,10 +20,10 @@ download-dns: dl-dns-api dl-dns-confgen dl-dns-image
 ## download bypass
 .PHONY: dl-bypass-api dl-bypass-confgen dl-bypass-image download-bypass
 dl-bypass-api:
-	cd $(SRC_DIR) && wget $(BYPASS_API_URL) && unzip $(BYPASS_API_ZIP) 
+	./dlzip.sh $(BYPASS_API_ZIP) $(SRC_DIR) $(BYPASS_API_URL) $(BYPASS_API)  
 
 dl-bypass-confgen:
-	cd $(SRC_DIR) && wget $(BYPASS_CONFGEN_URL) && unzip $(BYPASS_CONFGEN_ZIP)
+	./dlzip.sh $(BYPASS_CONFGEN_ZIP) $(SRC_DIR) $(BYPASS_CONFGEN_URL) $(BYPASS_CONFGEN)
 
 dl-bypass-image:
 	docker pull $(BYPASS_IMAGE)
@@ -33,10 +34,10 @@ download-bypass: dl-bypass-api dl-bypass-confgen dl-bypass-image
 ## download sskcp
 .PHONY: dl-sskcp-api dl-sskcp-confgen dl-sskcp-image download-sskcp
 dl-sskcp-api:
-	cd $(SRC_DIR) && wget $(SSKCP_API_URL) && unzip $(SSKCP_API_ZIP)
+	./dlzip.sh $(SSKCP_API_ZIP) $(SRC_DIR) $(SSKCP_API_URL) $(SSKCP_API)
 
 dl-sskcp-confgen:
-	cd $(SRC_DIR) && wget $(SSKCP_CONFGEN_URL) && unzip $(SSKCP_CONFGEN_ZIP)
+	./dlzip.sh $(SSKCP_CONFGEN_ZIP) $(SRC_DIR) $(SSKCP_CONFGEN_URL) $(SSKCP_CONFGEN) 
 
 dl-sskcp-image:
 	docker pull $(SSKCP_IMAGE)
@@ -59,8 +60,10 @@ resetinfo: geninfo
 
 .PHONY: create-client
 create-client:
-	mkdir client
+ifeq (, $(wildcard $(SRC_DIR)))
+	mkdir $(SRC_DIR)
+endif
 
 .PHONY: prepare
-prepare: create-client download-apis download-confgens download-images geninfo
+prepare: create-client download-apis download-confgens geninfo download-images 
 

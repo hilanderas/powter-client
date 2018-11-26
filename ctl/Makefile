@@ -1,6 +1,6 @@
 .PHONY: install uninstall update
 install: prepare config start
-uninstall: stop restore remove
+uninstall: stop restore remove-all
 update: config restart
 
 .PHONY: prepare config start restart status stop remove 
@@ -8,6 +8,9 @@ prepare:
 	make -f prepare.mk prepare
 remove:
 	make -f remove.mk remove
+remove-all:
+	make -f remove.mk remove
+	make -f remove.mk remove-images
 config:
 	make -f config.mk config
 restore:
@@ -43,6 +46,12 @@ test_config:
 
 test_restore:
 	make -s -f test.mk test-restore
+
+test_start:
+	docker ps -a	
+
+test_stop:
+	docker ps -a	
 
 .PHONY: restart_dns restart_bypass restart_sskcp
 restart_dns:
