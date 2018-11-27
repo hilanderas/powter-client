@@ -8,7 +8,8 @@ include ${CONFIG_ENV}
 status: status-dns status-bypass status-sskcp
 
 status-dns: $(POWTER_CLIENT_CONF)/dnsconf $(DNS_API)
-	make -C $(DNS_API) status NAME=$(PROJ)-dns || true
+	docker ps -a | grep dns
+	#make -C $(DNS_API) status NAME=$(PROJ)-dns || true
 
 status-bypass: $(POWTER_CLIENT_CONF)/bypassconf $(BYPASS_API)
 	make -C $(BYPASS_API) status NAME=$(PROJ)-bypass || true

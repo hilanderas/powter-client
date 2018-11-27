@@ -26,7 +26,7 @@ Please note that if `info` is not provided, a default one will pop up and you ca
 ```bash
 make config 
 ```
-##### If you want script keep running without stopping, add `INTRERACTION=false` at the end of the command (not applicable for 0.4.4)
+##### If you want script keep running without stopping, add `INTRERACTION=false` at the end of the command (not applicable for 0.4.5)
 ```bash
 make config INFO=path/to/info INTRERACTION=false
 ```

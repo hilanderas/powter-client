@@ -1,20 +1,20 @@
 # Deployment
 
-### Download relased package 0.4.4
+### Download relased package 0.4.5
 * For x86
 ```bash
-wget https://github.com/hilanderas/powter-client/releases/download/0.4.4/powter-client-x86-0.4.4.zip
+wget https://github.com/hilanderas/powter-client/releases/download/0.4.5/powter-client-x86-0.4.5.zip
 ```
 
 * For armv6
 ```bash
-wget https://github.com/hilanderas/powter-client/releases/download/0.4.4/powter-client-armv6-0.4.4.zip
+wget https://github.com/hilanderas/powter-client/releases/download/0.4.5/powter-client-armv6-0.4.5.zip
 ```
 
 ### Install 
 * Unzip packages
 ```bash
-unzip powter-client-[ARCH]-0.4.4.zip
+unzip powter-client-[ARCH]-0.4.5.zip
 ```
 
 * Prepare installation environment

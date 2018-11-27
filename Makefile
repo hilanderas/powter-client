@@ -33,4 +33,10 @@ build-testflow:
 .PHONY: build 
 build: $(buildjobs)
 
+update_gitbook: $(GITBOOK)
+	sed -i s/$(PRE)/$(CUR)/g $(CURDIR)/gitbook/usage/testflow/PRODUCTIONMODE.md
+	sed -i s/$(PRE)/$(CUR)/g $(CURDIR)/gitbook/usage/DEPLOYMENT.md
+	sed -i s/$(PRE)/$(CUR)/g $(CURDIR)/gitbook/usage/usermanual/INSTALL.md
+	sed -i s/$(PRE)/$(CUR)/g $(CURDIR)/gitbook/SUMMARY.md
 
+build_doc: update_gitbook build_book
