@@ -1,7 +1,6 @@
-# Update dns conf-file
+# Update dnsconf
 
-In following scenarios, you need to manipulate with dns conf-file
-
+In following scenarios, you need to manipulate with dnsconf 
 
 ### Assign static IP to a host
 * Go to conf-file directory specified in `info`

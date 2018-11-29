@@ -16,10 +16,5 @@ sudo usermod -aG docker $USER
   * armv6 : 
 ```bash
 sudo apt install python-pip
-pip install docker-compose
-```
-
-### Reboot
-```bash
-sudo reboot
+sudo pip install docker-compose
 ```
