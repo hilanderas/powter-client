@@ -1,4 +1,4 @@
-# Replace dns server
+# Update dns settings
 
 Sometimes vps used as dns server is in low performance or high latency, so you want to replace it to a new one or just add a new one.
 
@@ -13,7 +13,7 @@ Alternatively, there are other 2 ways to update dns configuration without restar
 * Update `info` with file provided by user
 
 
-### Modify info on line
+##### Modify info on line
 * Modify  `ip` in dns-server and save
 ```bash
 make config
@@ -29,7 +29,7 @@ make restart_dns
 make status_dns
 ```
 
-### Modify info file
+##### Modify info file
 * Modify  `ip` in dns-server in `info` file and save
 ```bash
 vi /path/to/info
