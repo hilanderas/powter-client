@@ -1,14 +1,6 @@
 #!/bin/bash 
 source .env
-
-hint() {
-    GREEN='\033[0;32m'
-    NC='\033[0m' # No Color
-    printf "${GREEN}=================================${NC}\n"
-    printf "${GREEN}$1${NC}\n"
-    printf "${GREEN}=================================${NC}\n"
-
-}
+source hint.sh
 
 netflow() {
 	 #sudo iftop -NnP -i ${IFACE} -f "portrange $1" -t -s 10   

@@ -1,0 +1,11 @@
+include main.mk
+.PHONY: test_init test_prepared test_configured test_running
+test_init: test_config test_start test_remove test_restore test_stop test_restart
+test_prepared: test_prepare test_start test_restore test_stop test_restart test_remove
+test_configured: test_prepare test_config test_prepare_again test_remove test_restart test_stop test_restore test_remove_again
+test_running: test_prepare test_config test_start test_config_again test_restore test_start_again test_prepare_again test_remove test_stop test_restore_again test_remove_again
+
+.PHONY: test_prepare_twice test_config_twice
+test_prepare_twice: test_prepare test_prepare test_remove
+test_config_twice: test_prepare test_config test_config_again test_restore test_remove
+

@@ -17,7 +17,7 @@ bypass:
   config:
     lan: br0
     base_port: 2010
-    number: 8 
+    number: 2
   white:
     - filename: 03-vps
       content:
@@ -25,13 +25,6 @@ bypass:
       - 4.4.4.4
 sskcp:
   client:
-    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2010, vpsip: 3.3.3.3, vpsport: 4201, key: test}
-    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2020, vpsip: 3.3.3.3, vpsport: 4202, key: test}
-    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2030, vpsip: 3.3.3.3, vpsport: 4203, key: test}
-    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2040, vpsip: 3.3.3.3, vpsport: 4204, key: test}
-   
-    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2050, vpsip: 4.4.4.4, vpsport: 4201, key: test}
-    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2060, vpsip: 4.4.4.4, vpsport: 4202, key: test}
-    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2070, vpsip: 4.4.4.4, vpsport: 4203, key: test}
-    - {mode: sskcp, log-dir: /home/USER/snmplog, listenport: 2080, vpsip: 4.4.4.4, vpsport: 4204, key: test}
-   
+    - {mode: sskcp, log-dir: /home/qa/snmplog, listenport: 2010, vpsip: 3.3.3.3, vpsport: 4201, key: test}
+    - {mode: sskcp, log-dir: /home/qa/snmplog, listenport: 2020, vpsip: 4.4.4.4, vpsport: 4201, key: test}
+  
