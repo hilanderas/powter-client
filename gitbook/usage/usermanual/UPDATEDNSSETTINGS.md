@@ -7,6 +7,10 @@ The most simple way to update configuration is using `update`, which will change
 ```bash
 make update
 ``` 
+**Note that `info` can also be provided to update, like below:**
+```bash
+make update INFO=/path/to/info
+```
 
 Alternatively, there are other 2 ways to update dns configuration without restarting other services:
 * Update `info` on line
@@ -36,7 +40,7 @@ vi /path/to/info
 ```
 * Generate configuration
 ```bash
-make config INFO=/path/to/info INTERATION=no
+make config INFO=/path/to/info
 ```
 
 * Restart dns service

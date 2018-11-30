@@ -1,6 +1,15 @@
 #!/bin/bash 
 source .env
-source hint.sh
+
+hint() {
+    GREEN='\033[0;32m'
+    NC='\033[0m' # No Color
+    printf "${GREEN}=================================${NC}\n"
+    printf "${GREEN}$1${NC}\n"
+    printf "${GREEN}=================================${NC}\n"
+}
+
+
 
 netflow() {
 	 #sudo iftop -NnP -i ${IFACE} -f "portrange $1" -t -s 10   
@@ -8,7 +17,7 @@ netflow() {
     for i in "${VPS[@]}"
     do
         echo "$i"
-				sudo iftop -i ${IFACE} -NnP -F "$i/24" -t -s 10
+				sudo iftop -i ${IFACE} -NnP -F "$i/24" -t -s 1
 		done
 }
 
@@ -77,6 +86,6 @@ ctl(){
 
 ns_lookup(){
 	hint "nslookup $1"
-	nslookup $1 127.0.0.1
-	#nslookup $1
+	#nslookup $1 127.0.0.1
+	nslookup $1
 }

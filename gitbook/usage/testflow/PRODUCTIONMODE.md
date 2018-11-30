@@ -2,15 +2,15 @@
 
 ###  Login router and download powter-client testflow packages
 ```bash
-wget https://github.com/hilanderas/powter-client/releases/download/0.4.5/powter-client-testflow-0.4.5.zip
-unzip powter-client-testflow-0.4.5.zip
+wget https://github.com/hilanderas/powter-client/releases/download/0.4.6/powter-client-testflow-0.4.6.zip
+unzip powter-client-testflow-0.4.6.zip
 ```
 [Check releases page for other versions](https://github.com/hilanderas/powter-client/releases)
 
 ### Download powter-client packages
 ```bash
 cd powter-client-testflow
-make download ARCH=[ARCH]
+make -f main.mk download ARCH=[ARCH]
 ```
 `ARCH`: x86 or armv6
 
@@ -19,7 +19,7 @@ make download ARCH=[ARCH]
 
 * Set project path, info file path and lan port 
 ```bash
-make config TEST_PROJ=[PROJECT] TEST_INFO=[TEST_INFO] IFACE=[IFACE]
+make -f main.mk config TEST_PROJ=[PROJECT] TEST_INFO=[TEST_INFO] IFACE=[IFACE]
 ```
 Description of each attribute:
 * `TEST_PROJ`: Path of `power-client/client`
@@ -28,50 +28,56 @@ Description of each attribute:
 
 	e.g,
 ```bash
-make config TEST_PROJ=$PWD/powter-client-x86 TEST_INFO=$PWD/info.yml IFACE=enp2s0
+make -f main.mk config TEST_PROJ=$PWD/powter-client-x86 TEST_INFO=$PWD/info.yml IFACE=enp2s0
 ```
 
 * Check configuration
 ```bash
-make -s read_config
+make -f main.mk -s read_config
 ```
 
 ### Run test flow
 * Preparation before test
 ```bash
-make test_prepare
+make -f main.mk test_prepare
+```
+* Run functional test flow
+```bash
+make -f function.mk test_install
+make -f function.mk test_uninstall
+make -f function.mk test_installafteruninstall
+make -f function.mk test_reinstall
+make -f function.mk test_reuninstall
+make -f function.mk test_checkvps
+```
+* Run restart test flow
+```bash
+make -f restart.mk test_reboot_p1
+make -f restart.mk test_reboot_p2
+make -f restart.mk test_poweroff_p1
+make -f restart.mk test_poweroff_p2
+make -f restart.mk test_isprestart
+make -f restart.mk test_restartall
 ```
 
-* Run scenarios
+* Run update test flow
+	* Update dns or sskcp configuration
 ```bash
-make [SCENARIO]
+make -f update.mk test_update_dns
+make -f update.mk test_update_sskcp
 ```
-`SCENARIO:` Name of a test scenario, you can enter `make` and `tab` to see the whole lists.
-	e.g,
-* Install
+	* Switch vps test
+
+	In this scenario, we assume that dns server and sskcp server are the same and we want to switch them to another groups and switch back again.	Prepare info_slave.yml, the main different between info.yml and info_slave.yml is the dns server IP and sskcp IP. 
 ```bash
-make test_install
+make -f update.mk switch SLAVE=[SLAVE]
 ```
-
-* Uninstall
+e.g,
 ```bash
-make test_uninstall
-```
-
-* Switch vps test
-
-	Prepare info_slave.yml, the main different between info.yml and info_slave.yml is the dns server IP and sskcp IP. In this scenario, we assume that dns server and sskcp server are the same and we want to switch them to another groups and switch back again.
-```bash
-make test_switch SLAVE=[SLAVE]
-```
-`SLAVE`: slave info.yml 
-
-	e.g,
-```bash
-make test_switch SLAVE=/home/qa/info_slave.yml
+make -f update.mk switch SLAVE=/home/qa/info_slave.yml
 ```
 
 * Clean up
 ```bash
-make cleanup
+make -f main.mk test_remove
 ```

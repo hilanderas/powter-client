@@ -72,14 +72,14 @@ cleanup:
 status:
 	./status.sh
 
-test_showconf:
+test_showconf test_showconf_again:
 	./showconf.sh	
 
 .PHONY: nslookup netflow
-nslookup:
+nslookup nslookup_again:
 	./nslookup.sh
 
-netflow:
+netflow netflow_again:
 	./netflow.sh
 
 

@@ -25,7 +25,6 @@
 * [Stop](usage/usermanual/STOP.md)
 * [Restart](usage/usermanual/RESTART.md)
 * [Check status](usage/usermanual/CHECKSTATUS.md)
-* [Update dns conf-file](usage/usermanual/UPDATEDNSCONF.md)
 * [Update dns settings](usage/usermanual/UPDATEDNSSETTINGS.md)
 * [Update sskcp](usage/usermanual/UPDATESSKCP.md)
 * [Reset conf](usage/usermanual/RESET.md)

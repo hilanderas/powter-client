@@ -70,9 +70,12 @@ make -f restart.mk test_restartall
 ```
 
 * Run update test flow
-make -f update.mk test_switch=/path/to/info_slave.yml
-
-	* Clean up
+```bash
+make -f update.mk switch SLAVE=/path/to/info_slave.yml
+make -f update.mk test_update_dns
+make -f update.mk test_update_sskcp
+```
+* Clean up
 Remove all packages and images after if all tests have been done.
 ```bash
 make -f main.mk test_remove
