@@ -40,5 +40,5 @@ set-conf: $(QUEUED_CONF) mk-conf
 	mv $(QUEUED_CONF)/* $(POWTER_CLIENT_CONF)/
 	cp $(QUEUED_INFO) $(POWTER_CLIENT_INFO)
 
-restore-conf:
-	rm -rf $(POWTER_CLIENT_CONF)
+restore-conf: $(POWTER_CLIENT_CONF) $(QUEUED_CONF)
+	mv $(POWTER_CLIENT_CONF)/* $(QUEUED_CONF)

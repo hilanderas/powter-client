@@ -17,12 +17,13 @@ set_config:
 restore_config:
 	make -f sm.mk is_CONFREADY && make -f config.mk restore-conf && make -f sm.mk set_CONFGENED
 start:
-	make -s -f sm.mk is_CONFIGURED && make -f start.mk start && make -f sm.mk set_RUNNING
+	make -s -f sm.mk is_CONFREADY && make -f start.mk start && make -f sm.mk set_RUNNING
 stop:
-	make -f sm.mk is_RUNNING && make -f stop.mk stop && make -f sm.mk set_CONFIGURED
+	make -f sm.mk is_RUNNING && make -f stop.mk stop && make -f sm.mk set_CONFREADY
 restart:
 	make -f sm.mk is_RUNNING && make -f restart.mk restart
-
+update_config:
+	make -f sm.mk is_RUNNING && make -f config.mk gen-conf && make -f sm.mk set_CONFQUEUED
 .PHONY: get_state status showconf show_queued_info show_queued_conf
 get_state:
 	make -f sm.mk get_state
