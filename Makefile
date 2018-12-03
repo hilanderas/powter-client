@@ -24,8 +24,8 @@ build-testflow:
 	cp -r testflow/info*.yml $(TESTFLOW)
 	cd $(TESTFLOW)/; find . -type f -exec md5sum {} \; > $(CURDIR)/$(TESTFLOW)-$(version).md5; cd -
 	mv $(TESTFLOW)-$(version).md5 $(TESTFLOW)
-	cd $(TESTFLOW) && make set_mod TESTMODE=prod
-	sed -i '/^VERSION/c\VERSION=${version}' $(TESTFLOW)/Makefile 
+	cd $(TESTFLOW) && make -f main.mk set_mod TESTMODE=prod
+	sed -i '/^VERSION/c\VERSION=${version}' $(TESTFLOW)/main.mk
 	zip -r $(TESTFLOW)-$(version).zip $(TESTFLOW)
 	rm -rf $(TESTFLOW)
 
