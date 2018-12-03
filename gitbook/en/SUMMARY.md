@@ -3,14 +3,8 @@
 * [Introduction powter-client-0.4.6](README.md)
 
 ### Overview 
-* [User](overview/USER.md)
-* [User scenarios](overview/SCENARIOS.md)
-* [The problem solved](overview/PROBLEMSOLVED.md)
-
-### Vision
-* [Final features](vision/FINALFEATURE.md)
-* [Milestones](vision/MILESTONE.md)
-* [Business goal](vision/BUSINESSGOAL.md)
+* [Who are the user ?](overview/USER.md)
+* [About project](overview/PROJECT.md)
 
 ### Deployment
 * [Topology](usage/TOPOLOGY.md)
