@@ -31,8 +31,6 @@
 ### FAQ
 * [Trouble shooting](faq/TROUBLESHOOTING.md)
 
-### Contribute
-* [How to contribute](CONTRIBUTE.md)
-
-### Donate
-* [How to donate](DONATE.md)
+### Contribution
+* [How to participate](contribution/CONTRIBUTE.md)
+* [How to donate](contribution/DONATE.md)
