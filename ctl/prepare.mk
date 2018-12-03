@@ -55,6 +55,7 @@ download-confgens: dl-dns-confgen dl-bypass-confgen dl-sskcp-confgen
 .PHONY: geninfo reset-info
 geninfo:
 	./confmgr.py mergeinfo --dns $(DNS_CONFGEN)/dnsmasq-info.yml --bypass $(BYPASS_CONFGEN)/bypass-info.yml --sskcp $(SSKCP_CONFGEN)/sskcp-client-info.yml --info $(POWTER_CLIENT_INFO) 
+	cp $(POWTER_CLIENT_INFO) $(QUEUED_INFO)
 
 resetinfo: geninfo
 
