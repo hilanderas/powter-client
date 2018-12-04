@@ -2,8 +2,8 @@
 
 ###  Login router and download powter-client testflow packages
 ```bash
-wget https://github.com/hilanderas/powter-client/releases/download/0.4.7/powter-client-testflow-0.4.7.zip
-unzip powter-client-testflow-0.4.7.zip
+wget https://github.com/hilanderas/powter-client/releases/download/0.4.8/powter-client-testflow-0.4.8.zip
+unzip powter-client-testflow-0.4.8.zip
 ```
 [Check releases page for other versions](https://github.com/hilanderas/powter-client/releases)
 

@@ -34,19 +34,20 @@ make -f main.mk init_config TEST_PROJ=/home/qa/powter-client/ctl
 ```bash
 make -f state.mk test_init
 make -f state.mk test_prepared
-make -f state.mk test_configured
+make -f state.mk test_conf_generated
 make -f state.mk test_running
+make -f state.mk test_queued_y
+make -f state.mk test_queued_n
+make -f state.mk test_conf_ready
 ```
 	* Normal state test
 ```bash
-make -f state.mk test_prepare_twice
-make -f state.mk test_config_twice
-```
-
-* Prepare test environment before test
-Download packages from modules, download images and generate info file
-```bash
-make -f main.mk test_prepare
+make -f state.mk test_init_norm
+make -f state.mk test_prepared_norm
+make -f state.mk test_conf_gen_norm
+make -f state.mk test_conf_ready_norm
+make -f state.mk test_running_norm
+make -f state.mk test_queued_norm
 ```
 
 * Run functional test flow
@@ -74,9 +75,4 @@ make -f restart.mk test_restartall
 make -f update.mk switch SLAVE=/path/to/info_slave.yml
 make -f update.mk test_update_dns
 make -f update.mk test_update_sskcp
-```
-* Clean up
-Remove all packages and images after if all tests have been done.
-```bash
-make -f main.mk test_remove
 ```
