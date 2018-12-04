@@ -1,7 +1,7 @@
 #!make
 include .env
 LIB=".env"
-VERSION=0.4.6
+VERSION=0.4.7
 PROJECT=powter-client
 
 .PHONY: download rm_download
