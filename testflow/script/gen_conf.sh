@@ -1,4 +1,5 @@
 #!/bin/bash
 source lib.sh
-ctl "start"
+
+gen_config $1 
 ctl "test_state"

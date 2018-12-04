@@ -1,29 +1,31 @@
 include main.mk
 
-.PHONY: test_install test_uninstall test_checkvps test_installafteruninstall test_reinstall test_uninstall 
+.PHONY: install uninstall test_checkvps installafteruninstall test_reinstall uninstall 
 ifeq ($(TESTMODE),dev)
-test_install: test_config test_start test_stop test_restore
-test_uninstall: test_config test_start test_stop test_restore
-test_installafteruninstall: test_config test_start test_stop test_restore test_config_again test_start_again test_stop_again test_restore_again
-test_reinstall: test_config test_start test_config_again test_start_again test_stop test_restore
-test_reuninstall: test_config test_start test_stop test_restore test_stop_again test_restore_again
+test_install test_uninstall: install uninstall
+
+test_installafteruninstall: install uninstall install_again
+
+test_reinstall: install  install_again uninstall
+
+test_reuninstall: install uninstall uninstall_again
+ 
 else ifeq ($(TESTMODE),prod)
-test_install: test_config test_start nslookup netflow test_stop test_restore
-test_uninstall: test_config test_start test_stop nslookup netflow test_restore
-test_installafteruninstall: test_config test_start test_stop test_restore test_config_again test_start_again nslookup netflow test_stop_again test_restore_again
-test_reinstall: test_config test_start test_config_again test_start_again nslookup netflow test_stop test_restore
-test_reuninstall: test_config test_start test_stop test_restore test_stop_again test_restore_again nslookup netflow
+test_install: install nslookup netflow uninstall 
+
+test_uninstall: install uninstall  nslookup netflow 
+
+test_installafteruninstall: install uninstall install_again nslookup netflow uninstall
+
+test_reinstall: install install_again nslookup netflow uninstall 
+
+test_reuninstall: install uninstall uninstall_again nslookup netflow
+
 else
-test_install test_uninstall test_checkvps test_installafteruninstall test_reinstall test_uninstall: 
+test_install test_uninstall test_checkvps test_installafteruninstall test_reinstall: 
 	echo "Please set test mode to either dev or prod"
 endif
 
 .PHONY: test_checkvps
-test_checkvps:
-	./config_f.sh ${TEST_INFO}
-	./start.sh
-	./showconf.sh
-	./stop.sh
-	./restore.sh		
-
+test_checkvps: install test_showconf uninstall 
 

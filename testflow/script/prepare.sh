@@ -2,4 +2,4 @@
 source lib.sh
 
 ctl "prepare"
-ctl "test_prepare"
+ctl "test_state"

@@ -1,4 +1,5 @@
 #!/bin/bash
 source lib.sh
-ctl "start"
+
+ctl "rm_config"
 ctl "test_state"

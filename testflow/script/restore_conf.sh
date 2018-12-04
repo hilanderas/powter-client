@@ -1,4 +1,5 @@
 #!/bin/bash
 source lib.sh
-ctl "start"
+
+ctl "restore_config"
 ctl "test_state"

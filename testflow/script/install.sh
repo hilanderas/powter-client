@@ -1,4 +1,5 @@
 #!/bin/bash
 source lib.sh
-ctl "start"
+
+ctl "install"
 ctl "test_state"

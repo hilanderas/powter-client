@@ -1,4 +1,5 @@
 #!/bin/bash
 source lib.sh
-ctl "start"
+
+ctl "uninstall"
 ctl "test_state"
