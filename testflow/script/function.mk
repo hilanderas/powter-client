@@ -4,7 +4,7 @@ include main.mk
 ifeq ($(TESTMODE),dev)
 test_install test_uninstall: install uninstall
 
-test_installafteruninstall: install uninstall install_again
+test_installafteruninstall: install uninstall install_again uninstall_again
 
 test_reinstall: install  install_again uninstall
 

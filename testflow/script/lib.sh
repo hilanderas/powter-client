@@ -17,7 +17,7 @@ netflow() {
     for i in "${VPS[@]}"
     do
         echo "$i"
-				sudo iftop -i ${IFACE} -NnP -F "$i/24" -t -s 1
+				sudo iftop -i ${IFACE} -NnP -F "$i/24" -t -s 5
 		done
 }
 
@@ -95,6 +95,6 @@ ctl(){
 
 ns_lookup(){
 	hint "nslookup $1"
-	#nslookup $1 127.0.0.1
-	nslookup $1
+	nslookup $1 127.0.0.1
+	#nslookup $1
 }

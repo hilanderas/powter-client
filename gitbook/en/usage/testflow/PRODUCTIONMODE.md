@@ -37,10 +37,6 @@ make -f main.mk -s read_config
 ```
 
 ### Run test flow
-* Preparation before test
-```bash
-make -f main.mk test_prepare
-```
 * Run functional test flow
 ```bash
 make -f function.mk test_install
@@ -79,6 +75,6 @@ make -f update.mk switch SLAVE=/home/qa/info_slave.yml
 
 * Clean up
 ```bash
-make -f main.mk test_remove
+make -f main.mk cleanup 
 rm -r ~/powter-client-x86*
 ```
