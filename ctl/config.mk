@@ -16,10 +16,8 @@ mk-queued-conf: $(QUEUED_INFO)
 	rm -rf $(QUEUED_CONF) || true
 	mkdir $(QUEUED_CONF)
 
-clean-queued-conf:
-	rm -rf $(QUEUED_CONF)/*
 
-gen-queued-conf: $(QUEUED_INFO) mk-queued-conf clean-queued-conf
+gen-queued-conf: $(QUEUED_INFO) mk-queued-conf
 	./confmgr.py validate --info $(QUEUED_INFO)
 	./confmgr.py divideinfo --info $(QUEUED_INFO) --dns $(DNS_INFO) --bypass $(BYPASS_INFO) --sskcp $(SSKCP_INFO)
 	cd $(DNS_CONFGEN) && python3 -m confgenerator.cli -f $(DNS_INFO) -d $(QUEUED_CONF)/dnsconf
@@ -29,7 +27,6 @@ gen-queued-conf: $(QUEUED_INFO) mk-queued-conf clean-queued-conf
 rm-queued-conf: $(QUEUED_CONF)
 	rm -rf $(QUEUED_CONF)
 
-
 gen-conf: edit gen-queued-conf 
 
 mk-conf: $(POWTER_CLIENT_INFO)
@@ -38,7 +35,8 @@ mk-conf: $(POWTER_CLIENT_INFO)
 
 set-conf: $(QUEUED_CONF) mk-conf 
 	mv $(QUEUED_CONF)/* $(POWTER_CLIENT_CONF)/
+	rm -rf $(QUEUED_CONF)
 	cp $(QUEUED_INFO) $(POWTER_CLIENT_INFO)
 
-restore-conf: $(POWTER_CLIENT_CONF) $(QUEUED_CONF)
-	mv $(POWTER_CLIENT_CONF)/* $(QUEUED_CONF)
+restore-conf: $(POWTER_CLIENT_CONF)
+	mv $(POWTER_CLIENT_CONF) $(QUEUED_CONF)
