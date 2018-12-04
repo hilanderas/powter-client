@@ -83,4 +83,4 @@ test-queued-info: is-queued-info-existed
 
 .PHONY: test-services
 test-services:
-	docker ps -a | grep powter
+	docker ps -a | grep xxx || true
