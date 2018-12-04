@@ -70,8 +70,7 @@ class YamlWrapper:
                 print("%s is valid" % (filename))
                 return True
             except yaml.YAMLError as exc:
-                print(exc)
-                return False
+                raise exc
 
 
     def parse(self, filename):
