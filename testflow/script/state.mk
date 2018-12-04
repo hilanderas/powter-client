@@ -1,11 +1,36 @@
 include main.mk
-.PHONY: test_init test_prepared test_configured test_running
-test_init: test_config test_start test_remove test_restore test_stop test_restart
-test_prepared: test_prepare test_start test_restore test_stop test_restart test_remove
-test_configured: test_prepare test_config test_prepare_again test_remove test_restart test_stop test_restore test_remove_again
-test_running: test_prepare test_config test_start test_config_again test_restore test_start_again test_prepare_again test_remove test_stop test_restore_again test_remove_again
 
-.PHONY: test_prepare_twice test_config_twice
-test_prepare_twice: test_prepare test_prepare test_remove
-test_config_twice: test_prepare test_config test_config_again test_restore test_remove
+
+.PHONY: test_init test_prepared test_conf_generated test_conf_ready test_conf_queued test_running
+test_init: test_remove test_gen_conf test_rm_conf test_set_conf test_restore_conf  test_start  test_stop test_restart test_pop_config 
+
+test_prepared: test_prepare test_rm_conf test_set_conf test_restore_conf  test_start  test_stop test_restart test_pop_config test_remove
+
+test_conf_generated: test_prepare test_gen_conf test_prepare_again test_remove test_restore_conf test_start test_stop test_restart test_pop_config test_rm_conf test_remove_again
+
+test_conf_ready: test_prepare test_gen_conf test_set_conf  test_prepare_again test_remove test_gen_conf_1 test_rm_conf test_set_conf_again test_stop test_restart test_pop_config test_restore_conf test_rm_conf_again test_remove_again
+
+test_conf_queued_y: test_prepare test_gen_conf test_set_conf test_start test_gen_conf_1 test_prepare_again test_remove test_set_conf test_restore_conf  test_start_again test_stop test_restart test_pop_config test_start_1 test_stop_again test_restore_conf_again test_rm_conf test_remove_again
+
+test_conf_queued_n: test_prepare test_gen_conf test_set_conf test_start test_gen_conf_1 test_prepare_again test_remove test_set_conf test_restore_conf test_start_again test_stop test_restart test_pop_config test_stop_again test_restore_conf_again test_rm_conf_again test_remove_again
+
+test_running: test_prepare test_gen_conf test_set_conf test_start test_prepare_again test_remove test_rm_conf test_set_conf_again test_restore_conf test_start_again test_stop test_restore_conf_again test_rm_conf_again test_remove_again
+
+
+.PHONY: 
+test_init_norm: test_prepare test_remove
+
+test_prepare_norm: test_prepare test_prepare test_gen_conf test_rm_conf test_remove
+
+test_conf_gen_norm: test_prepare test_gen_conf test_gen_conf test_set_conf test_restore_conf test_rm_conf test_remove
+
+test_conf_ready_norm: test_prepare test_gen_conf test_set_conf test_start test_stop test_restore_conf test_rm_conf test_remove
+
+test_running_norm: test_prepare test_gen_conf test_set_conf test_start test_restart test_gen_conf test_rm_conf test_stop test_restore_conf test_rm_conf test_remove 
+
+test_conf_queued_y_norm: test_prepare test_gen_conf test_set_conf test_start test_gen_conf_1 test_gen_conf_2 test_rm_conf test_gen_conf_3 test_pop_config test_start_again test_stop test_restore_conf test_rm_conf_again test_remove 
+
+test_conf_queued_n_norm: test_prepare test_gen_conf test_set_conf test_start test_gen_conf_1 test_gen_conf_2 test_rm_conf test_gen_conf_3 test_pop_config test_rm_conf test_stop test_restore_conf test_rm_conf_again test_remove 
+
+
 

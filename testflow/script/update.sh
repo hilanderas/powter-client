@@ -1,6 +1,5 @@
 #!/bin/bash
 source lib.sh
 
-
-config $1
-ctl "showconf"
+update $1
+ctl "test_state"

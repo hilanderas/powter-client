@@ -1,29 +1,15 @@
 #!make
 include main.mk
-.PHONY: restart_dns rrestart_dns_again restart_sskcp restart_sskcp_again restart_bypass status_sskcp status_sskcp_again status_bypass status_dns status_dns_again test_config_slave test_config_e git_checout
-restart_dns restart_dns_again:
-	./restart.sh dns
+.PHONY: update_slave update_origin update git_checkout
 
-restart_bypass:
-	./restart.sh bypass
+update_slave:
+	./update.sh ${SLAVE} 
 
-restart_sskcp restart_sskcp_again:
-	./restart.sh sskcp
+update_origin:
+	./update.sh ${TEST_INFO}
 
-status_dns status_dns_again:
-	./status.sh dns
-
-status_bypass:
-	./status.sh bypass
-
-status_sskcp status_sskcp_again:
-	./status.sh sskcp
-
-test_config_slave:
-	./config_f.sh ${SLAVE} 
-
-test_config_e:
-	./config_e.sh
+update:
+	./update.sh
 
 git_checkout:
 	git checkout ${TEST_INFO}
@@ -38,17 +24,13 @@ endif
 
 .PHONY: switch_to_slave switch_back switch test_update_dns test_update_sskcp
 ifeq ($(TESTMODE),dev)
-switch_to_slave: test_config test_start test_config_slave restart_dns restart_sskcp status_dns status_sskcp test_showconf
-switch_back: test_config_again restart_dns_again restart_sskcp_again status_dns_again status_sskcp_again test_showconf_again
-switch: check_env switch_to_slave switch_back test_stop test_restore
-test_update_dns: test_config test_start test_config_e restart_dns status_dns test_stop test_restore git_checkout  
-test_update_sskcp: test_config test_start test_config_e restart_sskcp restart_bypass status_sskcp status_bypass test_stop test_restore git_checkout
+switch: check_env install update_slave update_origin uninstall 
+test_update_dns: install update uninstall git_checkout  
+test_update_sskcp: install update uninstall git_checkout 
 else ifeq ($(TESTMODE),prod)
-switch_to_slave: test_config test_start nslookup netflow test_config_slave restart_dns restart_sskcp status_dns status_sskcp test_showconf nslookup netflow
-switch_back: test_config_again restart_dns_again restart_sskcp_again status_dns_again status_sskcp_again nslookup_again netflow_again test_showconf_again
-switch: check_env switch_to_slave switch_back test_stop test_restore
-test_update_dns: test_config test_start nslookup netflow test_config_e restart_dns status_dns nslookup netflow test_stop test_restore   
-test_update_sskcp: test_config test_start nslookup netflow test_config_e restart_sskcp restart_bypass status_sskcp status_bypass nslookup netflow test_stop test_restore 
+switch: check_env install update_slave test_showconf nslookup netflow update_origin test_showconf nslookup_again netflow_again uninstall 
+test_update_dns: install update test_showconf nslookup netflow uninstall   
+test_update_sskcp: install update test_showconf nslookup netflow uninstall  
 else
 	echo "Please set test mode to either dev or prod"
 endif

@@ -38,31 +38,28 @@ re_boot() {
     sudo reboot
 }
 
-config(){
-	hint "Config"
+gen_config(){
+	hint "Gen config"
 	cd ${TEST_PROJ}
 	if [ $1 ]
 	then
-		echo "make config TEST_INFO=${1} successfully"
-		make config INFO=$1
+		make gen_config INFO=$1
 		confirm
 	else
-		echo $TEST_INFO
-		echo "make config successfully!"
-		make config
+		make gen_config
 		confirm
 	fi
 }
 
-test_config(){
-	hint "Test config"
+update(){
+	hint "Update config"
 	cd ${TEST_PROJ}
 	if [ $1 ]
 	then
-		make test_config TEST_INFO=$1
+		make update INFO=$1
 		confirm
 	else
-		make test_config
+		make update
 		confirm
 	fi
 }

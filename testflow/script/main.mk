@@ -43,17 +43,26 @@ set_mod:
 read_mod:
 	printenv TESTMODE
 
-.PHONY: test_prepare test_prepare_again test_remove test_remove_again test_config test_config_again test_start test_start_again test_stop test_stop_again test_restore test_restore_again test_restart cleanup
+.PHONY: test_prepare test_prepare_again test_remove test_remove_again test_start test_start_again test_stop test_stop_again test_restore_conf test_restore_conf_again test_restart cleanup
 test_prepare test_prepare_again:
 	./prepare.sh
 
 test_remove test_remove_again:
 	./remove.sh
 
-test_config test_config_again:
-	./config_f.sh ${TEST_INFO}
+test_gen_conf test_gen_conf_1 test_gen_conf_2 test_gen_conf_3:
+	./gen_conf.sh ${TEST_INFO}
 
-test_start test_start_again:
+test_rm_conf test_rm_conf_again:
+	./rm_conf.sh
+
+test_set_conf test_set_conf_again:
+	./set_conf.sh
+
+test_restore_conf test_restore_conf_again:
+	./restore_conf.sh
+
+test_start test_start_again test_start_1:
 	./start.sh
 
 test_stop test_stop_again:
@@ -62,12 +71,8 @@ test_stop test_stop_again:
 test_restart:
 	./restart.sh
 
-test_restore test_restore_again:
-	./restore.sh
-
 cleanup: 
-	./stop.sh
-	./restore.sh
+	./remove.sh
 
 status:
 	./status.sh
@@ -75,12 +80,22 @@ status:
 test_showconf test_showconf_again:
 	./showconf.sh	
 
-.PHONY: nslookup netflow
+.PHONY: nslookup nslookup_again netflow_again
 nslookup nslookup_again:
 	./nslookup.sh
 
 netflow netflow_again:
 	./netflow.sh
 
+test_pop_config:
+	./pop_config.sh
+
+
+.PHONY: test_install test_install_again test_uninstall test_uninstall_again test_update
+install install_again:
+	./install.sh
+
+uninstall uninstall_again:
+	./uninstall.sh
 
 

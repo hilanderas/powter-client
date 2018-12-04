@@ -1,4 +1,5 @@
 #!/bin/bash
 source lib.sh
-ctl "start"
+
+ctl "pop_config"
 ctl "test_state"

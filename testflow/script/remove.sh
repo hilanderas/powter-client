@@ -3,4 +3,4 @@
 
 source lib.sh
 ctl "remove"
-ctl "test_remove"
+ctl "test_state"
