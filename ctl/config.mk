@@ -4,34 +4,39 @@ include ${CONFIG_ENV}
 
 
 .PHONY: config edit genconf mkconf cleanconf rmconf
-edit: $(POWTER_CLIENT_INFO)
-	# if INFO exists, vim INFO, after save, copy INFO to POWTER_CLIENT_INFO
-	# else vim POWTER_CLIENT_INFO
+edit: $(QUEUED_INFO)
 ifdef INFO
 	vim $(INFO)
-	cp $(INFO) $(POWTER_CLIENT_INFO)
+	cp $(INFO) $(QUEUED_INFO)
 else
-	vim $(POWTER_CLIENT_INFO)
+	vim $(QUEUED_INFO)
 endif
 
-mkconf: $(POWTER_CLIENT_INFO)
+mk-queued-conf: $(QUEUED_INFO)
+	rm -rf $(QUEUED_CONF) || true
+	mkdir $(QUEUED_CONF)
+
+
+gen-queued-conf: $(QUEUED_INFO) mk-queued-conf
+	./confmgr.py validate --info $(QUEUED_INFO)
+	./confmgr.py divideinfo --info $(QUEUED_INFO) --dns $(DNS_INFO) --bypass $(BYPASS_INFO) --sskcp $(SSKCP_INFO)
+	cd $(DNS_CONFGEN) && python3 -m confgenerator.cli -f $(DNS_INFO) -d $(QUEUED_CONF)/dnsconf
+	cd $(BYPASS_CONFGEN) && python3 -m confgenerator.cli -f $(BYPASS_INFO) -d $(QUEUED_CONF)/bypassconf
+	cd $(SSKCP_CONFGEN) && python3 -m confgenerator.cli client -f $(SSKCP_INFO) -d $(QUEUED_CONF)/sskcpconf
+
+rm-queued-conf: $(QUEUED_CONF)
+	rm -rf $(QUEUED_CONF)
+
+gen-conf: edit gen-queued-conf 
+
+mk-conf: $(POWTER_CLIENT_INFO)
 	rm -rf $(POWTER_CLIENT_CONF) || true
 	mkdir $(POWTER_CLIENT_CONF)
 
-rmconf: $(POWTER_CLIENT_CONF)
-	rm -rf $(POWTER_CLIENT_CONF)
+set-conf: $(QUEUED_CONF) mk-conf 
+	mv $(QUEUED_CONF)/* $(POWTER_CLIENT_CONF)/
+	rm -rf $(QUEUED_CONF)
+	cp $(QUEUED_INFO) $(POWTER_CLIENT_INFO)
 
-cleanconf:
-	rm -rf $(POWTER_CLIENT_CONF)/*
-
-genconf: $(POWTER_CLIENT_INFO) mkconf cleanconf
-	./confmgr.py validate --info $(POWTER_CLIENT_INFO)
-	./confmgr.py divideinfo --info $(POWTER_CLIENT_INFO) --dns $(DNS_INFO) --bypass $(BYPASS_INFO) --sskcp $(SSKCP_INFO)
-	cd $(DNS_CONFGEN) && python3 -m confgenerator.cli -f $(DNS_INFO) -d $(POWTER_CLIENT_CONF)/dnsconf
-	cd $(BYPASS_CONFGEN) && python3 -m confgenerator.cli -f $(BYPASS_INFO) -d $(POWTER_CLIENT_CONF)/bypassconf
-	cd $(SSKCP_CONFGEN) && python3 -m confgenerator.cli client -f $(SSKCP_INFO) -d $(POWTER_CLIENT_CONF)/sskcpconf
-
-
-config: $(POWTER_CLIENT_INFO) edit genconf 
-
-
+restore-conf: $(POWTER_CLIENT_CONF)
+	mv $(POWTER_CLIENT_CONF) $(QUEUED_CONF)

@@ -17,6 +17,3 @@ confs = $(shell ls $(POWTER_CLIENT_CONF)/sskcpconf)
 start-sskcp: $(POWTER_CLIENT_CONF)/sskcpconf $(SSKCP_API)
 	$(foreach c, $(confs), make -C $(SSKCP_API) config CONFIG=$(POWTER_CLIENT_CONF)/sskcpconf/$(c) NAME=$(PROJ)-sskcp-$c && make -C $(SSKCP_API) start NAME=$(PROJ)-sskcp-$(c);)	
 
-
-
-

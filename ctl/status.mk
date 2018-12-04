@@ -1,6 +1,6 @@
-CONFIG_ENV=${CURDIR}/setting.env
+CONFIG_ENV=$(CURDIR)/setting.env
 
-include ${CONFIG_ENV}
+include $(CONFIG_ENV)
 
 
 .PHONY: status status-dns status-bypass status-sskcp
@@ -31,6 +31,24 @@ confs = $(shell ls $(POWTER_CLIENT_CONF)/sskcpconf)
 showconf-sskcp: $(POWTER_CLIENT_CONF)/sskcpconf
 	$(foreach c, $(confs), echo $(POWTER_CLIENT_CONF)/sskcpconf/$(c) && cat $(POWTER_CLIENT_CONF)/sskcpconf/$(c)/conf/* && echo "\n" && cat $(POWTER_CLIENT_CONF)/sskcpconf/$(c)/config.env && echo "\n";)	
 
+.PHONY: showinfo show-ququed-info
+showinfo: $(POWTER_CLIENT_INFO)
+	cat $(POWTER_CLIENT_INFO)
+show-queued-info: $(QUEUED_INFO)
+	cat $(QUEUED_INFO)
 
+.PHONY: show-queued-conf show-queued-conf-dns show-queued-conf-bypass show-queued-conf-sskcp
+show-queued-conf: show-queued-conf-dns show-queued-conf-bypass show-queued-conf-sskcp
+
+show-queued-conf-dns: $(QUEUED_CONF)/dnsconf
+	cat $(QUEUED_CONF)/dnsconf/dns-server.conf
+	
+show-queued-conf-bypass: $(QUEUED_CONF)/bypassconf
+	cat $(QUEUED_CONF)/bypassconf/config.env
+	cat $(QUEUED_CONF)/bypassconf/conf/03-vps
+
+queue-confs = $(shell ls $(QUEUED_CONF)/sskcpconf)
+show-queued-conf-sskcp: $(QUEUED_CONF)/sskcpconf
+	$(foreach c, $(queue-confs), echo $(QUEUED_CONF)/sskcpconf/$(c) && cat $(QUEUED_CONF)/sskcpconf/$(c)/conf/* && echo "\n" && cat $(QUEUED_CONF)/sskcpconf/$(c)/config.env && echo "\n";)	
 
 
