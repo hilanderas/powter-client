@@ -80,4 +80,5 @@ make -f update.mk switch SLAVE=/home/qa/info_slave.yml
 * Clean up
 ```bash
 make -f main.mk test_remove
+rm -r ~/powter-client-x86*
 ```
