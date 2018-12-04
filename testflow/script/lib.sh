@@ -64,6 +64,18 @@ update(){
 	fi
 }
 
+ctl_info(){
+	hint "install"
+	cd ${TEST_PROJ}
+	if [ $2 ]
+	then
+		make $1 INFO=$2
+		confirm
+	else
+		make $1 
+		confirm
+	fi
+}
 ctl(){
 	cmd=${1}
 	service=${2}

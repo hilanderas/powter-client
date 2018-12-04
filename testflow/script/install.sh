@@ -1,5 +1,5 @@
 #!/bin/bash
 source lib.sh
 
-ctl "install"
+ctl_info install $1
 ctl "test_state"

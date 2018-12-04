@@ -93,7 +93,7 @@ test_pop_config:
 
 .PHONY: test_install test_install_again test_uninstall test_uninstall_again test_update
 install install_again:
-	./install.sh
+	./install.sh ${TEST_INFO}
 
 uninstall uninstall_again:
 	./uninstall.sh
