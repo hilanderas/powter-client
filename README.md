@@ -17,7 +17,7 @@
 
 
 # Manual
-See github page [here](https://hilanderas.github.io/powter-client/usage/DEPLOYMENT.html).
+See github page [here](https://hilanderas.github.io/powter-client).
 
 # Logistics
 
@@ -38,7 +38,7 @@ See also the list of [contributors](https://github.com/hilanderas/powter-client/
 
 ### Acknowledgments
 
-See [Acknowledgments](https://github.com/hilanderas/powter-client/blob/master/.github/ACKNOWLEDGMENTS.md)
+See [Acknowledgments](https://github.com/hilanderas/powter-client/blob/master/.github/AKNOWLEDGEMENTS.md) 
 
 
 ### License 
