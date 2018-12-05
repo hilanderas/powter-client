@@ -15,7 +15,7 @@ test_install: install nslookup netflow uninstall
 
 test_uninstall: install uninstall  nslookup netflow 
 
-test_installafteruninstall: install uninstall install_again nslookup netflow uninstall
+test_installafteruninstall: install uninstall install_again nslookup netflow uninstall_again
 
 test_reinstall: install install_again nslookup netflow uninstall 
 
