@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="250" src="https://www.lucidchart.com/publicSegments/view/ad585615-1dee-4b69-a5cf-a893afd0a46c/image.png">
+  <img width="250" src="https://www.lucidchart.com/publicSegments/view/d6b290ae-03e5-459a-9b56-854f2f6ff280/image.png">
 </p>
 
 <h1 align="center"> powter-client </h1>
