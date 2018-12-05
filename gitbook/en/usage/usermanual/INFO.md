@@ -17,6 +17,13 @@ make showinfo
 make show_queued_info
 ```
 
+### Reset info to default.
+
+```bash
+make reset_info
+```
+
+
 ### `info` template 
 ```yml
 dnsmasq: 
