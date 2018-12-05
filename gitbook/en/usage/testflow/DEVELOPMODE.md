@@ -34,20 +34,20 @@ make -f main.mk init_config TEST_PROJ=/home/qa/powter-client/ctl
 ```bash
 make -f state.mk test_init
 make -f state.mk test_prepared
-make -f state.mk test_conf_gened
+make -f state.mk test_confgened
 make -f state.mk test_running
-make -f state.mk test_queued_y
-make -f state.mk test_queued_n
-make -f state.mk test_conf_ready
+make -f state.mk test_confqueued_pop_branch
+make -f state.mk test_confqueued_rm_branch
+make -f state.mk test_confready
 ```
 	* Normal state test
 ```bash
 make -f state.mk test_init_norm
 make -f state.mk test_prepared_norm
-make -f state.mk test_conf_gened_norm
-make -f state.mk test_conf_ready_norm
+make -f state.mk test_confgened_norm
+make -f state.mk test_confready_norm
 make -f state.mk test_running_norm
-make -f state.mk test_conf_queued_norm
+make -f state.mk test_confqueued_norm
 ```
 
 * Run functional test flow

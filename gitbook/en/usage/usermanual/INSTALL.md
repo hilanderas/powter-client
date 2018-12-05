@@ -1,11 +1,11 @@
 # Install
 
-* Install all services' docker images
+### Install all services including dnsmasq, bypass, sskcp
 ```bash
 make install
 ```
 
-* Check status 
+### Check status 
 ```bash
 make test_state
 ```

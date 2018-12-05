@@ -12,6 +12,7 @@ make update
 make update INFO=/path/to/info
 ```
 
+### Check status and configuration after updating
 * Check whether configuration updated
 ```bash
 make showconf

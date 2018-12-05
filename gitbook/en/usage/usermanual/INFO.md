@@ -2,6 +2,20 @@
 
 `info` is used to customize user configuration of services. Users can modify it to meet their own requirements. 
 
+There are 2 kinds of `info` in system
+* info.yml - For service starting 
+* info.queued.yml - For replacing info.yml
+
+### Show info
+* Show info 
+```bash
+make showinfo
+```
+
+* Show queued info
+```bash
+make show_queued_info
+```
 
 ### `info` template 
 ```yml
@@ -40,4 +54,4 @@ sskcp:
   - [ mode: sskcp/ss, logdir: /home/USER/snmplog, listenport: 2030, vpsip: 2.2.2.2, vpsport: 4201, key: test] 
   - [ mode: sskcp/ss, logdir: /home/USER/snmplog, listenport: 2040, vpsip: 2.2.2.2, vpsport: 4202, key: test] 
 ```
-`info` is yaml file, detailed info about how to modify `info` of [dnsmasq](https://elespejo.github.io/dnsmasq/usage/GENCONF.html), [bypass](https://elespejo.github.io/bypass/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 
+`info` is yaml file, check detailed info about how to modify `info` of [dnsmasq](https://elespejo.github.io/dnsmasq/usage/GENCONF.html), [bypass](https://elespejo.github.io/bypass/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 
