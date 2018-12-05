@@ -13,7 +13,7 @@
 ![Travis (.org) branch](https://img.shields.io/travis/hilanderas/powter-client.svg)
 ![GitHub](https://img.shields.io/github/license/hilanderas/powter-client.svg)
 ![Issues](https://img.shields.io/github/issues/hilanderas/powter-client.svg)
-![Twitter](https://img.shields.io/twitter/url/https/github.com/hilanderas/powter-client.svg?style=social)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/hilanderas/powter-client.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fhilanderas%2Fpowter-client)
 
 
 # Manual

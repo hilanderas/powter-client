@@ -34,9 +34,9 @@ build-testflow:
 build: $(buildjobs)
 
 update-gitbook: $(GITBOOK)
-	sed -i s/$(PRE)/$(CUR)/g $(CURDIR)/gitbook/usage/testflow/PRODUCTIONMODE.md
-	sed -i s/$(PRE)/$(CUR)/g $(CURDIR)/gitbook/usage/DEPLOYMENT.md
-	sed -i s/$(PRE)/$(CUR)/g $(CURDIR)/gitbook/usage/usermanual/INSTALL.md
-	sed -i s/$(PRE)/$(CUR)/g $(CURDIR)/gitbook/SUMMARY.md
+	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/usage/testflow/PRODUCTIONMODE.md
+	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/usage/DEPLOYMENT.md
+	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/usage/usermanual/INSTALL.md
+	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/SUMMARY.md
 
 build-doc: update-gitbook build-book
