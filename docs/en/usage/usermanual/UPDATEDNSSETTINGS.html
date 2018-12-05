@@ -60,7 +60,7 @@
     <link rel="next" href="UPDATESSKCP.html" />
     
     
-    <link rel="prev" href="CHECKSTATUS.html" />
+    <link rel="prev" href="GETSTATE.html" />
     
 
     </head>
@@ -227,7 +227,72 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4" data-path="START.html">
+        <li class="chapter " data-level="4.4" data-path="GENERATECONF.html">
+            
+                <a href="GENERATECONF.html">
+            
+                    
+                    Generate conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="SETCONF.html">
+            
+                <a href="SETCONF.html">
+            
+                    
+                    Set conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="POPCONF.html">
+            
+                <a href="POPCONF.html">
+            
+                    
+                    Pop conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="CHECKCONF.html">
+            
+                <a href="CHECKCONF.html">
+            
+                    
+                    Show conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="RESET.html">
+            
+                <a href="RESET.html">
+            
+                    
+                    Reset conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="START.html">
             
                 <a href="START.html">
             
@@ -240,7 +305,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.5" data-path="STOP.html">
+        <li class="chapter " data-level="4.10" data-path="STOP.html">
             
                 <a href="STOP.html">
             
@@ -253,7 +318,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.6" data-path="RESTART.html">
+        <li class="chapter " data-level="4.11" data-path="RESTART.html">
             
                 <a href="RESTART.html">
             
@@ -266,7 +331,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.7" data-path="CHECKSTATUS.html">
+        <li class="chapter " data-level="4.12" data-path="CHECKSTATUS.html">
             
                 <a href="CHECKSTATUS.html">
             
@@ -279,7 +344,20 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.8" data-path="UPDATEDNSSETTINGS.html">
+        <li class="chapter " data-level="4.13" data-path="GETSTATE.html">
+            
+                <a href="GETSTATE.html">
+            
+                    
+                    Get state
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.14" data-path="UPDATEDNSSETTINGS.html">
             
                 <a href="UPDATEDNSSETTINGS.html">
             
@@ -292,25 +370,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.9" data-path="UPDATESSKCP.html">
+        <li class="chapter " data-level="4.15" data-path="UPDATESSKCP.html">
             
                 <a href="UPDATESSKCP.html">
             
                     
                     Update sskcp
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.10" data-path="RESET.html">
-            
-                <a href="RESET.html">
-            
-                    
-                    Reset conf
             
                 </a>
             
@@ -470,41 +535,14 @@
 <p><strong>Note that <code>info</code> can also be provided to update, like below:</strong></p>
 <pre><code class="lang-bash">make update INFO=/path/to/info
 </code></pre>
-<p>Alternatively, there are other 2 ways to update dns configuration without restarting other services:</p>
+<h3 id="check-status-and-configuration-after-updating">Check status and configuration after updating</h3>
 <ul>
-<li>Update <code>info</code> on line</li>
-<li>Update <code>info</code> with file provided by user</li>
-</ul>
-<h5 id="modify-info-on-line">Modify info on line</h5>
-<ul>
-<li><p>Modify  <code>ip</code> in dns-server and save</p>
-<pre><code class="lang-bash">make config
+<li><p>Check whether configuration updated</p>
+<pre><code class="lang-bash">make showconf
 </code></pre>
 </li>
-<li><p>Restart dns service</p>
-<pre><code class="lang-bash">make restart_dns
-</code></pre>
-</li>
-<li><p>Check status</p>
-<pre><code class="lang-bash">make status_dns
-</code></pre>
-</li>
-</ul>
-<h5 id="modify-info-file">Modify info file</h5>
-<ul>
-<li>Modify  <code>ip</code> in dns-server in <code>info</code> file and save<pre><code class="lang-bash">vi /path/to/info
-</code></pre>
-</li>
-<li><p>Generate configuration</p>
-<pre><code class="lang-bash">make config INFO=/path/to/info
-</code></pre>
-</li>
-<li><p>Restart dns service</p>
-<pre><code class="lang-bash">make restart_dns
-</code></pre>
-</li>
-<li><p>Check status</p>
-<pre><code class="lang-bash">make status_dns
+<li><p>Check status of running services </p>
+<pre><code class="lang-bash">make <span class="hljs-built_in">test</span>_state
 </code></pre>
 </li>
 </ul>
@@ -535,7 +573,7 @@
 
             
                 
-                <a href="CHECKSTATUS.html" class="navigation navigation-prev " aria-label="Previous page: Check status">
+                <a href="GETSTATE.html" class="navigation navigation-prev " aria-label="Previous page: Get state">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -551,7 +589,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Update dns settings","level":"4.8","depth":1,"next":{"title":"Update sskcp","level":"4.9","depth":1,"path":"usage/usermanual/UPDATESSKCP.md","ref":"usage/usermanual/UPDATESSKCP.md","articles":[]},"previous":{"title":"Check status","level":"4.7","depth":1,"path":"usage/usermanual/CHECKSTATUS.md","ref":"usage/usermanual/CHECKSTATUS.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"usage/usermanual/UPDATEDNSSETTINGS.md","mtime":"2018-12-03T01:30:30.227Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T04:20:03.201Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Update dns settings","level":"4.14","depth":1,"next":{"title":"Update sskcp","level":"4.15","depth":1,"path":"usage/usermanual/UPDATESSKCP.md","ref":"usage/usermanual/UPDATESSKCP.md","articles":[]},"previous":{"title":"Get state","level":"4.13","depth":1,"path":"usage/usermanual/GETSTATE.md","ref":"usage/usermanual/GETSTATE.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"usage/usermanual/UPDATEDNSSETTINGS.md","mtime":"2018-12-05T02:40:12.955Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-05T02:56:29.731Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

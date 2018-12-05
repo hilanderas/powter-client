@@ -227,7 +227,72 @@
             
         </li>
     
-        <li class="chapter " data-level="4.4" data-path="START.html">
+        <li class="chapter " data-level="4.4" data-path="GENERATECONF.html">
+            
+                <a href="GENERATECONF.html">
+            
+                    
+                    Generate conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="SETCONF.html">
+            
+                <a href="SETCONF.html">
+            
+                    
+                    Set conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="POPCONF.html">
+            
+                <a href="POPCONF.html">
+            
+                    
+                    Pop conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="CHECKCONF.html">
+            
+                <a href="CHECKCONF.html">
+            
+                    
+                    Show conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="RESET.html">
+            
+                <a href="RESET.html">
+            
+                    
+                    Reset conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="START.html">
             
                 <a href="START.html">
             
@@ -240,7 +305,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.5" data-path="STOP.html">
+        <li class="chapter " data-level="4.10" data-path="STOP.html">
             
                 <a href="STOP.html">
             
@@ -253,7 +318,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.6" data-path="RESTART.html">
+        <li class="chapter " data-level="4.11" data-path="RESTART.html">
             
                 <a href="RESTART.html">
             
@@ -266,7 +331,7 @@
             
         </li>
     
-        <li class="chapter " data-level="4.7" data-path="CHECKSTATUS.html">
+        <li class="chapter " data-level="4.12" data-path="CHECKSTATUS.html">
             
                 <a href="CHECKSTATUS.html">
             
@@ -279,7 +344,20 @@
             
         </li>
     
-        <li class="chapter " data-level="4.8" data-path="UPDATEDNSSETTINGS.html">
+        <li class="chapter " data-level="4.13" data-path="GETSTATE.html">
+            
+                <a href="GETSTATE.html">
+            
+                    
+                    Get state
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.14" data-path="UPDATEDNSSETTINGS.html">
             
                 <a href="UPDATEDNSSETTINGS.html">
             
@@ -292,25 +370,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.9" data-path="UPDATESSKCP.html">
+        <li class="chapter " data-level="4.15" data-path="UPDATESSKCP.html">
             
                 <a href="UPDATESSKCP.html">
             
                     
                     Update sskcp
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="4.10" data-path="RESET.html">
-            
-                <a href="RESET.html">
-            
-                    
-                    Reset conf
             
                 </a>
             
@@ -464,6 +529,22 @@
                                 
                                 <h1 id="info">info</h1>
 <p><code>info</code> is used to customize user configuration of services. Users can modify it to meet their own requirements. </p>
+<p>There are 2 kinds of <code>info</code> in system</p>
+<ul>
+<li>info.yml - For service starting </li>
+<li>info.queued.yml - For replacing info.yml</li>
+</ul>
+<h3 id="show-info">Show info</h3>
+<ul>
+<li><p>Show info </p>
+<pre><code class="lang-bash">make showinfo
+</code></pre>
+</li>
+<li><p>Show queued info</p>
+<pre><code class="lang-bash">make show_queued_info
+</code></pre>
+</li>
+</ul>
 <h3 id="info-template"><code>info</code> template</h3>
 <pre><code class="lang-yml"><span class="hljs-attr">dnsmasq:</span> 
 <span class="hljs-attr">  dhcp-range:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.0</span><span class="hljs-number">.5</span>,<span class="hljs-number">192.168</span><span class="hljs-number">.0</span><span class="hljs-number">.150</span>,<span class="hljs-number">12</span>h
@@ -500,10 +581,7 @@
 <span class="hljs-bullet">  -</span> [ mode: sskcp/ss, logdir: /home/USER/snmplog, listenport: <span class="hljs-number">2030</span>, vpsip: <span class="hljs-number">2.2</span><span class="hljs-number">.2</span><span class="hljs-number">.2</span>, vpsport: <span class="hljs-number">4201</span>, key: test] 
 <span class="hljs-bullet">  -</span> [ mode: sskcp/ss, logdir: /home/USER/snmplog, listenport: <span class="hljs-number">2040</span>, vpsip: <span class="hljs-number">2.2</span><span class="hljs-number">.2</span><span class="hljs-number">.2</span>, vpsport: <span class="hljs-number">4202</span>, key: test]
 </code></pre>
-<p><code>info</code> is yaml file and you can test whether it is ok after modification with:</p>
-<pre><code>cd powter-client
-make test_info INFO=path/to/info
-</code></pre><p>Detailed info about how to modify <code>info</code> of <a href="https://elespejo.github.io/dnsmasq/usage/GENCONF.html" target="_blank">dnsmasq</a>, <a href="https://elespejo.github.io/bypass/usage/GENCONF.html" target="_blank">bypass</a>, <a href="https://elespejo.github.io/sskcp/usage/GENCONF.html" target="_blank">sskcp</a> </p>
+<p><code>info</code> is yaml file, check detailed info about how to modify <code>info</code> of <a href="https://elespejo.github.io/dnsmasq/usage/GENCONF.html" target="_blank">dnsmasq</a>, <a href="https://elespejo.github.io/bypass/usage/GENCONF.html" target="_blank">bypass</a>, <a href="https://elespejo.github.io/sskcp/usage/GENCONF.html" target="_blank">sskcp</a> </p>
 
                                 
                                 </section>
@@ -547,7 +625,7 @@ make test_info INFO=path/to/info
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"info","level":"4.1","depth":1,"next":{"title":"Install","level":"4.2","depth":1,"path":"usage/usermanual/INSTALL.md","ref":"usage/usermanual/INSTALL.md","articles":[]},"previous":{"title":"Deployment","level":"3.3","depth":1,"path":"usage/DEPLOYMENT.md","ref":"usage/DEPLOYMENT.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"usage/usermanual/INFO.md","mtime":"2018-12-03T01:30:30.227Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-03T04:20:03.201Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"info","level":"4.1","depth":1,"next":{"title":"Install","level":"4.2","depth":1,"path":"usage/usermanual/INSTALL.md","ref":"usage/usermanual/INSTALL.md","articles":[]},"previous":{"title":"Deployment","level":"3.3","depth":1,"path":"usage/DEPLOYMENT.md","ref":"usage/DEPLOYMENT.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"usage/usermanual/INFO.md","mtime":"2018-12-05T02:13:12.577Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-05T02:56:29.731Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>
