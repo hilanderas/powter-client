@@ -3,7 +3,7 @@ CONFIG_ENV=${CURDIR}/setting.env
 include ${CONFIG_ENV}
 
 
-.PHONY: config edit genconf mkconf cleanconf rmconf
+.PHONY: edit gen-queued-conf gen-conf mk-queued-conf mk-conf set-conf restore-conf
 edit: $(QUEUED_INFO)
 ifdef INFO
 	vim $(INFO)
