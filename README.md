@@ -4,7 +4,7 @@
 
 <h1 align="center"> powter-client </h1>
 <p align="center">
-  <b >Build a easily manageable router on arm or x86 for local area network</b>
+  <b >Build an easily manageable router on arm or x86 for local area network</b>
 </p>
 <br>
 
