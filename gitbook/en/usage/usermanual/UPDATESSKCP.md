@@ -11,3 +11,13 @@ make update
 ```bash
 make update INFO=/path/to/info
 ```
+
+* Check whether configuration updated
+```bash
+make showconf
+```
+
+* Check status of running services 
+```bash
+make test_state
+```

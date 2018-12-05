@@ -40,11 +40,4 @@ sskcp:
   - [ mode: sskcp/ss, logdir: /home/USER/snmplog, listenport: 2030, vpsip: 2.2.2.2, vpsport: 4201, key: test] 
   - [ mode: sskcp/ss, logdir: /home/USER/snmplog, listenport: 2040, vpsip: 2.2.2.2, vpsport: 4202, key: test] 
 ```
-`info` is yaml file and you can test whether it is ok after modification with:
-	
-```
-cd powter-client
-make test_info INFO=path/to/info
-```
-
-Detailed info about how to modify `info` of [dnsmasq](https://elespejo.github.io/dnsmasq/usage/GENCONF.html), [bypass](https://elespejo.github.io/bypass/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 
+`info` is yaml file, detailed info about how to modify `info` of [dnsmasq](https://elespejo.github.io/dnsmasq/usage/GENCONF.html), [bypass](https://elespejo.github.io/bypass/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 

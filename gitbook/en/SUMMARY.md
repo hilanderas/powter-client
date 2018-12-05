@@ -15,6 +15,8 @@
 * [info](usage/usermanual/INFO.md)
 * [Install](usage/usermanual/INSTALL.md)
 * [Uninstall](usage/usermanual/UNINSTALL.md)
+* [Generate conf](usage/usermanual/GENERATECONF.md)
+* [Set conf](usage/usermanual/SETCONF.md)
 * [Start](usage/usermanual/START.md)
 * [Stop](usage/usermanual/STOP.md)
 * [Restart](usage/usermanual/RESTART.md)
