@@ -5,6 +5,11 @@
 * Who are willing to broaden the horizon through their own eyes and indenepent thinking
 * Who believe in the right to access to the most valuable treasure, knowledge and wisdom.
 
+### User category
+* If the number of clients in a local network is between  1-10, arm version is recommended
+* If the number of clients in a local network is between  11-500, x86 version is recommended
+ 
+
 ### Brief idea
 Set up your network environment by
 * Installation of `powter-client` on your router
