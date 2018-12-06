@@ -6,15 +6,13 @@
 * [Who are the user ?](overview/USER.md)
 * [About project](overview/PROJECT.md)
 
-### Deployment
-* [Topology](usage/TOPOLOGY.md)
-* [Dependency](usage/DEPENDENCY.md)
-* [Deployment](usage/DEPLOYMENT.md)
 
 ### Quick start
+* [Topology](usage/quickstart/TOPOLOGY.md)
+* [Dependency](usage/quickstart/DEPENDENCY.md)
 * [Install](usage/quickstart/INSTALL.md)
-* [Uninstall](usage/quickstart/UNINSTALL.md)
 * [Update](usage/quickstart/UPDATE.md)
+* [Uninstall](usage/quickstart/UNINSTALL.md)
 
 ### More scenarios
 * [How to check info](usage/usermanual/INFO.md)

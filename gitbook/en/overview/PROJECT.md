@@ -4,16 +4,15 @@
 
 ##### Pros
 
-* Integration of bypass, ss (short for shadowsocks), kcp with less configuration required
-* Flexible strategy supported, ss+kcp or just ss
-* Any number (usually 4-16) of ss+kcp is supported to satisfy different network flow requirement
-* Anti DNS pollution
-* Long term plan of development and maintenance(check Milestones)
+* Integration of bypass, ss (shadowsocks) and kcp (kcptun) with few configurations required.
+* Flexible strategy supported: sskcp or ss mode.
+* sskcp client-server pairs are scalable through configuration. 
+* Anti DNS pollution.
+* Long term plan of development and maintenance.
 
 ##### Cons
 * No UI
-* No much documents about how to trouble shooting 
-* Android, ios and windows is not supported
+* There are insufficient documents about how to perform troubleshooting 
 
 
 ### Milestones
@@ -25,5 +24,5 @@
 
 ### Business plan
 * It is FREE forever, forever.
-* We would like to build up the self-organized community for this project, and need all kinds of support, feed-foward from you.
-* The goal we care the most is enable you to access to the most valuable treasure in human history, the knowledge and wisdom. 
+* We would like to build up the self-organized community for this project, and need all kinds of support, feed-forward from you.
+* The goal we care the most is enabling you to access to the most valuable treasure in human history, the knowledge and wisdom. 

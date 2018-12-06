@@ -15,6 +15,6 @@ sudo usermod -aG docker $USER
   * x86 : docker-compose 1.22.0 [(reference)](https://docs.docker.com/compose/install/)  
   * armv6 : 
 ```bash
-sudo apt install python-pip
-sudo pip install docker-compose
+sudo apt install python-pip3
+sudo pip3 install docker-compose
 ```

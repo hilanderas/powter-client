@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../usage/TOPOLOGY.html" />
+    <link rel="next" href="../usage/quickstart/TOPOLOGY.html" />
     
     
     <link rel="prev" href="USER.html" />
@@ -138,13 +138,13 @@
 
     
         
-        <li class="header">Deployment</li>
+        <li class="header">Quick start</li>
         
         
     
-        <li class="chapter " data-level="3.1" data-path="../usage/TOPOLOGY.html">
+        <li class="chapter " data-level="3.1" data-path="../usage/quickstart/TOPOLOGY.html">
             
-                <a href="../usage/TOPOLOGY.html">
+                <a href="../usage/quickstart/TOPOLOGY.html">
             
                     
                     Topology
@@ -155,9 +155,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="../usage/DEPENDENCY.html">
+        <li class="chapter " data-level="3.2" data-path="../usage/quickstart/DEPENDENCY.html">
             
-                <a href="../usage/DEPENDENCY.html">
+                <a href="../usage/quickstart/DEPENDENCY.html">
             
                     
                     Dependency
@@ -168,27 +168,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.3" data-path="../usage/DEPLOYMENT.html">
-            
-                <a href="../usage/DEPLOYMENT.html">
-            
-                    
-                    Deployment
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-        
-        <li class="header">Quick start</li>
-        
-        
-    
-        <li class="chapter " data-level="4.1" data-path="../usage/quickstart/INSTALL.html">
+        <li class="chapter " data-level="3.3" data-path="../usage/quickstart/INSTALL.html">
             
                 <a href="../usage/quickstart/INSTALL.html">
             
@@ -201,12 +181,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.2" data-path="../usage/quickstart/UNINSTALL.html">
+        <li class="chapter " data-level="3.4" data-path="../usage/quickstart/UPDATE.html">
             
-                <a href="../usage/quickstart/UNINSTALL.html">
+                <a href="../usage/quickstart/UPDATE.html">
             
                     
-                    Uninstall
+                    Update
             
                 </a>
             
@@ -214,12 +194,12 @@
             
         </li>
     
-        <li class="chapter " data-level="4.3" data-path="../usage/quickstart/UPDATE.html">
+        <li class="chapter " data-level="3.5" data-path="../usage/quickstart/UNINSTALL.html">
             
-                <a href="../usage/quickstart/UPDATE.html">
+                <a href="../usage/quickstart/UNINSTALL.html">
             
                     
-                    Update
+                    Uninstall
             
                 </a>
             
@@ -234,7 +214,7 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="../usage/usermanual/INFO.html">
+        <li class="chapter " data-level="4.1" data-path="../usage/usermanual/INFO.html">
             
                 <a href="../usage/usermanual/INFO.html">
             
@@ -247,7 +227,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="../usage/usermanual/CONF.html">
+        <li class="chapter " data-level="4.2" data-path="../usage/usermanual/CONF.html">
             
                 <a href="../usage/usermanual/CONF.html">
             
@@ -260,7 +240,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="../usage/usermanual/SERVICE.html">
+        <li class="chapter " data-level="4.3" data-path="../usage/usermanual/SERVICE.html">
             
                 <a href="../usage/usermanual/SERVICE.html">
             
@@ -273,7 +253,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" data-path="../usage/usermanual/CHECKSTATUS.html">
+        <li class="chapter " data-level="4.4" data-path="../usage/usermanual/CHECKSTATUS.html">
             
                 <a href="../usage/usermanual/CHECKSTATUS.html">
             
@@ -286,7 +266,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5.5" data-path="../usage/usermanual/GETSTATE.html">
+        <li class="chapter " data-level="4.5" data-path="../usage/usermanual/GETSTATE.html">
             
                 <a href="../usage/usermanual/GETSTATE.html">
             
@@ -306,7 +286,7 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../usage/testflow/DEVELOPMODE.html">
+        <li class="chapter " data-level="5.1" data-path="../usage/testflow/DEVELOPMODE.html">
             
                 <a href="../usage/testflow/DEVELOPMODE.html">
             
@@ -319,7 +299,7 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="../usage/testflow/PRODUCTIONMODE.html">
+        <li class="chapter " data-level="5.2" data-path="../usage/testflow/PRODUCTIONMODE.html">
             
                 <a href="../usage/testflow/PRODUCTIONMODE.html">
             
@@ -339,7 +319,7 @@
         
         
     
-        <li class="chapter " data-level="7.1" data-path="../faq/TROUBLESHOOTING.html">
+        <li class="chapter " data-level="6.1" data-path="../faq/TROUBLESHOOTING.html">
             
                 <a href="../faq/TROUBLESHOOTING.html">
             
@@ -359,7 +339,7 @@
         
         
     
-        <li class="chapter " data-level="8.1" data-path="../contribution/CONTRIBUTE.html">
+        <li class="chapter " data-level="7.1" data-path="../contribution/CONTRIBUTE.html">
             
                 <a href="../contribution/CONTRIBUTE.html">
             
@@ -421,17 +401,16 @@
 <h3 id="pros-and-cons">Pros and cons</h3>
 <h5 id="pros">Pros</h5>
 <ul>
-<li>Integration of bypass, ss (short for shadowsocks), kcp with less configuration required</li>
-<li>Flexible strategy supported, ss+kcp or just ss</li>
-<li>Any number (usually 4-16) of ss+kcp is supported to satisfy different network flow requirement</li>
-<li>Anti DNS pollution</li>
-<li>Long term plan of development and maintenance(check Milestones)</li>
+<li>Integration of bypass, ss (shadowsocks) and kcp (kcptun) with few configurations required.</li>
+<li>Flexible strategy supported: sskcp or ss mode.</li>
+<li>sskcp client-server pairs are scalable through configuration. </li>
+<li>Anti DNS pollution.</li>
+<li>Long term plan of development and maintenance.</li>
 </ul>
 <h5 id="cons">Cons</h5>
 <ul>
 <li>No UI</li>
-<li>No much documents about how to trouble shooting </li>
-<li>Android, ios and windows is not supported</li>
+<li>There are insufficient documents about how to perform troubleshooting </li>
 </ul>
 <h3 id="milestones">Milestones</h3>
 <ul>
@@ -443,8 +422,8 @@
 <h3 id="business-plan">Business plan</h3>
 <ul>
 <li>It is FREE forever, forever.</li>
-<li>We would like to build up the self-organized community for this project, and need all kinds of support, feed-foward from you.</li>
-<li>The goal we care the most is enable you to access to the most valuable treasure in human history, the knowledge and wisdom. </li>
+<li>We would like to build up the self-organized community for this project, and need all kinds of support, feed-forward from you.</li>
+<li>The goal we care the most is enabling you to access to the most valuable treasure in human history, the knowledge and wisdom. </li>
 </ul>
 
                                 
@@ -478,7 +457,7 @@
                 </a>
                 
                 
-                <a href="../usage/TOPOLOGY.html" class="navigation navigation-next " aria-label="Next page: Topology">
+                <a href="../usage/quickstart/TOPOLOGY.html" class="navigation navigation-next " aria-label="Next page: Topology">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -489,7 +468,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"About project","level":"2.2","depth":1,"next":{"title":"Topology","level":"3.1","depth":1,"path":"usage/TOPOLOGY.md","ref":"usage/TOPOLOGY.md","articles":[]},"previous":{"title":"Who are the user ?","level":"2.1","depth":1,"path":"overview/USER.md","ref":"overview/USER.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"overview/PROJECT.md","mtime":"2018-12-05T03:54:47.629Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-06T01:26:57.931Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"About project","level":"2.2","depth":1,"next":{"title":"Topology","level":"3.1","depth":1,"path":"usage/quickstart/TOPOLOGY.md","ref":"usage/quickstart/TOPOLOGY.md","articles":[]},"previous":{"title":"Who are the user ?","level":"2.1","depth":1,"path":"overview/USER.md","ref":"overview/USER.md","articles":[]},"dir":"ltr"},"config":{"plugins":["video"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"video":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"overview/PROJECT.md","mtime":"2018-12-06T02:29:40.971Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-06T02:45:22.166Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

@@ -2,3 +2,5 @@
 .bypass-info.yml
 .sskcp-info.yml
 powter-client-*
+node_modules
+package-lock.json
