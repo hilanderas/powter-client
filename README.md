@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://www.lucidchart.com/publicSegments/view/5252d93d-d8cf-476d-933b-fe91ac34e596/image.png">
+  <img src="https://www.lucidchart.com/publicSegments/view/f420511c-7432-461f-acef-bd541bc9d6a3/image.png">
 </p>
 
 <h1 align="center"> powter-client </h1>
@@ -29,12 +29,6 @@ For details on our [code of conduct](https://github.com/hilanderas/powter-client
 ### Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the tags on this repository
-
-### Authors
-* **AP1001** - *Initial work* - [AP1001](https://github.com/ap1001)
-* **Valerio-Perez** - *Upgrade* - [Valerio-Perez](https://github.com/valerio-perez)
-
-See also the list of [contributors](https://github.com/hilanderas/powter-client/contributors) who participated in this project.
 
 ### Acknowledgments
 
