@@ -51,7 +51,7 @@ test_remove test_remove_again:
 	./remove.sh
 
 test_gen_conf test_gen_conf_1 test_gen_conf_2 test_gen_conf_3:
-	./gen_conf.sh ${TEST_INFO}
+	./gen_conf.sh
 
 test_rm_conf test_rm_conf_again:
 	./rm_conf.sh
