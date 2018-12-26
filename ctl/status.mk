@@ -9,7 +9,7 @@ status: status-dns status-bypass status-sskcp
 
 status-dns: $(POWTER_CLIENT_CONF)/dnsconf $(DNS_API)
 	docker ps -a | grep dns
-	#make -C $(DNS_API) status NAME=$(PROJ)-dns || true
+	make -C $(DNS_API) status NAME=$(PROJ)-dns || true
 
 status-bypass: $(POWTER_CLIENT_CONF)/bypassconf $(BYPASS_API)
 	make -C $(BYPASS_API) status NAME=$(PROJ)-bypass || true
@@ -24,8 +24,9 @@ showconf-dns: $(POWTER_CLIENT_CONF)/dnsconf
 	cat $(POWTER_CLIENT_CONF)/dnsconf/dns-server.conf
 	
 showconf-bypass: $(POWTER_CLIENT_CONF)/bypassconf
+	ls $(POWTER_CLIENT_CONF)/bypassconf/conf/vps
 	cat $(POWTER_CLIENT_CONF)/bypassconf/config.env
-	cat $(POWTER_CLIENT_CONF)/bypassconf/conf/03-vps
+	cat $(POWTER_CLIENT_CONF)/bypassconf/conf/vps
 
 confs = $(shell ls $(POWTER_CLIENT_CONF)/sskcpconf)
 showconf-sskcp: $(POWTER_CLIENT_CONF)/sskcpconf
