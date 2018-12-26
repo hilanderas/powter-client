@@ -94,7 +94,7 @@
                 <a href="../../">
             
                     
-                    Introduction powter-client-0.4.9
+                    Introduction powter-client-0.5.0
             
                 </a>
             
@@ -424,47 +424,47 @@ e.g,</p>
 <ul>
 <li><p>Run state test flow</p>
 <ul>
-<li>Abnormal state test<pre><code class="lang-bash">make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_init
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_prepared
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confgened
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_running
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confqueued_pop_branch
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confqueued_rm_branch
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confready
+<li>Abnormal state test<pre><code class="lang-bash">make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_init
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_prepared
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confgened
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_running
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confqueued_pop_branch
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confqueued_rm_branch
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confready
 </code></pre>
 </li>
-<li>Normal state test<pre><code class="lang-bash">make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_init_norm
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_prepared_norm
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confgened_norm
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confready_norm
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_running_norm
-make <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confqueued_norm
+<li>Normal state test<pre><code class="lang-bash">make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_init_norm
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_prepared_norm
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confgened_norm
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confready_norm
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_running_norm
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> state.mk <span class="hljs-built_in">test</span>_confqueued_norm
 </code></pre>
 </li>
 </ul>
 </li>
 <li><p>Run functional test flow</p>
-<pre><code class="lang-bash">make <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_install
-make <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_uninstall
-make <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_installafteruninstall
-make <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_reinstall
-make <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_reuninstall
-make <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_checkvps
+<pre><code class="lang-bash">make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_install
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_uninstall
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_installafteruninstall
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_reinstall
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_reuninstall
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> function.mk <span class="hljs-built_in">test</span>_checkvps
 </code></pre>
 </li>
 <li><p>Run restart test flow</p>
-<pre><code class="lang-bash">make <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_reboot_p1
-make <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_reboot_p2
-make <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_poweroff_p1
-make <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_poweroff_p2
-make <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_isprestart
-make <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_restartall
+<pre><code class="lang-bash">make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_reboot_p1
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_reboot_p2
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_poweroff_p1
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_poweroff_p2
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_isprestart
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> restart.mk <span class="hljs-built_in">test</span>_restartall
 </code></pre>
 </li>
 <li><p>Run update test flow</p>
-<pre><code class="lang-bash">make <span class="hljs-_">-f</span> update.mk switch SLAVE=/path/to/info_slave.yml
-make <span class="hljs-_">-f</span> update.mk <span class="hljs-built_in">test</span>_update_dns
-make <span class="hljs-_">-f</span> update.mk <span class="hljs-built_in">test</span>_update_sskcp
+<pre><code class="lang-bash">make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> update.mk switch SLAVE=/path/to/info_slave.yml
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> update.mk <span class="hljs-built_in">test</span>_update_dns
+make <span class="hljs-_">-s</span> <span class="hljs-_">-f</span> update.mk <span class="hljs-built_in">test</span>_update_sskcp
 </code></pre>
 </li>
 </ul>
@@ -511,7 +511,7 @@ make <span class="hljs-_">-f</span> update.mk <span class="hljs-built_in">test</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Develop mode","level":"5.1","depth":1,"next":{"title":"Production mode","level":"5.2","depth":1,"path":"usage/testflow/PRODUCTIONMODE.md","ref":"usage/testflow/PRODUCTIONMODE.md","articles":[]},"previous":{"title":"How to get state","level":"4.5","depth":1,"path":"usage/usermanual/GETSTATE.md","ref":"usage/usermanual/GETSTATE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["video"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"video":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"usage/testflow/DEVELOPMODE.md","mtime":"2018-12-05T11:20:40.928Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-06T03:23:05.178Z"},"basePath":"../..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Develop mode","level":"5.1","depth":1,"next":{"title":"Production mode","level":"5.2","depth":1,"path":"usage/testflow/PRODUCTIONMODE.md","ref":"usage/testflow/PRODUCTIONMODE.md","articles":[]},"previous":{"title":"How to get state","level":"4.5","depth":1,"path":"usage/usermanual/GETSTATE.md","ref":"usage/usermanual/GETSTATE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["video"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"video":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"usage/testflow/DEVELOPMODE.md","mtime":"2018-12-26T02:15:53.189Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T03:00:20.488Z"},"basePath":"../..","book":{"language":"en"}});
         });
     </script>
 </div>

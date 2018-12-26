@@ -2,21 +2,21 @@
 
 {% video %}https://vimeo.com/304732903{% endvideo %} 
 
-### Download relased package 0.4.9
+### Download relased package 0.5.0
 * For x86
 ```bash
-wget https://github.com/hilanderas/powter-client/releases/download/0.4.9/powter-client-x86-0.4.9.zip
+wget https://github.com/hilanderas/powter-client/releases/download/0.5.0/powter-client-x86-0.5.0.zip
 ```
 
 * For armv6
 ```bash
-wget https://github.com/hilanderas/powter-client/releases/download/0.4.9/powter-client-armv6-0.4.9.zip
+wget https://github.com/hilanderas/powter-client/releases/download/0.5.0/powter-client-armv6-0.5.0.zip
 ```
 
 ### Install packages
 * Unzip packages
 ```bash
-unzip powter-client-[ARCH]-0.4.9.zip
+unzip powter-client-[ARCH]-0.5.0.zip
 ```
 
 * Install packages

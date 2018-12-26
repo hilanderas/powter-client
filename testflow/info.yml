@@ -13,16 +13,16 @@ dnsmasq:
       ports:
         start-port: 16350
         end-port: 16370
+  dnsconf-dir: /PATH/TO/dnsconf
 bypass:
   config:
     lan: br0
     base_port: 2010
     number: 2
-  white:
-    - filename: 03-vps
-      content:
-      - 1.1.1.1
-      - 2.2.2.2
+  bypass-vps:
+    - ip/net
+    - ip/net
+  whitelist-dir: /PATH/TO/bypass-white
 sskcp:
   client:
     - {mode: sskcp, log-dir: /home/qa/snmplog, listenport: 2010, vpsip: 1.1.1.1, vpsport: 4201, key: test}

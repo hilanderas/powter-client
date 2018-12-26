@@ -3,11 +3,13 @@ project=powter-client
 GITBOOK=$(CURDIR)/gitbook
 DOCS=$(CURDIR)/docs
 TESTFLOW=$(project)-testflow
+#CUR=0.5.0
 
 .PHONY: build-book
 build-book: $(GITBOOK)
 	gitbook build $(GITBOOK) $(DOCS)
-
+	sed -i 's/http:\/\/player.vimeo.com/https:\/\/player.vimeo.com/g' docs/en/usage/quickstart/INSTALL.html 
+	grep vimeo docs/en/usage/quickstart/INSTALL.html
 
 buildjobs = build-armv6 build-x86
 build-%:
@@ -22,10 +24,10 @@ build-%:
 build-testflow:
 	cp -r testflow/script $(TESTFLOW)
 	cp -r testflow/info*.yml $(TESTFLOW)
+	sed -i '/^VERSION/c\VERSION=${version}' $(TESTFLOW)/main.mk
+	cd $(TESTFLOW) && make -f main.mk set_mod TESTMODE=prod
 	cd $(TESTFLOW)/; find . -type f -exec md5sum {} \; > $(CURDIR)/$(TESTFLOW)-$(version).md5; cd -
 	mv $(TESTFLOW)-$(version).md5 $(TESTFLOW)
-	cd $(TESTFLOW) && make -f main.mk set_mod TESTMODE=prod
-	sed -i '/^VERSION/c\VERSION=${version}' $(TESTFLOW)/main.mk
 	zip -r $(TESTFLOW)-$(version).zip $(TESTFLOW)
 	rm -rf $(TESTFLOW)
 
@@ -33,10 +35,17 @@ build-testflow:
 .PHONY: build 
 build: $(buildjobs)
 
-update-gitbook: $(GITBOOK)
+update-gitbook: $(GITBOOK) check_parameter
 	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/usage/testflow/PRODUCTIONMODE.md
-	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/usage/DEPLOYMENT.md
-	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/usage/usermanual/INSTALL.md
+	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/usage/quickstart/INSTALL.md
 	sed -i s/[0-9][.][0-9][.][0-9]/$(CUR)/g $(CURDIR)/gitbook/en/SUMMARY.md
+	grep -R $(CUR) gitbook
 
 build-doc: update-gitbook build-book
+
+check_parameter:
+	echo "Usage: update-gitbook CUR=0.5.0"
+	test $(CUR)
+
+
+

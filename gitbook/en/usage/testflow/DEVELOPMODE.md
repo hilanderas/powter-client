@@ -32,47 +32,47 @@ make -f main.mk init_config TEST_PROJ=/home/qa/powter-client/ctl
 * Run state test flow
 	* Abnormal state test
 ```bash
-make -f state.mk test_init
-make -f state.mk test_prepared
-make -f state.mk test_confgened
-make -f state.mk test_running
-make -f state.mk test_confqueued_pop_branch
-make -f state.mk test_confqueued_rm_branch
-make -f state.mk test_confready
+make -s -f state.mk test_init
+make -s -f state.mk test_prepared
+make -s -f state.mk test_confgened
+make -s -f state.mk test_running
+make -s -f state.mk test_confqueued_pop_branch
+make -s -f state.mk test_confqueued_rm_branch
+make -s -f state.mk test_confready
 ```
 	* Normal state test
 ```bash
-make -f state.mk test_init_norm
-make -f state.mk test_prepared_norm
-make -f state.mk test_confgened_norm
-make -f state.mk test_confready_norm
-make -f state.mk test_running_norm
-make -f state.mk test_confqueued_norm
+make -s -f state.mk test_init_norm
+make -s -f state.mk test_prepared_norm
+make -s -f state.mk test_confgened_norm
+make -s -f state.mk test_confready_norm
+make -s -f state.mk test_running_norm
+make -s -f state.mk test_confqueued_norm
 ```
 
 * Run functional test flow
 ```bash
-make -f function.mk test_install
-make -f function.mk test_uninstall
-make -f function.mk test_installafteruninstall
-make -f function.mk test_reinstall
-make -f function.mk test_reuninstall
-make -f function.mk test_checkvps
+make -s -f function.mk test_install
+make -s -f function.mk test_uninstall
+make -s -f function.mk test_installafteruninstall
+make -s -f function.mk test_reinstall
+make -s -f function.mk test_reuninstall
+make -s -f function.mk test_checkvps
 ```
 
 * Run restart test flow
 ```bash
-make -f restart.mk test_reboot_p1
-make -f restart.mk test_reboot_p2
-make -f restart.mk test_poweroff_p1
-make -f restart.mk test_poweroff_p2
-make -f restart.mk test_isprestart
-make -f restart.mk test_restartall
+make -s -f restart.mk test_reboot_p1
+make -s -f restart.mk test_reboot_p2
+make -s -f restart.mk test_poweroff_p1
+make -s -f restart.mk test_poweroff_p2
+make -s -f restart.mk test_isprestart
+make -s -f restart.mk test_restartall
 ```
 
 * Run update test flow
 ```bash
-make -f update.mk switch SLAVE=/path/to/info_slave.yml
-make -f update.mk test_update_dns
-make -f update.mk test_update_sskcp
+make -s -f update.mk switch SLAVE=/path/to/info_slave.yml
+make -s -f update.mk test_update_dns
+make -s -f update.mk test_update_sskcp
 ```

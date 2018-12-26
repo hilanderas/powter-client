@@ -41,20 +41,16 @@ dnsmasq:
       ports:
         start-port: 16350
         end-port: 16370
+  dnsconf-dir:/home/USER/dnsconf
 bypass:
   config:
     lan: br0
     base_port: 2010
     number: 4  
-  white:
-    - filename: 03-vps
-      content:
-      - 1.1.1.1/32
-      - 2.2.2.2/32
-    - filename: 04-test
-      content:
-      - ip/net
-      - ip/net
+  bypass-vps:
+    - ip/net
+    - ip/net
+  whitelist-dir: /home/USER/bypass-white
 sskcp:
   - [ mode: sskcp/ss, logdir: /home/USER/snmplog, listenport: 2010, vpsip: 1.1.1.1 , vpsport: 4201 ,key: test] 
   - [ mode: sskcp/ss, logdir: /home/USER/snmplog, listenport: 2020, vpsip: 1.1.1.1, vpsport: 4202 ,key: test] 

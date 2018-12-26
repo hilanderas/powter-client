@@ -2,8 +2,8 @@
 
 ###  Login router and download powter-client testflow packages
 ```bash
-wget https://github.com/hilanderas/powter-client/releases/download/0.4.9/powter-client-testflow-0.4.9.zip
-unzip powter-client-testflow-0.4.9.zip
+wget https://github.com/hilanderas/powter-client/releases/download/0.5.0/powter-client-testflow-0.5.0.zip
+unzip powter-client-testflow-0.5.0.zip
 ```
 [Check releases page for other versions](https://github.com/hilanderas/powter-client/releases)
 
@@ -14,6 +14,11 @@ make -f main.mk download ARCH=[ARCH]
 ```
 `ARCH`: x86 or armv6
 
+### Check integrity of downloaded packages
+```bash
+md5sum -c powter-client-testflow-0.5.0.md5
+```
+
 ### Config test environment
 * Update `info.yml` and `info_slave.yml` in `powter-client-testflow` to meet your test environment
 
@@ -22,7 +27,7 @@ make -f main.mk download ARCH=[ARCH]
 make -f main.mk config TEST_PROJ=[PROJECT] TEST_INFO=[TEST_INFO] IFACE=[IFACE]
 ```
 Description of each attribute:
-* `TEST_PROJ`: Path of `power-client/client`
+* `TEST_PROJ`: Path of `powter-client-*`
 * `TEST_INFO`: Absolute path of `info.yml`
 * `IFACE`: WAN of router
 
@@ -75,6 +80,5 @@ make -f update.mk switch SLAVE=/home/qa/info_slave.yml
 
 * Clean up
 ```bash
-make -f main.mk cleanup 
 rm -r ~/powter-client-x86*
 ```
