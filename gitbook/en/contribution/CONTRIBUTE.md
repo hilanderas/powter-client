@@ -27,3 +27,6 @@ Are you a good writer looking to contribute blog posts? Maybe you're a developer
 
 ### Community Support
 We're always on the lookout for people that are willing to help us manage community relations.
+
+### Join the community
+Join the [chat](https://gitter.im/powter-the-router/community) for discussion 
