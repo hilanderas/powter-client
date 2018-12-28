@@ -18,10 +18,10 @@ wget https://github.com/hilanderas/powter-client/releases/download/0.5.0/powter-
 ```bash
 unzip powter-client-[ARCH]-0.5.0.zip
 ```
+### Check info for installation
+An `info` file will pop up during installation, update `USER` and enter `:wq` to save and quit, click [here](../usermanual/INFO.md) to get more details about info.
 
 * Install packages
-
-	A `info` file will pop up during installation, update `USER` and enter `:wq` to save and quit
 ```bash
 make install
 ```

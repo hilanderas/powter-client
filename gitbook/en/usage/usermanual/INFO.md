@@ -53,9 +53,9 @@ bypass:
   whitelist-dir: /home/USER/bypass-white
 sskcp:
   client:
-    - { mode: sskcp/ss, log-dir: /home/USER/snmplog, listenport: 2010, vpsip: 1.1.1.1, vpsport: 4201 ,key: test }
-    - { mode: sskcp/ss, log-dir: /home/USER/snmplog, listenport: 2020, vpsip: 1.1.1.1, vpsport: 4202 ,key: test } 
-    - { mode: sskcp/ss, log-dir: /home/USER/snmplog, listenport: 2030, vpsip: 2.2.2.2, vpsport: 4201, key: test } 
-    - { mode: sskcp/ss, log-dir: /home/USER/snmplog, listenport: 2040, vpsip: 2.2.2.2, vpsport: 4202, key: test } 
+    - { mode: sskcp/ss, log-dir: /home/USER/snmplog, listenport: 2010, vpsip: 1.1.1.1, vpsport: 7010 ,key: test }
+    - { mode: sskcp/ss, log-dir: /home/USER/snmplog, listenport: 2020, vpsip: 1.1.1.1, vpsport: 7020 ,key: test } 
+    - { mode: sskcp/ss, log-dir: /home/USER/snmplog, listenport: 2030, vpsip: 2.2.2.2, vpsport: 7010, key: test } 
+    - { mode: sskcp/ss, log-dir: /home/USER/snmplog, listenport: 2040, vpsip: 2.2.2.2, vpsport: 7020, key: test } 
 ```
 `info` is yaml file, check detailed info about how to modify `info` of [dnsmasq](https://elespejo.github.io/dnsmasq/usage/GENCONF.html), [bypass](https://elespejo.github.io/bypass/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 
