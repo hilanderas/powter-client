@@ -25,6 +25,7 @@ make reset_info
 
 
 ### `info` template 
+**`info` is yaml file, check detailed info about how to modify `info` of [dnsmasq](https://elespejo.github.io/dnsmasq/usage/GENCONF.html), [bypass](https://elespejo.github.io/bypass/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF_CLIENT.html)** 
 ```yml
 dnsmasq: 
   dhcp-range: 192.168.0.5,192.168.0.150,12h
@@ -58,4 +59,4 @@ sskcp:
     - { mode: sskcp/ss, log-dir: /home/USER/snmplog, listenport: 2030, vpsip: 2.2.2.2, vpsport: 7010, key: test } 
     - { mode: sskcp/ss, log-dir: /home/USER/snmplog, listenport: 2040, vpsip: 2.2.2.2, vpsport: 7020, key: test } 
 ```
-`info` is yaml file, check detailed info about how to modify `info` of [dnsmasq](https://elespejo.github.io/dnsmasq/usage/GENCONF.html), [bypass](https://elespejo.github.io/bypass/usage/GENCONF.html), [sskcp](https://elespejo.github.io/sskcp/usage/GENCONF.html) 
+
