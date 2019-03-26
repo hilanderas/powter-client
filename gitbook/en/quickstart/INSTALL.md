@@ -1,6 +1,6 @@
 # Install
-
-{% video %}https://vimeo.com/304732903{% endvideo %} 
+<iframe frameborder="0" width="100%" height="450" src="https://www.dailymotion.com/embed/video/x74rdwc" allowfullscreen allow="autoplay"></iframe>
+Music by [Ilya Truhanov](https://icons8.com/music/author/ilya-truhanov) from [Fugue](https://icons8.com/music)
 
 ### Download relased package 0.5.0
 * For x86
