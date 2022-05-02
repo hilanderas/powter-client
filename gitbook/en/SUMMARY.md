@@ -1,6 +1,6 @@
 # SUMMARY
 
-* [Introduction powter-client-0.8.1](README.md)
+* [Introduction powter-client-0.8.2](README.md)
 
 ### Overview 
 * [Who are the user ?](overview/USER.md)

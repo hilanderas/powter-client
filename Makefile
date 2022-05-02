@@ -3,7 +3,7 @@ project=powter-client
 GITBOOK=$(CURDIR)/gitbook
 DOCS=$(CURDIR)/docs
 TESTFLOW=$(project)-testflow
-#CUR=0.8.1
+CUR=0.8.2
 
 .PHONY: build-book
 build-book: $(GITBOOK)
