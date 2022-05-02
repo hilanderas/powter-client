@@ -4,7 +4,7 @@ on:
     tags: 
       - '[0-9]+.[0-9]+.[0-9]+'
 jobs:
-  release_image:
+  release:
     runs-on: ubuntu-latest
     steps:
       - name: pull repo
