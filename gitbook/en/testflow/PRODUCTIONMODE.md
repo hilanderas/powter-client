@@ -2,8 +2,8 @@
 
 ###  Login router and download powter-client testflow packages
 ```bash
-wget https://github.com/hilanderas/powter-client/releases/download/0.7.0/powter-client-testflow-0.7.0.zip
-unzip powter-client-testflow-0.7.0.zip
+wget https://github.com/hilanderas/powter-client/releases/download/0.8.1/powter-client-testflow-0.8.1.zip
+unzip powter-client-testflow-0.8.1.zip
 ```
 [Check releases page for other versions](https://github.com/hilanderas/powter-client/releases)
 
@@ -16,7 +16,7 @@ make -f main.mk download ARCH=[ARCH]
 
 ### Check integrity of downloaded packages
 ```bash
-md5sum -c powter-client-testflow-0.7.0.md5
+md5sum -c powter-client-testflow-0.8.1.md5
 ```
 
 ### Config test environment
